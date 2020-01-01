@@ -17,7 +17,8 @@ class CreateUserBokingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('status_boking_id');
-            $table->date('masuk');
+            $table->date('date_boking');
+            $table->date('masuk')->nullable();
             $table->date('keluar')->nullable();
             $table->text('qr');
             $table->boolean('void')->default(0);

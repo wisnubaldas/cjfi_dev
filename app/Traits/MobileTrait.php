@@ -38,10 +38,13 @@ trait MobileTrait
         $stsBoking->status = 1;
         $stsBoking->save();
     }
+
     public static function listBokingUser($id)
     {
-        return UserBoking::where('status_boking_id', '=', $id)
-        ->where('void', '=', 0)->get();
+        return UserBoking::select('date_boking')
+        ->where('status_boking_id', '=', $id)
+        ->whereNull('masuk')
+        ->where('void', '=', 0)->paginate(5);
     }
     public static function getUserBoking($id)
     {
@@ -49,9 +52,6 @@ trait MobileTrait
         ->where('void', '=', 0)
         ->where('user_id', '=', $id)->paginate(10);
     }
-    public static function showQr($qr)
-    {
-
-    }
+    
 
 }

@@ -10,8 +10,8 @@
 			<!-- begin login-header -->
 			<div class="login-header">
 				<div class="brand">
-					<b>CJFI</b>
-					<small>Chang Jui Fang Indonesia</small>
+					<b>BOKING</b>
+					<small>Boking Parkir Gedung</small>
 				</div>
 				<div class="icon">
 					<i class="fa fa-lock"></i>

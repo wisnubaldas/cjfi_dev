@@ -23,9 +23,17 @@
             <div class="collapsible-body">
                 <div class="row ">
                     <div class="card darken-1">
-                        <div class="card-content content-{{$s->id}}">
-
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="content-{{$s->id}} col s6">
+                                
+                                </div>
+                                <div class="col s6 paging-{{$s->id}}">
+                                    
+                                </div>
+                            </div>
                         </div>
+
                         <div class="card-action">
                             <form action="/m/boking-slot/{{$s->id}}" method="get">
                             <div class="input-field col s12">
@@ -59,10 +67,32 @@
     let x = function(a){
         let aMap = a.map(function(e){
             return `<blockquote style="padding-bottom: 0px; margin:0px;" class="primary-bg-light">
-                ${e.masuk}
+                ${e.date_boking}
             </blockquote>`;
         });
         return aMap.join('');
+    };
+
+    let xx = function(a,b,c,d,lantai)
+    {
+        return `<p class="flow-text">Total ${a}</p>
+                <p class="flow-text">Halaman ${b}</p>
+                <a onclick="pagging('${d}','${lantai}')" class="pages waves-effect waves-light btn deep-purple lighten-2 ${(!d)?'disabled':''}" href="javascript:;">
+                    <i class="mdi mdi-arrow-left-bold-circle left"></i>
+                    Prev
+                </a>
+                <a onclick="pagging('${c}','${lantai}')" class="pages waves-effect waves-light btn deep-purple lighten-2 ${(!c)?'disabled':''}" href="javascript:;">
+                    <i class="mdi mdi-arrow-right-bold-circle right"></i>Next
+                </a>`
+    };
+    let pagging = function(a,lantai){
+        $.get(a,function(d){
+            $('.content-'+lantai).html(x(d.data));
+            $('.paging-'+lantai).html(xx(d.total,
+                                        d.current_page,
+                                        d.next_page_url,
+                                        d.prev_page_url,lantai));
+        });
     };
 
     $('.collapsible-header').on('click', function() {
@@ -73,7 +103,12 @@
                 method: 'get',
                 url: '/m/boking-list-user/'+d,
             }).done(function(data) {
-                $('.content-'+d).html(x(data));
+                 $('.content-'+d).html(x(data.data));
+                 $('.paging-'+d).html(xx(data.total,
+                                        data.current_page,
+                                        data.next_page_url,
+                                        data.prev_page_url,d));
+
             }).fail(function(data) {});
         }
     });

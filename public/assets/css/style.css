@@ -4,6 +4,7 @@
 	color: #FFF;
 	height: 37px;
 	padding-left: 18px;
+	margin-top: 35px;
 	border-radius: 4px;
 	/* border: 0.5px solid #000000; */
 	background: url(/assets/img/bg-navbar.jpg) repeat-x center center;
@@ -15,6 +16,7 @@
 }
 #menu ul {
 	width: 100%;
+
 }
 #menu li {
 	float: left;
@@ -177,10 +179,12 @@
 
 /* carousole nya */
 .carousel-caption {
-	background-color: rgba(56, 54, 54, 0.315);
+	background-color: rgba(56, 54, 54, 0.6);
 	padding: 0px;
 	margin: 0px;
-	bottom: 54px;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
 }
 .box{
 	height: 9em;
@@ -219,7 +223,7 @@
 .box-brand{
 	position: relative;
 	margin-bottom: 10px;
-	height: 9em;
+	height: 8em;
 	/* min-width: 6em; */
 	border-radius: 5px;
 	background: #b8b5b8 url(/assets/img/bg-home-sidebar.jpg) center center repeat-x;
@@ -230,13 +234,34 @@
 	transition: all 0.3s ease 0s;
 }
 .box-brand img{
-	max-width: 240px;
+	max-width: 200px;
 	/* Center vertically and horizontally */
 	position: absolute;
 	top: 0%;
 	left: 0%;
 	/* margin: -25px 0 0 -25px; apply negative top and left margins to truly center the element */
-	padding: 1px;
+	padding-left: 15%;
+	padding-top: 5%;
 	margin: 1px;
 	justify-content: center;
+}
+@media screen and(min-width: 768px) {
+	.box-brand{
+		position: relative;
+		margin-bottom: 10px;
+		height: 3em;
+		/* width: 3em; */
+	}
+	.box-brand img{
+		width: 150px;
+		/* Center vertically and horizontally */
+		position: absolute;
+		/* top: 0%; */
+		/* left: 0%; */
+		/* margin: -25px 0 0 -25px; apply negative top and left margins to truly center the element */
+		/* padding-left: 15%; */
+		/* padding-top: 5%; */
+		margin: 1px;
+		justify-content: center;
+	}
 }

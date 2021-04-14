@@ -17,20 +17,27 @@
 
 <body>
     <div id="" class="container">
-      <a href="#">
-        <img src="{{url('assets/img/header-logo2.jpg')}}" width="100%" class="img-responsive" >
-      </a>
-        <div class="text-right lang">
-                <a class="dropdown-item {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ route('localization.switch', 'en') }}">English</a>
-                /
-                <a class="dropdown-item {{ app()->getLocale() == 'id' ? 'active' : '' }}" href="{{ route('localization.switch', 'id') }}">Indonesia</a>
+        <div class="col-md-12">
+            <a href="#">
+                <img src="{{url('assets/img/header-logo2.jpg')}}" width="100%" class="img-responsive" >
+            </a>
         </div>
-        @include('layout.navbar')
-        <div class="content">
-            @yield('content')
+        <div class="col-md-12">
+            <div class="btn-group btn-group-toggle btn-group-sm float-right">
+                <a class="btn btn-light {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ route('localization.switch', 'en') }}">English</a>
+                <a class="btn btn-light {{ app()->getLocale() == 'id' ? 'active' : '' }}" href="{{ route('localization.switch', 'id') }}">Indonesia</a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            @include('layout.navbar')
+        </div>
+        <div class="col-md-12">
+            <div class="content">
+                @yield('content')
+            </div>
         </div>
     </div>
-    <div class="footer">
+    <div class="footer hidden-xs hidden-sm">
         @include('layout.footer')
     </div>
 </body>

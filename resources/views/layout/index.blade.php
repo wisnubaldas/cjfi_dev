@@ -23,21 +23,19 @@
             </a>
         </div>
         <div class="col-md-12">
-            <div class="btn-group btn-group-toggle btn-group-sm float-right">
-                <a class="btn btn-light {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ route('localization.switch', 'en') }}">English</a>
-                <a class="btn btn-light {{ app()->getLocale() == 'id' ? 'active' : '' }}" href="{{ route('localization.switch', 'id') }}">Indonesia</a>
+            <div class="float-right">
+                <a class="btn btn-sm btn-light {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ route('localization.switch', 'en') }}">English</a>
+                <a class="btn btn-sm btn-light {{ app()->getLocale() == 'id' ? 'active' : '' }}" href="{{ route('localization.switch', 'id') }}">Indonesia</a>
             </div>
         </div>
         <div class="col-md-12">
             @include('layout.navbar')
         </div>
         <div class="col-md-12">
-            <div class="content">
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
     </div>
-    <div class="footer hidden-xs hidden-sm">
+    <div class="footer hidden-xs hidden-sm" style="padding-top: 10px">
         @include('layout.footer')
     </div>
 </body>

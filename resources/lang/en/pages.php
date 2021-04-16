@@ -12,9 +12,16 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    'menus' => [
-        'collection'=>'collection',
-        'design_inspiration'=>'design inspiration'
-    ]
+    'collection'=>'collection',
+    'brands'=>'brands',
+    'desaign'=>'design inspiration',
+    'products'=>'new products',
+    'about'=>'about CJFI',
+    'news'=>'news update',
+    'support'=>'support',
+    'btn_floor'=>'Floor Tile',
+    'btn_wall'=>'Wall Tile',
+    'size'=>'Size',
+    'motive'=>'Motive',
+    'back'=>'Back'
 ];

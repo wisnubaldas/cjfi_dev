@@ -1,4 +1,5 @@
 /* Menu nya  */
+
 #menu {
 	background: #C4C4C4;
 	color: #FFF;
@@ -118,7 +119,7 @@
 }
 /* kontent */
 .content{
-	min-height: 350px;
+	min-height: 500px;
 }
 
 
@@ -187,7 +188,7 @@
 	width: 100%;
 }
 .box{
-	height: 9em;
+	height: 8em;
 	max-width: 25em;
 	border-radius: 5px;
 	background: #b8b5b8 url(/assets/img/bg-home-sidebar.jpg) center center repeat-x;
@@ -222,9 +223,9 @@
 
 .box-brand{
 	position: relative;
-	margin-bottom: 10px;
-	height: 8em;
-	/* min-width: 6em; */
+	margin-bottom: 18px;
+	height: 5em;
+	width: 10em;
 	border-radius: 5px;
 	background: #b8b5b8 url(/assets/img/bg-home-sidebar.jpg) center center repeat-x;
 	box-shadow: #333 0px 0px 5px;
@@ -233,18 +234,23 @@
 	font-weight: bold;
 	transition: all 0.3s ease 0s;
 }
+.box-brand:hover{
+	transform: scale(1.2);
+	z-index:100;
+}
 .box-brand img{
-	max-width: 200px;
+	width: 10em;
 	/* Center vertically and horizontally */
 	position: absolute;
 	top: 0%;
 	left: 0%;
 	/* margin: -25px 0 0 -25px; apply negative top and left margins to truly center the element */
-	padding-left: 15%;
-	padding-top: 5%;
+	/* padding-left: 15%; */
+	/* padding-top: 5%; */
 	margin: 1px;
 	justify-content: center;
 }
+
 @media screen and(min-width: 768px) {
 	.box-brand{
 		position: relative;
@@ -253,15 +259,46 @@
 		/* width: 3em; */
 	}
 	.box-brand img{
-		width: 150px;
+		width: 100%;
 		/* Center vertically and horizontally */
-		position: absolute;
+		/* position: absolute; */
 		/* top: 0%; */
 		/* left: 0%; */
 		/* margin: -25px 0 0 -25px; apply negative top and left margins to truly center the element */
 		/* padding-left: 15%; */
 		/* padding-top: 5%; */
 		margin: 1px;
-		justify-content: center;
+		/* justify-content: center; */
 	}
+	.form-control-xs {
+		height: calc(0em + .375rem + 5px) !important;
+		padding: .125rem .25rem !important;
+		font-size: .75rem !important;
+		line-height: 1.5;
+		border-radius: .2rem;
+		background-color: #000000;
+	}
+}
+
+.detail-merek .box-brand{
+	margin-bottom: 3px;
+	padding-bottom: 1.0em;
+}
+.detail-merek .box-brand:hover{
+	transform: scale(1);
+	z-index:100;
+	filter: sepia(100%)
+}
+.detail-merek .box-brand button{
+	margin-bottom: 1px;
+}
+.detail-merek .btn-block + .btn-block{
+	margin-top: 0.5rem;
+	margin-bottom: auto;
+}
+.detail-merek .custom-select{
+	/* height: 25px; */
+	/* padding:0px; */
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }

@@ -1,26 +1,22 @@
+
 <nav id='menu'>
   <input class="responsive" type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
   <ul>
-    <li><a class='dropdown-arrow' href='#'>@lang('pages.menus.collection')</a>
+    <li><a class='dropdown-arrow' href='#'>@lang('pages.collection')</a>
       <ul class='sub-menus'>
-        <li><a href='{{route('koleksi.merek')}}'>Merek</a></li>
-        <li><a href='{{route('koleksi.inspirasi')}}'>Inspirasi Desain</a></li>
-        <li><a href='{{route('koleksi.produk')}}'>Produk Baru</a></li>
+        <li><a href='{{route('koleksi.merek')}}'>{{ __('pages.brands') }}</a></li>
+        <li><a href='{{route('koleksi.inspirasi')}}'>@lang('pages.desaign')</a></li>
+        <li><a href='{{route('koleksi.produk')}}'>@lang('pages.products')</a></li>
       </ul>
     </li>
-    <li><a href='{{route('tentang')}}'>Tentang CJFi</a></li>
-    <li><a href='{{route('berita')}}'>Berita Terbaru</a></li>
-    <li><a href='{{route('dukungan')}}'>Dukungan</a></li>
-    <form action="#" method="GET"> 
-        <div class="input-group col-md-3 col-xs-3 float-right">
-          <input type="text" class="form-control" placeholder="Search" id="txtSearch"/>
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
+    <li><a href='{{route('tentang')}}'>@lang('pages.about')</a></li>
+    <li><a href='{{route('berita')}}'>@lang('pages.news')</a></li>
+    <li><a href='{{route('dukungan')}}'>@lang('pages.support')</a></li>
+    <form action="#" method="GET" id="frm-search" class="float-right"> 
+      <input type="text" class="form-control-xs" placeholder="Search" id="txtSearch" style="margin-top: 2.5px"/>
+      <button type="submit" class="btn btn-xs" style="margin-bottom: 1px; margin-right:2px;">
+        <i class="fa fa-search"></i>
+      </button>
     </form>
   </ul>
-
 </nav>

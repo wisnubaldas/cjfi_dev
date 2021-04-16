@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');
 
 Route::prefix('koleksi')->group(function(){
-    Route::get('merek',[KoleksiController::class, 'merek'])->name('koleksi.merek');
+    Route::get('merek/{brand?}/{type?}/{ukuran?}/{motif?}',[KoleksiController::class, 'merek'])->name('koleksi.merek');
     Route::get('inspirasi',[KoleksiController::class, 'inspirasi'])->name('koleksi.inspirasi');
     Route::get('produk',[KoleksiController::class, 'produk'])->name('koleksi.produk');
 });

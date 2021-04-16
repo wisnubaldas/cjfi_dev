@@ -12,9 +12,16 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    'menus' => [
-        'collection'=>'koleksi',
-        'design inspiration'=>'design inspiration'
-    ]
+    'collection'=>'koleksi',
+    'brands'=>'merek',
+    'desaign'=>'inspirasi desain',
+    'products'=>'produk baru',
+    'about'=>'tentang CJFI',
+    'news'=>'berita',
+    'support'=>'dukungan',
+    'btn_floor'=>'Keramik Lantai',
+    'btn_wall'=>'Keramik Dinding',
+    'size'=>'Ukuran',
+    'motive'=>'Motif',
+    'back'=>'Kembali'
 ];

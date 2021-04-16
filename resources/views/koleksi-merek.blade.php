@@ -1,70 +1,62 @@
 @extends('layout.index')
 @section('content')
+@php($opt = session('option'))
 <br>
 <div class="row">
-  <div class="col-md-3 col-xs-12">
-    @foreach ($logo as $item)
-      <div class="col-md-12 col-xs-4">
-          <div class="box-brand">
-              <a href="{{url($item->id)}}">
-                  <img src="{{ url($item->url) }}" class="img-responsive">
-              </a>
-          </div>
-      </div>
-    @endforeach
-  </div>
-  <div class="col-md-9 col-xs-12">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
-        
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="http://cjfi.co.id/images/home/slide/L9k3DIubDYeqgX2slYqAR7wLSyy4eOjz.jpeg" alt="..." width="100%">
-              <div class="carousel-caption">
-                  <h3>PAPILLON</h3>
-                  <p>Glossy Decorative Wall Tile <br>
-                      PICASSO 25x40 cm
-                  </p>
-              </div>
+    @include('partial.left-tumbnail')
+    <div class="col-md-10 col-xs-12">
+        @if ($data->tiles)
+        @json($data->tiles)
+        @else
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100 rounded img-fluid img-thumbnail"
+                        src="http://cjfi.co.id/images/home/slide/L9k3DIubDYeqgX2slYqAR7wLSyy4eOjz.jpeg"
+                        alt="First slide">
+                    <div class="carousel-caption">
+                        <h3>PAPILLON</h3>
+                        <p>Glossy Decorative Wall Tile <br>
+                            PICASSO 25x40 cm
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 rounded img-fluid img-thumbnail"
+                        src="http://cjfi.co.id/images/home/slide/GLACIER_Int.jpg" alt="Second slide">
+                    <div class="carousel-caption">
+                        <h3>PAPILLON</h3>
+                        <p>Glossy Decorative Wall Tile <br>
+                            PICASSO 25x40 cm
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 rounded img-fluid img-thumbnail"
+                        src="http://cjfi.co.id/images/home/slide/hGj2sybZNCJBHLoE8Z5Hon2t5fnMqI9G.jpeg"
+                        alt="Third slide">
+                    <div class="carousel-caption">
+                        <h3>PAPILLON</h3>
+                        <p>Glossy Decorative Wall Tile <br>
+                            PICASSO 25x40 cm
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="item">
-              <img src="http://cjfi.co.id/images/home/slide/GLACIER_Int.jpg" alt="..." width="100%">
-              <div class="carousel-caption">
-                  <h3>PAPILLON</h3>
-                  <p>Glossy Decorative Wall Tile <br>
-                      PICASSO 25x40 cm
-                  </p>
-              </div>
-            </div>
-            <div class="item">
-              <img src="http://cjfi.co.id/images/home/slide/hGj2sybZNCJBHLoE8Z5Hon2t5fnMqI9G.jpeg" alt="..." width="100%">
-              <div class="carousel-caption">
-                  <h3>PAPILLON</h3>
-                  <p>Glossy Decorative Wall Tile <br>
-                      PICASSO 25x40 cm
-                  </p>
-              </div>
-            </div>
-          </div>
-        
-          <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
-      </div> <!-- Carousel -->
-  </div>
-</div>
-   
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        @endif
 
+
+    </div>
+</div>
 @endsection
 
 @push('script')

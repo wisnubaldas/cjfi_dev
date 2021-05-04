@@ -4,38 +4,19 @@
     <div class="content">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                @foreach ($slide as $item)
+                <div class="carousel-item {{($loop->index == 0)?'active':''}}">
                     <img class="d-block w-100 rounded img-fluid img-thumbnail"
-                        src="http://cjfi.co.id/images/home/slide/L9k3DIubDYeqgX2slYqAR7wLSyy4eOjz.jpeg"
+                        src="{{url('/img/slider/'.$item->image)}}"
                         alt="First slide">
                     <div class="carousel-caption">
-                        <h3>PAPILLON</h3>
-                        <p>Glossy Decorative Wall Tile <br>
-                            PICASSO 25x40 cm
+                        <h3>{{$item->name}}</h3>
+                        <p>{{$item->desc}}<br>
+                            {{$item->brand}} {{$item->size}}
                         </p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 rounded img-fluid img-thumbnail"
-                        src="http://cjfi.co.id/images/home/slide/GLACIER_Int.jpg" alt="Second slide">
-                    <div class="carousel-caption">
-                        <h3>PAPILLON</h3>
-                        <p>Glossy Decorative Wall Tile <br>
-                            PICASSO 25x40 cm
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 rounded img-fluid img-thumbnail"
-                        src="http://cjfi.co.id/images/home/slide/hGj2sybZNCJBHLoE8Z5Hon2t5fnMqI9G.jpeg"
-                        alt="Third slide">
-                    <div class="carousel-caption">
-                        <h3>PAPILLON</h3>
-                        <p>Glossy Decorative Wall Tile <br>
-                            PICASSO 25x40 cm
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

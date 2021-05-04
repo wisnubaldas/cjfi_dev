@@ -25,9 +25,10 @@ class BrandFactory extends Factory
             'brand_logos_id' =>$this->faker->randomElement([1,2,3,4,5]),
             'nama' => $this->faker->word(),
             'desc' => $this->faker->sentence(3),
-            'type_id' => $this->faker->randomElement([1,2]),
-            'ukuran_id' => $this->faker->randomElement([1,2,3,4,5,6]),
-            'image_asset_id' => $this->faker->randomElement([1,2,3,4]),
+            'types_id' => $this->faker->randomElement([1,2]),
+            'ukurans_id' => $this->faker->randomElement([1,2,3,4,5,6]),
+            'image_assets_id' => $this->faker->randomElement([1,2,3,4]),
+            'motifs_id'=>$this->faker->randomElement([1,2,3,4]),
         ];
     }
 }

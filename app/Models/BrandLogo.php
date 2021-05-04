@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class BrandLogo extends Model
 {
     use HasFactory;
+    public function brands()
+    {
+        return $this->hasMany(\App\Models\Brand::class, 'brand_logos_id','id');
+    }
+    public function motifs()
+    {
+        return $this->hasMany(\App\Models\Motif::class);
+    }
 }

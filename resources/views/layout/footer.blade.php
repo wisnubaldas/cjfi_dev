@@ -1,7 +1,7 @@
 <footer class="footer-bs">
     <div class="row">
         <div class="col-md-3 footer-brand animated fadeInLeft">
-            <img src="{{url('assets/img/logo_1.png')}}" width="50%" class="img-responsive" style="filter: sepia(100%); opacity: 0.5;" >
+            <img src="{{url('asset/img/logo_1.png')}}" width="50%" class="img-responsive" style="filter: sepia(100%); opacity: 0.5;" >
             <p>Our products will always be available for you in your local area.</p>
             {{-- <a href="#">© 2014 BS3 UI Kit, All rights reserved</a> --}}
         </div>

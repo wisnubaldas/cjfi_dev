@@ -11,7 +11,7 @@
         content="atena, picasso, kita, keramik lantai, keramik dinding, ubin keramik, interior, tile, granit, keramik, ceramic" />
     <meta name="author" content="chang jui fang">
     <meta name="robots" content="index, follow" />
-    <link href="{{url('assets/img/icon.png')}}" rel="shortcut icon" />
+    <link href="{{url('asset/img/icon.png')}}" rel="shortcut icon" />
     @include('layout.header')
 </head>
 
@@ -19,7 +19,7 @@
     <div id="" class="container">
         <div class="col-md-12">
             <a href="#">
-                <img src="{{url('assets/img/header-logo2.jpg')}}" width="100%" class="img-responsive" >
+                <img src="{{url('asset/img/header-logo2.jpg')}}" width="100%" class="img-responsive" >
             </a>
         </div>
         <div class="col-md-12">

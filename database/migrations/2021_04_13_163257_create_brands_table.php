@@ -18,9 +18,10 @@ class CreateBrandsTable extends Migration
             $table->integer('brand_logos_id');
             $table->string('nama');
             $table->text('desc');
-            $table->integer('type_id');
-            $table->integer('ukuran_id');
-            $table->integer('image_asset_id');
+            $table->integer('types_id');
+            $table->integer('ukurans_id');
+            $table->integer('image_assets_id');
+            $table->integer('motifs_id');
             $table->timestamps();
         });
     }

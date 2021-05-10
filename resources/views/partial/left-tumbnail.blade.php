@@ -33,6 +33,7 @@
                     @endforeach
                 </select>
             </div>
+            <a class="btn btn-outline-success btn-sm btn-block" href="{{url('koleksi/merek/'.$data->brand_logo->id.'/0/0/0')}}">Reset</a>
             <a class="btn btn-outline-primary btn-sm btn-block" href="{{url('koleksi/merek/')}}">{{__('pages.back')}}</a>
         </div>
     @else 

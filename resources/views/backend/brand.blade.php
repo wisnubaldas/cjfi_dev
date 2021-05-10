@@ -6,6 +6,8 @@
 	<link href="/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 	<link href="/assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
 	<link href="/assets/plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+	<link href="/assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" />
+
 @endpush
 
 @section('content')
@@ -44,7 +46,7 @@
 									@endforeach
 							</select>
 							<label>Nama</label>
-							<input class="form-control form-control-sm" type="text" name="nama"/>
+							<input class="form-control form-control-sm" type="text" name="nama" id="nama"/>
 							<label>Description</label>
 							<input class="form-control form-control-sm" type="text" name="desc"/>
 							<label for="">Tipe</label>
@@ -98,12 +100,25 @@
 									<div class="form-group">
 											<div class="radio radio-css radio-inline">
 												<input type="radio" name="radio_css_inline" id="inlineCssRadio1" value="foto" checked />
-												<label for="inlineCssRadio1">Foto Layout Tiles</label>
+												<label for="inlineCssRadio1">Foto Slide Dekorasi</label>
 											</div>
 											<div class="radio radio-css radio-inline">
-												<input type="radio" name="radio_css_inline" id="inlineCssRadio2" value="tiles" />
-												<label for="inlineCssRadio2">Tiles Item</label>
+												<input type="radio" name="radio_css_inline" id="inlineCssRadio2" value="tiles"/>
+												<label for="inlineCssRadio2">Foto Keramik</label>
 											</div>
+											<div class="radio radio-css radio-inline">
+												<input type="radio" name="radio_css_inline" id="inlineCssRadio3" value="foto_tiles" 
+												data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" />
+												<label for="inlineCssRadio3">Foto Dekorasi Keramik</label>
+											</div>
+									</div>
+									<div class="form-group row collapse" id="collapseExample">
+										<div class="col-lg-12">
+											<label for="">Parent Keramik</label>
+											<select class="default-select2 form-control" name="parent_id" type='text'>
+												
+											</select>
+										</div>
 									</div>
 									<div class="form-group">
 										<label for="">Image</label>
@@ -129,7 +144,19 @@
 @endsection 
 
 @push('scripts')
+<script src="/assets/plugins/select2/dist/js/select2.min.js"></script>
+	<script src="/assets/js/demo/ui-modal-notification.demo.js"></script>
 	<script>
+		$('input:radio[name="radio_css_inline"]').change(
+    function(){
+        if ($(this).is(':checked') && $(this).val() !== 'foto_tiles') {
+            // append goes here
+						// alert($(this).val())
+						$('#collapseExample').removeClass('show')
+						$('.default-select2').val(null).trigger('change');
+        }
+    });
+
 		const url_img = "{{route('merek.save_image')}}";
 		let tmplAddImg = function(d){
 				return `<div class="widget-img widget-img-xl rounded bg-inverse pull-left m-r-5 m-b-5" style="background-image: url(/img/item/small/${d.name})"></div>`;
@@ -144,9 +171,11 @@
 					const img_name = $('#img-name').val();
 					const img_desc = $('#img-desc').val();
 					const img_tipe = $("input[name='radio_css_inline']:checked").val();
+					const parent_id = $(".default-select2").val();
 					var file_data = $('#customFile').prop('files')[0];   
-					var form_data = new FormData();                  
+					var form_data = new FormData();     
 					form_data.append('file', file_data);
+					form_data.append('parent_id', parent_id);
 					form_data.append('name', img_name);
 					form_data.append('desc', img_desc);
 					form_data.append('type', img_tipe);
@@ -168,6 +197,22 @@
 					});
 			})
 		});
+		const parent_uri = "{{route('merek.parent_image')}}";
+		$(".default-select2").select2({
+			minimumInputLength: 4,
+			ajax: {
+				method:'GET',
+				url: parent_uri,
+				dataType: 'json',
+				data: function (params) {
+								var query = {
+									search: params.term,
+									type: 'public'
+								}
+								return query;
+							}
+			}
+		});
 	</script>
-	<script src="/assets/js/demo/ui-modal-notification.demo.js"></script>
+	
 @endpush

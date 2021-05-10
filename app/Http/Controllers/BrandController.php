@@ -27,6 +27,14 @@ class BrandController extends Controller
         $size = Ukuran::all();
         return view('backend.brand',compact('size','brand_logo','tipe'));
     }
+    public function parent_image(Request $request)
+    {
+        // dd($request->search);
+        $results = ImageAsset::select('id','name as text')
+        ->where('status','tiles')
+        ->where('name', 'like', $request->search.'%')->get();
+        return compact('results');
+    }
     public function grid(Request $request)
     {
         if($request->ajax()){

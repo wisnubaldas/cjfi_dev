@@ -9,6 +9,10 @@ use App\Models\Ukuran;
 use App\Models\Tipe;
 use App\Models\Motif;
 use Illuminate\Database\Eloquent\Builder;
+use App\Helpers\UploadFile;
+use App\Helpers\Blog;
+
+
 class KoleksiController extends Controller
 {
     public $slide;
@@ -16,14 +20,21 @@ class KoleksiController extends Controller
     public $ukuran;
     public $tipe;
     public $tiles;
+    protected $blog;
     public function __construct() {
-        $this->ukuran = Ukuran::all();
-        $this->tipe = Motif::all();
+        $this->blog = new Blog;
+        $this->ukuran = $this->blog->all_ukuran();
+        $this->tipe = $this->blog->all_motif();
+    }
+    public function detail($id)
+    {
+        $this->brand_logo = $this->get_brand_logo(session('option.brand'));
+        return Brand::with(['image_asset','ukuran','tipe','motif'])->find($id);
+        return view('koleksi-detail',['data'=>$this]);
     }
     public function merek($brand = 0,$type = 0, $ukuran = 0,$motif = 0)
     {
-        session(['option' => ['brand'=>0,'type'=>0,'ukuran'=>0,'motif'=>0]]);
-        
+        Blog::set_option();
         if($type || $ukuran || $motif)
         {
             $this->tiles = $this->get_data_tiles($brand,$type,$ukuran,$motif);
@@ -37,48 +48,55 @@ class KoleksiController extends Controller
         {
             session()->put('option.type', $tipe);
             // return 'cari tipe aja semua ukuran semua motif';
-            return BrandLogo::with(['brands'=>function($query) use($tipe)
-                            {
-                                return $query->with(['image_asset','ukuran','tipe','motif'])
-                                                ->where('types_id',$tipe)
-                                                ->orderBy('ukurans_id');
-                            },'motifs'])->find($brand);
+            $x = $this->blog->only_type($tipe,$brand);
+            return $x->brands->groupBy('ukurans_id')->values();
         }
         if($tipe && $ukuran && $motif == 0)
         {
             session()->put('option.ukuran', $ukuran);
             session()->put('option.type', $tipe);
-
-            return 'cari tipe sama ukuran semua motif';
+            $x = $this->blog->type_ukuran($tipe,$ukuran,$brand);
+            return $x->brands->groupBy('ukurans_id')->values();
+            // return 'cari tipe sama ukuran semua motif';
         }
         if($tipe && $ukuran && $motif)
         {
             session()->put('option.motif', $motif);
             session()->put('option.ukuran', $ukuran);
             session()->put('option.type', $tipe);
-            return 'cari tipe sama ukuran sama motif';
+            $x = $this->blog->tipe_ukuran_motif($tipe,$ukuran,$motif,$brand);
+            return $x->brands->groupBy('ukurans_id')->values();
+            // return 'cari tipe sama ukuran sama motif';
         }
         if($tipe == 0 && $ukuran && $motif == 0)
         {
             session()->put('option.ukuran', $ukuran);
-            return 'cari semua tipe satu ukuran semua motif';
+            $x = $this->blog->only_ukuran($ukuran,$brand);
+            return $x->brands->groupBy('ukurans_id')->values();
+            // return 'cari semua tipe satu ukuran semua motif';
         }
         if($tipe == 0 && $ukuran == 0 && $motif)
         {
             session()->put('option.motif', $motif);
-            return 'cari satu motif semua tipe semua ukuran';
+            $x = $this->blog->only_motif($motif,$brand);
+            return $x->brands->groupBy('ukurans_id')->values();
+            // return 'cari satu motif semua tipe semua ukuran';
         }
         if($tipe == 0 && $ukuran && $motif)
         {
             session()->put('option.motif', $motif);
             session()->put('option.ukuran', $ukuran);
-            return 'cari semua tipe satu motif satu ukuran';
+            $x = $this->blog->ukuran_motif($ukuran,$motif,$brand);
+            return $x->brands->groupBy('ukurans_id')->values();
+            // return 'cari semua tipe satu motif satu ukuran';
         }
         if($tipe && $ukuran == 0 && $motif)
         {
             session()->put('option.motif', $motif);
             session()->put('option.type', $tipe);
-            return 'cari satu tipe semua ukuran satu motif';
+            $x = $this->blog->type_motif($tipe,$motif,$brand);
+            return $x->brands->groupBy('ukurans_id')->values();
+            // return 'cari satu tipe semua ukuran satu motif';
         }
         
     }

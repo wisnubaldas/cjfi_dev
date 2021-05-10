@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');
 Route::prefix('koleksi')->group(function(){
+    Route::get('detail/{id}',[KoleksiController::class, 'detail']);
     Route::get('merek/{brand?}/{type?}/{ukuran?}/{motif?}',[KoleksiController::class, 'merek'])->name('koleksi.merek');
     Route::get('inspirasi',[KoleksiController::class, 'inspirasi'])->name('koleksi.inspirasi');
     Route::get('produk',[KoleksiController::class, 'produk'])->name('koleksi.produk');
@@ -41,6 +42,7 @@ Route::prefix('slider')->middleware(['auth'])->group(function(){
 });
 
 Route::prefix('merek')->middleware(['auth'])->group(function(){
+    Route::get('parent_image',[App\Http\Controllers\BrandController::class,'parent_image'])->name('merek.parent_image');
     Route::get('brand',[App\Http\Controllers\BrandController::class,'index'])->name('merek.brand');
     Route::post('save_image',[App\Http\Controllers\BrandController::class,'save_image'])->name('merek.save_image');
     Route::post('store',[App\Http\Controllers\BrandController::class,'store'])->name('merek.store');

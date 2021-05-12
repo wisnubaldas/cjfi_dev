@@ -8,7 +8,7 @@
                 {{-- @dump($item->id) --}}
                 @foreach ($item->image_asset->where('status','tiles') as $img)
                     @if ($loop->first)
-                        <a class="card m-1 crot text-secondary" style="width: 6rem; text-decoration:none" href="/koleksi/detail/{{$item->id}}">
+                        <a class="card m-1 p-1 crot text-secondary" style="width: 7rem; text-decoration:none" href="/koleksi/detail/{{$item->id}}">
                             <img class="card-img-top " src="{{url('img/item/small/'.$img->image_small)}}" alt="{{$img->name}}">
                             <div class="card-body p-1 text-center small">
                             <p class="card-text">{{$img->name}}</p>

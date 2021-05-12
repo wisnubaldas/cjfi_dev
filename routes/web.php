@@ -47,5 +47,8 @@ Route::prefix('merek')->middleware(['auth'])->group(function(){
     Route::post('save_image',[App\Http\Controllers\BrandController::class,'save_image'])->name('merek.save_image');
     Route::post('store',[App\Http\Controllers\BrandController::class,'store'])->name('merek.store');
     Route::get('grid',[App\Http\Controllers\BrandController::class,'grid'])->name('merek.grid');
+    Route::get('edit/{id}',[App\Http\Controllers\BrandController::class,'edit']);
+    Route::get('destroy/{id}',[App\Http\Controllers\BrandController::class,'destroy']);
+
 });
 

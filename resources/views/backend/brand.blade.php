@@ -157,11 +157,13 @@
         }
     });
 
-		const url_img = "{{route('merek.save_image')}}";
-		let tmplAddImg = function(d){
-				return `<div class="widget-img widget-img-xl rounded bg-inverse pull-left m-r-5 m-b-5" style="background-image: url(/img/item/small/${d.name})"></div>`;
-		}
+		
 		jQuery(function(){
+			const url_img = "{{route('merek.save_image')}}";
+			let tmplAddImg = function(d){
+								return `<div class="widget-img widget-img-xl rounded bg-inverse pull-left m-r-5 m-b-5" style="background-image: url(/img/item/small/${d.name})"></div>`;
+						}
+						
 			$(".custom-file-input").on("change", function() {
 				var fileName = $(this).val().split("\\").pop();
 				$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
@@ -196,23 +198,24 @@
 							}
 					});
 			})
-		});
-		const parent_uri = "{{route('merek.parent_image')}}";
-		$(".default-select2").select2({
-			minimumInputLength: 4,
-			ajax: {
-				method:'GET',
-				url: parent_uri,
-				dataType: 'json',
-				data: function (params) {
-								var query = {
-									search: params.term,
-									type: 'public'
-								}
-								return query;
+			const parent_uri = "{{route('merek.parent_image')}}";
+						$(".default-select2").select2({
+							minimumInputLength: 4,
+							ajax: {
+								method:'GET',
+								url: parent_uri,
+								dataType: 'json',
+								data: function (params) {
+												var query = {
+													search: params.term,
+													type: 'public'
+												}
+												return query;
+											}
 							}
-			}
+						});
 		});
+		
 	</script>
 	
 @endpush

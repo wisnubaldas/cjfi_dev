@@ -6,12 +6,14 @@ use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Models\Ukuran;
 use App\Helpers\UploadFile;
+use App\Helpers\Blog;
 use App\Models\Backend\Slide;
 use App\Models\BrandLogo;
 use App\Models\ImageAsset;
 use App\Models\Tipe;
 use App\Models\Motif;
 use Image;
+use File;
 use Yajra\Datatables\Datatables;
 class BrandController extends Controller
 {
@@ -38,7 +40,21 @@ class BrandController extends Controller
     public function grid(Request $request)
     {
         if($request->ajax()){
-            return  Datatables::of(Brand::query())->make();
+            $query = Brand::with('brand_logo')->select('brands.*');
+            return Datatables::of($query)
+            // return  Datatables::of(Brand::with('brand_logo')->query())
+            ->addColumn('action', function(Brand $brand) {
+                return "
+                <div class='btn-group'>
+                  <a class='btn btn-warning btn-xs' href='/merek/edit/{$brand->id}'>Edit</a>
+                  <a class='btn btn-danger btn-xs' href='/merek/destroy/{$brand->id}'>Delete</a>
+                </div>";
+            })
+            ->editColumn('created_at',function($tbl){
+                return $tbl->updated_at->format('d M Y - H:i:s');
+            })
+            ->rawColumns(['action'])
+            ->make(true);
         }
         return view('backend.brand-grid');
     }
@@ -132,9 +148,13 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit($id)
     {
-        //
+        $tipe = Blog::all_type();
+        $motif = Blog::all_motif();
+        $ukuran = Blog::all_ukuran();
+        $brand = Brand::with(['image_asset'])->find($id);
+        return view('backend.brand-edit',compact('brand','tipe','motif','ukuran'));
     }
 
     /**
@@ -155,8 +175,24 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy($id)
     {
-        //
+        $brand = Brand::find($id);
+        $motif = Motif::find($brand->motifs_id);
+        $image = ImageAsset::where('brands_id',$id);
+        foreach ($image->get() as $v) {
+            if(File::exists(public_path('img/item/original/'.$v->image))){
+                File::delete(public_path('img/item/original/'.$v->image));
+                File::delete(public_path('img/item/medium/'.$v->image));
+                File::delete(public_path('img/item/large/'.$v->image));
+                File::delete(public_path('img/item/small/'.$v->image));
+            }else{
+                dump('File does not exists.');
+            }
+        }
+        $image->delete();
+        $motif->delete();
+        $brand->delete();
+        return back();
     }
 }

@@ -11,9 +11,9 @@
                               src="/img/item/original/{{$image->image}}"
                               alt="">
                           <div class="carousel-caption">
-                              <h3>{{Str::upper($image->name)}}</h3>
-                              <p>{{Str::title($image->desc)}} <br>
-                                  {{$slide->motif->nama}} {{$slide->ukuran->nama}}
+                              <h3>{{Str::upper($slide->nama)}}</h3>
+                              <p>{{Str::title($slide->desc)}} <br>
+                                  {{$slide->motif->nama}}, {{$slide->ukuran->nama}}
                               </p>
                           </div>
                       </div>

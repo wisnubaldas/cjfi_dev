@@ -29,7 +29,7 @@ class KoleksiController extends Controller
     public function detail($id)
     {
         $this->brand_logo = $this->get_brand_logo(session('option.brand'));
-        return Brand::with(['image_asset','ukuran','tipe','motif'])->find($id);
+        $this->detail = Brand::with(['image_asset','ukuran','tipe','motif'])->find($id);
         return view('koleksi-detail',['data'=>$this]);
     }
     public function merek($brand = 0,$type = 0, $ukuran = 0,$motif = 0)

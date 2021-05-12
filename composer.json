@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "imliam/laravel-blade-helper": "^1.0",
         "intervention/image": "^2.5",
         "laravel-lang/lang": "~8.0",
         "laravel/framework": "^8.12",
@@ -31,7 +32,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/Blog.php" 
+        ]
     },
     "autoload-dev": {
         "psr-4": {

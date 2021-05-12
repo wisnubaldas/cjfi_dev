@@ -37,9 +37,11 @@
 				<thead>
 					<tr>
 						<th width="1%">ID</th>
+						<th>Brand</th>
 						<th class="text-nowrap">Nama</th>
 						<th class="text-nowrap">Keterangan</th>
 						<th class="text-nowrap">Tanggal(s)</th>
+						<th>#</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -65,9 +67,11 @@
             ajax: "{{route('merek.grid')}}",
             columns: [
 						{data: 'id', name: 'id'},
+						{data: 'brand_logo.nama',name:'brand_logo.nama'},
 						{data: 'nama', name: 'nama'},
 						{data: 'desc', name: 'desc'},
 						{data: 'created_at', name: 'created_at'},
+						{data: 'action', name:'action'}
         	],
 		});
     </script>

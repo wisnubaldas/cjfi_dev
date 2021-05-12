@@ -79,12 +79,19 @@ class Blog {
                                 ->orderBy('ukurans_id');
             },'motifs'])->find($brand);
     }
-    
-    public function all_motif()
+    static public function image_uri($type,$name)
+    {
+      return url('img/item/'.$type.'/'.$name);
+    }
+    static public function all_type()
+    {
+      return Tipe::all();
+    }
+    static public function all_motif()
     {
       return Motif::all();
     }
-    public function all_ukuran()
+    static public function all_ukuran()
     {
       return Ukuran::all();
     }

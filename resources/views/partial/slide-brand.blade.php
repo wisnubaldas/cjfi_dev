@@ -8,7 +8,7 @@
             <div class="carousel-item {{$active == 1?'active':''}}">
                 <img class="d-block w-100 rounded img-fluid img-thumbnail"
                     src="/img/item/original/{{$image->image}}"
-                    alt="">
+                    alt="{{$image->name}}">
                 <div class="carousel-caption">
                     <h3>{{Str::upper($item->nama)}}</h3>
                     <p>{{Str::title($item->desc)}} <br>

@@ -35,6 +35,6 @@
         })
         .mouseout(function() {
             $(this).css('box-shadow','none')
-        }).fadeToggle(3000);
+        });
     </script>
 @endpush

@@ -46,9 +46,9 @@
 									@endforeach
 							</select>
 							<label>Nama</label>
-							<input class="form-control form-control-sm" type="text" name="nama" id="nama"/>
+							<input class="form-control form-control-sm text-uppercase" type="text" name="nama" id="nama"/>
 							<label>Description</label>
-							<input class="form-control form-control-sm" type="text" name="desc"/>
+							<input class="form-control form-control-sm text-capitalize" type="text" name="desc"/>
 							<label for="">Tipe</label>
 							<select class="form-control form-control-sm" name="tipe">
 									@foreach ($tipe as $item)
@@ -63,7 +63,7 @@
 									@endforeach
 							</select>
 							<label for="">Motif</label>
-							<input class="form-control form-control-sm" type="text" name="motif"/>
+							<input class="form-control form-control-sm text-uppercase" type="text" name="motif"/>
 							<div id="id-images"></div>
 					</div>
 					<div class="form-group">
@@ -195,6 +195,10 @@
 									$('#show-img').append(tmplAddImg(r))
 									$('#id-images').append(`<input type="text" name="id_images[]" value="${r.id}" hidden>`)
 									// console.log(r); // display response from the PHP script, if any
+							},
+							error:function(xhr){
+								alert(xhr.statusText)
+								console.log(xhr.responseJSON.message)
 							}
 					});
 			})

@@ -8,6 +8,7 @@ use App\Models\Brand;
 use App\Models\Ukuran;
 use App\Models\Tipe;
 use App\Models\Motif;
+use App\Models\ImageAsset;
 use Illuminate\Database\Eloquent\Builder;
 use App\Helpers\UploadFile;
 use App\Helpers\Blog;
@@ -25,6 +26,10 @@ class KoleksiController extends Controller
         $this->blog = new Blog;
         $this->ukuran = $this->blog->all_ukuran();
         $this->tipe = $this->blog->all_motif();
+    }
+    public function dekorasi_detail($parent_id)
+    {
+        return ImageAsset::where('parent_id',$parent_id)->first();
     }
     public function detail($id)
     {
@@ -126,9 +131,10 @@ class KoleksiController extends Controller
         }
     }
 
-    public function inspirasi(Type $var = null)
+    public function inspirasi()
     {
-        # code...
+
+        return view('koleksi-inspirasi');
     }
     public function produk(Type $var = null)
     {

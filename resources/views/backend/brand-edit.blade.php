@@ -25,7 +25,7 @@
                     <h5 class="title">{{$item->name}}</h5>
                     <div class="desc">
                        {{$item->desc}}
-                       <a href="#" class="btn btn-xs btn-danger">Remove</a>
+                       <a href="/merek/remove_image/{{$item->id}}" class="btn btn-xs btn-danger">Remove</a>
                     </div>
                 </div>
             </div>
@@ -155,7 +155,6 @@
 <script src="/assets/plugins/select2/dist/js/select2.min.js"></script>
 <script src="/assets/plugins/isotope-layout/dist/isotope.pkgd.min.js"></script>
 <script src="/assets/plugins/lightbox2/dist/js/lightbox.min.js"></script>
-<script src="/assets/js/demo/gallery.demo.js"></script>
 <script>
     $('input:radio[name="radio_css_inline"]').change(
     function(){
@@ -224,6 +223,46 @@
 							}
 						});
 		});
+
+        // image galery 
+        jQuery(function(){
+                var container = $('#gallery');
+                $(container).isotope({
+                    resizable: true,
+                    masonry: {
+                        columnWidth: 6
+                    }
+                });
+                
+                $(window).on('resize', function() {
+                    $(container).isotope({
+                        masonry: { 
+                            columnWidth: 6 
+                        }
+                    });
+                });
+                
+                var $optionSets = $('#options .gallery-option-set'),
+                $optionLinks = $optionSets.find('a');
+                
+                $optionLinks.click( function(){
+                    var $this = $(this);
+                    if ($this.hasClass('active')) {
+                        return false;
+                    }
+                    var $optionSet = $this.parents('.gallery-option-set');
+                    $optionSet.find('.active').removeClass('active');
+                    $this.addClass('active');
+                
+                    var options = {};
+                    var key = $optionSet.attr('data-option-key');
+                    var value = $this.attr('data-option-value');
+                        value = value === 'false' ? false : value;
+                        options[ key ] = value;
+                    $(container).isotope( options );
+                    return false;
+                });
+        }) // end jquery
 </script>
 @endpush
 

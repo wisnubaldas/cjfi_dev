@@ -306,3 +306,15 @@
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 }
+
+.left-xxx {
+	height:380px;
+	background:url(/asset/img/bg-tentang-menu.jpg) repeat-x;
+	background-color:#0f0522;
+	box-shadow:  #333 0px 0px 10px;
+	-moz-box-shadow: #333 0px 0px 10px;
+	-webkit-box-shadow:#333 0px 0px 10px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}

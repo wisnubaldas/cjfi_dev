@@ -6,6 +6,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Models\Backend\Slide;
+use Jenssegers\Agent\Agent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,12 @@ use App\Models\Backend\Slide;
 */
 
 Route::get('/', function () {
+    $agent = new Agent();
     $slide = Slide::all();
+    if($agent->isMobile())
+    {
+        return dump('aplikasi mobile');
+    }
     return view('welcome',compact('slide'));
 });
 Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');
@@ -27,6 +33,7 @@ Route::prefix('koleksi')->group(function(){
     Route::get('merek/{brand?}/{type?}/{ukuran?}/{motif?}',[KoleksiController::class, 'merek'])->name('koleksi.merek');
     Route::get('inspirasi',[KoleksiController::class, 'inspirasi'])->name('koleksi.inspirasi');
     Route::get('produk',[KoleksiController::class, 'produk'])->name('koleksi.produk');
+    Route::get('dekorasi_detail/{parent_id}',[KoleksiController::class, 'dekorasi_detail'])->name('koleksi.dekorasi_detail');
 });
 Route::get('tentang',[KoleksiController::class, 'tentang'])->name('tentang');
 Route::get('berita',[KoleksiController::class, 'berita'])->name('berita');
@@ -49,6 +56,6 @@ Route::prefix('merek')->middleware(['auth'])->group(function(){
     Route::get('grid',[App\Http\Controllers\BrandController::class,'grid'])->name('merek.grid');
     Route::get('edit/{id}',[App\Http\Controllers\BrandController::class,'edit']);
     Route::get('destroy/{id}',[App\Http\Controllers\BrandController::class,'destroy']);
-
+    Route::get('remove_image/{id}',[App\Http\Controllers\BrandController::class,'remove_image']);
 });
 

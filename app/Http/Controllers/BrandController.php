@@ -47,7 +47,7 @@ class BrandController extends Controller
                 return "
                 <div class='btn-group'>
                   <a class='btn btn-warning btn-xs' href='/merek/edit/{$brand->id}'>Edit</a>
-                  <a class='btn btn-danger btn-xs' href='/merek/destroy/{$brand->id}'>Delete</a>
+                  <a class='btn btn-danger btn-xs delete-data' href='javascript:;' data-link='/merek/destroy/{$brand->id}'>Delete</a>
                 </div>";
             })
             ->editColumn('created_at',function($tbl){
@@ -66,22 +66,45 @@ class BrandController extends Controller
             $file = $request->file('file');
             $image = Image::make($file->getRealPath()); // not sure about needing "getRealPath()" but hey, it works
             $imageName = UploadFile::make_name().'.'.explode('/',$image->mime())[1];
-            
-            $image->save(base_path('public/img/item/original/'.$imageName));
-            $image->resize(448, 336, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(base_path('public/img/item/small/'.$imageName));
-            $image->resize(640, 480, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(base_path('public/img/item/medium/'.$imageName));
-            $image->resize(1024, 768, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(base_path('public/img/item/large/'.$imageName));
+            switch ($request->type) {
+                case 'foto':
+                    // original
+                    $image->resize(940, 500)->save(base_path('public/img/item/original/'.$imageName));
+                    // small
+                    $image->save(base_path('public/img/item/small/'.$imageName, 30));
+                    // medium
+                    $image->resize(1025, 908)->save(base_path('public/img/item/medium/'.$imageName,80));
+                    // buat gambar slide
+                    $image->save(base_path('public/img/item/large/'.$imageName,90));
+                    break;
+                case 'foto_tiles':
+                     // original
+                     $image->resize(500, 500)->save(base_path('public/img/item/original/'.$imageName));
+                     // small
+                     $image->save(base_path('public/img/item/small/'.$imageName, 30));
+                     // medium
+                     $image->resize(1025, 1025)->save(base_path('public/img/item/medium/'.$imageName,80));
+                     // buat gambar slide
+                     $image->save(base_path('public/img/item/large/'.$imageName,90));
+                    break;
+                case 'tiles':
+                    // original
+                    $image->save(base_path('public/img/item/original/'.$imageName));
+                    // small
+                    $image->save(base_path('public/img/item/small/'.$imageName, 30));
+                    // medium
+                    $image->save(base_path('public/img/item/medium/'.$imageName,80));
+                    // buat gambar slide
+                    $image->save(base_path('public/img/item/large/'.$imageName,90));
+                    break;
+            }
 
+            
             $br = new ImageAsset;
-            $br->name = $request->name;
-            $br->desc = $request->desc;
+            $br->name = strtoupper($request->name);
+            $br->desc = ucwords($request->desc);
             $br->status = $request->type;
+            $br->parent_id = ($request->parent_id == 'null')?0:$request->parent_id;
             $br->image = $imageName;
             $br->image_medium = $imageName;
             $br->image_small = $imageName;
@@ -119,8 +142,8 @@ class BrandController extends Controller
 
         $brand =  new Brand;
         $brand->brand_logos_id = $request->brand;
-        $brand->nama = $request->nama;
-        $brand->desc = $request->desc;
+        $brand->nama = strtoupper($request->nama);
+        $brand->desc = ucwords($request->desc);
         $brand->types_id = $request->tipe;
         $brand->ukurans_id = $request->ukuran;
         $brand->motifs_id =  $motif->id;
@@ -193,6 +216,20 @@ class BrandController extends Controller
         $image->delete();
         $motif->delete();
         $brand->delete();
+        return back();
+    }
+    public function remove_image($id_image)
+    {
+        $image = ImageAsset::find($id_image);
+        if(File::exists(public_path('img/item/original/'.$image->image))){
+            File::delete(public_path('img/item/original/'.$image->image));
+            File::delete(public_path('img/item/medium/'.$image->image));
+            File::delete(public_path('img/item/large/'.$image->image));
+            File::delete(public_path('img/item/small/'.$image->image));
+        }else{
+            dd('File does not exists.');
+        }
+        $image->delete();
         return back();
     }
 }

@@ -74,5 +74,10 @@
 						{data: 'action', name:'action'}
         	],
 		});
+		
+		$('.delete-data').on('click',function(a) {
+			alert('dasdasdasdsd')
+			
+		})
     </script>
 @endpush

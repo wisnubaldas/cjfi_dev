@@ -5,17 +5,21 @@ use Image;
 use App\Models\DesignInspirasi;
 trait DesainInspirasi
 {
+    public static function get_inspirasi_id($id)
+    {
+        return DesignInspirasi::find($id);
+    }
     public static function all_desain()
     {
         return DesignInspirasi::all();
     }
     public static function get_interior()
     {
-        return ['data'=>'desain interior'];
+        return DesignInspirasi::where('status','interior')->get();
     }
     public static function get_exterior()
     {
-        return ['data'=>'desain exterior'];
+        return DesignInspirasi::where('status','exterior')->get();
     }
     public static function create_desain($array)
     {

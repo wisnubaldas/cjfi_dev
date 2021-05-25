@@ -22,6 +22,8 @@
 
 @push('script')
     <script>
+        window.scrollTo(160, 210);
+
         $('.carousel').carousel({
             interval: 3000
           })

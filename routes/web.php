@@ -32,12 +32,23 @@ Route::prefix('koleksi')->group(function(){
     Route::get('detail/{id}',[KoleksiController::class, 'detail']);
     Route::get('merek/{brand?}/{type?}/{ukuran?}/{motif?}',[KoleksiController::class, 'merek'])->name('koleksi.merek');
     Route::get('inspirasi/{tipe?}',[KoleksiController::class, 'inspirasi'])->name('koleksi.inspirasi');
-    Route::get('produk',[KoleksiController::class, 'produk'])->name('koleksi.produk');
+    Route::get('inspirasi/get_id/{id}',[KoleksiController::class, 'inspirasi_id']);
+    Route::get('produk/{id?}',[KoleksiController::class, 'produk'])->name('koleksi.produk');
     Route::get('dekorasi_detail/{parent_id}',[KoleksiController::class, 'dekorasi_detail'])->name('koleksi.dekorasi_detail');
 });
-Route::get('tentang',[KoleksiController::class, 'tentang'])->name('tentang');
-Route::get('berita',[KoleksiController::class, 'berita'])->name('berita');
-Route::get('dukungan',[KoleksiController::class, 'dukungan'])->name('dukungan');
+
+Route::prefix('tentang')->group(function(){
+    Route::get('/',[App\Http\Controllers\TentangController::class, 'index'])->name('tentang');
+});
+
+Route::prefix('berita')->group(function(){
+    Route::get('/',[App\Http\Controllers\BeritaController::class, 'index'])->name('berita');
+});
+
+Route::prefix('dukungan')->group(function(){
+    Route::get('/',[App\Http\Controllers\DukunganController::class, 'index'])->name('dukungan');
+});
+
 
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -64,4 +75,8 @@ Route::prefix('desain_inspirasi')->middleware(['auth'])->group(function(){
     Route::get('/',[App\Http\Controllers\Backend\DesainInspirasiController::class,'index']);
     Route::post('/create',[App\Http\Controllers\Backend\DesainInspirasiController::class,'create']);
 
+});
+Route::prefix('produk_baru')->middleware(['auth'])->group(function(){
+    Route::get('/',[App\Http\Controllers\Backend\ProdukBaruController::class,'index']);
+    Route::post('/create',[App\Http\Controllers\Backend\ProdukBaruController::class,'create']);
 });

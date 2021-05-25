@@ -41,6 +41,9 @@
 
 @push('script')
 <script>
+  // auto scroll 
+   window.scrollTo(160, 210);
+
   const tpl_not_found = `<img src="/img/no_image.png" class="rounded mx-auto d-block img-thumbnail" alt="Responsive image" width="100%" height="100px">`
  
   jQuery(function(){

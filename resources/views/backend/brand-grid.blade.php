@@ -59,6 +59,7 @@
 	<script src="/assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 	<script src="/assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 	<script src="/assets/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+	<script src="/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $('#data-table-default').DataTable({
 			responsive: true,
@@ -73,11 +74,38 @@
 						{data: 'created_at', name: 'created_at'},
 						{data: 'action', name:'action'}
         	],
+			drawCallback: function( settings ) {
+								$('.delete-data').on('click',function(a) {
+									const data = $(this).data('link')
+									swal({
+											title: 'Are you sure to Delete?',
+											text: 'Data akan di hapus secara permanent...!!!',
+											icon: 'error',
+											buttons: {
+												cancel: {
+													text: 'Cancel',
+													value: null,
+													visible: true,
+													className: 'btn btn-default',
+													closeModal: true,
+												},
+												confirm: {
+													text: 'Delete',
+													value: true,
+													visible: true,
+													className: 'btn btn-danger',
+													closeModal: true
+												}
+											}
+										}).then((willDelete) => {
+											if (willDelete) {
+												return window.location = data
+											}
+										});
+								})
+						}
 		});
 		
-		$('.delete-data').on('click',function(a) {
-			alert('dasdasdasdsd')
-			
-		})
+		
     </script>
 @endpush

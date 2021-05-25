@@ -61,8 +61,10 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->save_motive($request);
-        ImageAsset::whereIn('id',$request->id_images)->update(['brands_id'=>$this->save_brand($request)]);
+        $id_brand = $this->save_brand($request);
+        ImageAsset::whereIn('id',$request->id_images)->update(['brands_id'=>$id_brand]);
         return back();
     }
 

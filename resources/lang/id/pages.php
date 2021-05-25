@@ -24,5 +24,7 @@ return [
     'size'=>'Ukuran',
     'motive'=>'Motif',
     'back'=>'Kembali',
-    'desain_inspirasi'=>'DESAIN INSPIRASI'
+    'desain_inspirasi'=>'DESAIN INSPIRASI',
+    'produk_baru'=>'PRODUK BARU',
+    'tentang'=>'TENTANG',
 ];

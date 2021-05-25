@@ -19,6 +19,11 @@ return [
 			'url' => '/desain_inspirasi',
 		],
 		[
+			'icon' => 'ion-ios-color-filter bg-indigo',
+			'title' => 'Produk Baru',
+			'url' => '/produk_baru',
+		],
+		[
 			'icon' => 'fab fa-simplybuilt bg-gradient-aqua',
 			'title' => 'Brand',
 			'url' => 'javascript:;',

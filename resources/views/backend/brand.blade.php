@@ -38,33 +38,41 @@
 				<form action="{{route('merek.store')}}" method="POST">
 					<div class="form-group">
 							@csrf
-							<label>Brand</label>
-							<select class="form-control form-control-sm" name="brand">
-									<option value=0 selected>select brand</option>
-									@foreach ($brand_logo as $item)
-											<option value="{{$item->id}}">{{$item->nama}}</option>	
-									@endforeach
-							</select>
-							<label>Nama</label>
-							<input class="form-control form-control-sm text-uppercase" type="text" name="nama" id="nama"/>
-							<label>Description</label>
-							<input class="form-control form-control-sm text-capitalize" type="text" name="desc"/>
-							<label for="">Tipe</label>
-							<select class="form-control form-control-sm" name="tipe">
-									@foreach ($tipe as $item)
-											<option value="{{$item->id}}">{{strtoupper($item->nama)}}</option>	
-									@endforeach
-							</select>
-							<label for="">Ukuran</label>
-							<select class="form-control form-control-sm" name="ukuran">
-									<option value=0 selected>select ukuran</option>
-									@foreach ($size as $item)
-											<option value="{{$item->id}}">{{$item->nama}}</option>	
-									@endforeach
-							</select>
-							<label for="">Motif</label>
-							<input class="form-control form-control-sm text-uppercase" type="text" name="motif"/>
-							<div id="id-images"></div>
+							
+							<div class="row">
+								<div class="col-6">
+									<label>Brand</label>
+									<select class="form-control form-control-sm" name="brand">
+											<option value=0 selected>select brand</option>
+											@foreach ($brand_logo as $item)
+													<option value="{{$item->id}}">{{$item->nama}}</option>	
+											@endforeach
+									</select>
+									<label>Nama</label>
+									<input class="form-control form-control-sm text-uppercase" type="text" name="nama" id="nama"/>
+									<label>Description</label>
+									<input class="form-control form-control-sm text-capitalize" type="text" name="desc"/>
+									<label for="">Tipe</label>
+									<select class="form-control form-control-sm" name="tipe">
+											@foreach ($tipe as $item)
+													<option value="{{$item->id}}">{{strtoupper($item->nama)}}</option>	
+											@endforeach
+									</select>
+								</div>
+								<div class="col-6">
+									<label for="">Ukuran</label>
+									<select class="form-control form-control-sm" name="ukuran">
+											<option value=0 selected>select ukuran</option>
+											@foreach ($size as $item)
+													<option value="{{$item->id}}">{{$item->nama}}</option>	
+											@endforeach
+									</select>
+									<label for="">Motif</label>
+									<input class="form-control form-control-sm text-uppercase" type="text" name="motif"/>
+									<div id="id-images"></div>
+								</div>
+							</div>
+							
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-sm btn-primary m-r-5">Submit</button>

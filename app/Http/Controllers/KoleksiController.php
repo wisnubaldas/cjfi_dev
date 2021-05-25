@@ -13,10 +13,11 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Helpers\UploadFile;
 use App\Helpers\Blog;
 use App\Traits\DesainInspirasi;
+use App\Traits\ProdukBaruTrait;
 
 class KoleksiController extends Controller
 {
-    use DesainInspirasi;
+    use DesainInspirasi, ProdukBaruTrait;
     public $slide;
     public $brandLogo;
     public $ukuran;
@@ -132,6 +133,10 @@ class KoleksiController extends Controller
         }
     }
 
+    public function inspirasi_id($id)
+    {
+        return $this->get_inspirasi_id($id);
+    }
     public function inspirasi($menu = null)
     {
         switch ($menu) {
@@ -148,20 +153,12 @@ class KoleksiController extends Controller
         
         return view('koleksi-inspirasi',compact('data'));
     }
-    public function produk(Type $var = null)
+    public function produk($id = null)
     {
-        # code...
-    }
-    public function tentang(Type $var = null)
-    {
-        # code...
-    }
-    public function berita(Type $var = null)
-    {
-        # code...
-    }
-    public function dukungan(Type $var = null)
-    {
-        # code...
+        if($id){
+            return $this->get_produk_id($id);
+        }
+        $data = $this->get_all_produk();
+        return view('koleksi-produk-baru',compact('data'));
     }
 }

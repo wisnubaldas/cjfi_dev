@@ -23,5 +23,6 @@ return [
     'btn_wall'=>'Wall Tile',
     'size'=>'Size',
     'motive'=>'Motive',
-    'back'=>'Back'
+    'back'=>'Back',
+    'desain_inspirasi'=>'DESIGN INSPIRATION'
 ];

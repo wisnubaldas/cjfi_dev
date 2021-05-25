@@ -14,6 +14,11 @@ return [
 			'url' => '/slider/create',
 		],
 		[
+			'icon' => 'ion-ios-color-filter bg-indigo',
+			'title' => 'Desain Inspirasi',
+			'url' => '/desain_inspirasi',
+		],
+		[
 			'icon' => 'fab fa-simplybuilt bg-gradient-aqua',
 			'title' => 'Brand',
 			'url' => 'javascript:;',

@@ -44,7 +44,7 @@
 		
 		@includeWhen($footer, 'backend.includes.footer')
 		
-		@include('backend.includes.component.theme-panel')
+		{{-- @include('backend.includes.component.theme-panel') --}}
 		
 		@include('backend.includes.component.scroll-top-btn')
 		

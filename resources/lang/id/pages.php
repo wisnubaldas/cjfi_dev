@@ -23,5 +23,6 @@ return [
     'btn_wall'=>'Keramik Dinding',
     'size'=>'Ukuran',
     'motive'=>'Motif',
-    'back'=>'Kembali'
+    'back'=>'Kembali',
+    'desain_inspirasi'=>'DESAIN INSPIRASI'
 ];

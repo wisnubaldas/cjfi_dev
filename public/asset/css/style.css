@@ -306,7 +306,9 @@
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 }
-
+.k-inspirasi{
+	background-color: #dbdbdb8e;
+}
 .left-xxx {
 	height:380px;
 	background:url(/asset/img/bg-tentang-menu.jpg) repeat-x;

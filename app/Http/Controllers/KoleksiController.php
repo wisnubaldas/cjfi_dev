@@ -12,10 +12,11 @@ use App\Models\ImageAsset;
 use Illuminate\Database\Eloquent\Builder;
 use App\Helpers\UploadFile;
 use App\Helpers\Blog;
-
+use App\Traits\DesainInspirasi;
 
 class KoleksiController extends Controller
 {
+    use DesainInspirasi;
     public $slide;
     public $brandLogo;
     public $ukuran;
@@ -131,10 +132,21 @@ class KoleksiController extends Controller
         }
     }
 
-    public function inspirasi()
+    public function inspirasi($menu = null)
     {
-
-        return view('koleksi-inspirasi');
+        switch ($menu) {
+            case 'interior':
+                    $data = $this->get_interior();
+                break;
+            case 'exterior':
+                    $data = $this->get_exterior();
+                break;
+            default:
+                    $data = $this->all_desain();
+                break;
+        }
+        
+        return view('koleksi-inspirasi',compact('data'));
     }
     public function produk(Type $var = null)
     {

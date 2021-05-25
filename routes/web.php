@@ -31,7 +31,7 @@ Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('l
 Route::prefix('koleksi')->group(function(){
     Route::get('detail/{id}',[KoleksiController::class, 'detail']);
     Route::get('merek/{brand?}/{type?}/{ukuran?}/{motif?}',[KoleksiController::class, 'merek'])->name('koleksi.merek');
-    Route::get('inspirasi',[KoleksiController::class, 'inspirasi'])->name('koleksi.inspirasi');
+    Route::get('inspirasi/{tipe?}',[KoleksiController::class, 'inspirasi'])->name('koleksi.inspirasi');
     Route::get('produk',[KoleksiController::class, 'produk'])->name('koleksi.produk');
     Route::get('dekorasi_detail/{parent_id}',[KoleksiController::class, 'dekorasi_detail'])->name('koleksi.dekorasi_detail');
 });
@@ -42,6 +42,7 @@ Route::get('dukungan',[KoleksiController::class, 'dukungan'])->name('dukungan');
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::prefix('slider')->middleware(['auth'])->group(function(){
     Route::get('create',[App\Http\Controllers\Backend\SliderController::class,'index'])->name('slider.create');
     Route::post('create',[App\Http\Controllers\Backend\SliderController::class,'save'])->name('slider.save');
@@ -59,3 +60,8 @@ Route::prefix('merek')->middleware(['auth'])->group(function(){
     Route::get('remove_image/{id}',[App\Http\Controllers\BrandController::class,'remove_image']);
 });
 
+Route::prefix('desain_inspirasi')->middleware(['auth'])->group(function(){
+    Route::get('/',[App\Http\Controllers\Backend\DesainInspirasiController::class,'index']);
+    Route::post('/create',[App\Http\Controllers\Backend\DesainInspirasiController::class,'create']);
+
+});

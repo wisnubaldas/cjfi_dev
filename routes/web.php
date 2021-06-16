@@ -49,6 +49,10 @@ Route::prefix('dukungan')->group(function(){
     Route::get('/',[App\Http\Controllers\DukunganController::class, 'index'])->name('dukungan');
 });
 
+// shop controller
+Route::prefix('cjfi-shop-blog')->group(function(){
+    Route::get('/',[App\Http\Controllers\Shop\HomeController::class,'index']);
+});
 
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

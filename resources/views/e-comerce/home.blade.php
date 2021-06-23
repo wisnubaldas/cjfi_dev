@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<title>Chang Jui Fang Indonesia | {{ $title ?? 'Official Site' }}</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	
-	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="../src/css/e-commerce/app.min.css" rel="stylesheet" />
-	<link href="../src/css/e-commerce/style.css" rel="stylesheet" />
+@extends('e-comerce.layout.index')
 
-	<!-- ================== END BASE CSS STYLE ================== -->
-</head>
-<body>
+@section('content')
 	<!-- BEGIN #page-container -->
 	<div id="page-container" class="fade show">
 		<!-- BEGIN #top-nav -->
@@ -37,11 +23,11 @@
 		<!-- END #trending-items -->
 		
 		<!-- BEGIN #mobile-list -->
-		@include('e-comerce.layout.mobile-list')
+		@include('e-comerce.layout.dinding-list')
 		<!-- END #mobile-list -->
 		
 		<!-- BEGIN #tablet-list -->
-		@include('e-comerce.layout.tablet-list')
+		@include('e-comerce.layout.lantai-list')
 		<!-- END #tablet-list -->
 		
 		<!-- BEGIN #policy -->
@@ -61,9 +47,11 @@
 		<!-- END #footer-copyright -->
 	</div>
 	<!-- END #page-container -->
+@endsection
 
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="../src/js/e-commerce/app.min.js"></script>
-	<!-- ================== END BASE JS ================== -->
-</body>
-</html>
+@push('css')
+	
+@endpush
+@push('scripts')
+	
+@endpush

@@ -30,7 +30,7 @@
 					</div>
 					<!-- END col-3 -->
 					<!-- BEGIN col-3 -->
-					<div class="col-lg-3">
+					{{-- <div class="col-lg-3">
 						<h4 class="footer-header">LATEST PRODUCT</h4>
 						<ul class="list-unstyled list-product mb-lg-4 mb-0">
 							<li>
@@ -70,7 +70,7 @@
 								</div>
 							</li>
 						</ul>
-					</div>
+					</div> --}}
 					<!-- END col-3 -->
 					<!-- BEGIN col-3 -->
 					<div class="col-lg-3">

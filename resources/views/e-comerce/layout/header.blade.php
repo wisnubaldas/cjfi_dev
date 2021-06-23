@@ -15,8 +15,8 @@
                 <a href="javascript:;">
                     <span class="brand-cjfi"></span>
                     <span class="brand-text">
-                        <span class="text-primary">CJF</span> Indonesia
-                        <small>Chang Jui Fang</small>
+                        <span class="text-primary">CJFI</span>
+                        <small>Chang Jui Fang Indonesia</small>
                     </span>
                 </a>
             </div>
@@ -25,7 +25,7 @@
             <div class="header-nav">
                 <div class=" collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav">
-                        <li class="active"><a href="javascript:;">Home</a></li>
+                        <li class="active"><a href="/cjfi-shop-blog">Home</a></li>
                         <li class="dropdown dropdown-full-width dropdown-hover">
                             <a href="#" data-toggle="dropdown">
                                 Koleksi 

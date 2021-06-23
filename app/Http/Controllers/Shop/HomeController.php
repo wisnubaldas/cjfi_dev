@@ -11,4 +11,12 @@ class HomeController extends Controller
     {
         return view('e-comerce.home');
     }
+    public function product_detail()
+    {
+        return view('e-comerce.product_detail');
+    }
+    public function interior()
+    {
+        return view('keramik-1.home');
+    }
 }

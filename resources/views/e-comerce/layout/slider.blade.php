@@ -13,7 +13,7 @@
 								<h3 class="title m-b-5 fadeInLeftBig animated">Kesaktian Pancasila</h3>
 								<p class="m-b-15 fadeInLeftBig animated">Selamat memperingati hari Kesaktian Pancasila</p>
 								{{-- <div class="price m-b-30 fadeInLeftBig animated"><small>from</small> <span>$2299.00</span></div> --}}
-								<a href="product_detail.html" class="btn btn-outline btn-lg fadeInLeftBig animated">View More</a>
+								<a href="/cjfi-shop-blog/product_detail" class="btn btn-outline btn-lg fadeInLeftBig animated">View More</a>
 							</div>
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 								<h3 class="title m-b-5 fadeInRightBig animated">Athena Posile</h3>
 								<p class="m-b-15 fadeInRightBig animated">Varian keramik dinding terbaru dari Atena</p>
 								<div class="price m-b-30 fadeInRightBig animated"><small>Ukuran mulai dari</small> <span>40 X 40 cm</span></div>
-								<a href="product_detail.html" class="btn btn-outline btn-lg fadeInRightBig animated">Buy Now</a>
+								<a href="/cjfi-shop-blog/product_detail" class="btn btn-outline btn-lg fadeInRightBig animated">Buy Now</a>
 							</div>
 						</div>
 					</div>
@@ -37,10 +37,10 @@
 					<div class="carousel-item" data-paroller="true" data-paroller-factor="-0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style="background: url(../src/img/slider/slider-3-cover.jpg) center 0 / cover no-repeat;">
 						<div class="carousel-caption">
 							<div class="container">
-								<h3 class="title m-b-5 fadeInDownBig animated">Macbook Air</h3>
-								<p class="m-b-15 fadeInDownBig animated">Thin.Light.Powerful.<br />And ready for anything</p>
+								<h3 class="title m-b-5 fadeInDownBig animated">Interior dan Exterior</h3>
+								<p class="m-b-15 fadeInDownBig animated">Kualitas bahan terbaik dikelasnya<br />And ready for anything</p>
 								<div class="price fadeInDownBig animated"><small>from</small> <span>$999.00</span></div>
-								<a href="product_detail.html" class="btn btn-outline btn-lg fadeInUpBig animated">Buy Now</a>
+								<a href="/cjfi-shop-blog/product_detail" class="btn btn-outline btn-lg fadeInUpBig animated">Buy Now</a>
 							</div>
 						</div>
 					</div>

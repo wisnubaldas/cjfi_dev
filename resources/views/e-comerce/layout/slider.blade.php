@@ -4,9 +4,13 @@
 				<!-- BEGIN carousel-inner -->
 				<div class="carousel-inner">
 					<!-- BEGIN item -->
-					<div class="carousel-item active" data-paroller="true" data-paroller-factor="0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style="background: url(../src/img/slider/slider-1-cover.jpg) center 0 / cover no-repeat;">
+					<div class="carousel-item active" data-paroller="true" 
+								data-paroller-factor="0.3" 
+								data-paroller-factor-sm="0.01" 
+								data-paroller-factor-xs="0.01" 
+								style="background: url(../src/img/slider/slider-1-cover.jpg) center 0 / cover repeat;">
 						<div class="container">
-							<img src="../src/img/slider/slider-1-product.png" class="product-img right bottom fadeInRight animated" alt="" />
+							{{-- <img src="../src/img/slider/slider-1-product.png" class="product-img right bottom fadeInRight animated" alt="" /> --}}
 						</div>
 						<div class="carousel-caption carousel-caption-left">
 							<div class="container">
@@ -19,7 +23,11 @@
 					</div>
 					<!-- END item -->
 					<!-- BEGIN item -->
-					<div class="carousel-item" data-paroller="true" data-paroller-factor="-0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style="background: url(../src/img/slider/slider-2-cover.jpg) center 0 / cover no-repeat;">
+					<div class="carousel-item" data-paroller="true" 
+							data-paroller-factor="-0.3" 
+							data-paroller-factor-sm="0.01" 
+							data-paroller-factor-xs="0.01" 
+							style="background: url(../src/img/slider/slider-2-cover.jpg) center 0 / cover repeat;">
 						<div class="container">
 							<img src="../src/img/slider/slider-2-product.png" class="product-img left bottom fadeInLeft animated" alt="" />
 						</div>
@@ -34,7 +42,11 @@
 					</div>
 					<!-- END item -->
 					<!-- BEGIN item -->
-					<div class="carousel-item" data-paroller="true" data-paroller-factor="-0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style="background: url(../src/img/slider/slider-3-cover.jpg) center 0 / cover no-repeat;">
+					<div class="carousel-item" data-paroller="true" 
+							data-paroller-factor="-0.3" 
+							data-paroller-factor-sm="0.01" 
+							data-paroller-factor-xs="0.01" 
+							style="background: url(../src/img/slider/slider-3-cover.jpg) center 0 / cover repeat;">
 						<div class="carousel-caption">
 							<div class="container">
 								<h3 class="title m-b-5 fadeInDownBig animated">Interior dan Exterior</h3>

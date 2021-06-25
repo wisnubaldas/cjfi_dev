@@ -16,15 +16,13 @@ use Jenssegers\Agent\Agent;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     $agent = new Agent();
-    $slide = Slide::all();
     if($agent->isMobile())
     {
-        return dump('aplikasi mobile');
+        return  view('mobile.landing');
     }
-    return view('welcome',compact('slide'));
+    return view('e-comerce.home');
 });
 
 Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');
@@ -34,6 +32,5 @@ Corerong::include_route_files(__DIR__.'/front_route/');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Corerong::include_route_files(__DIR__.'/back_route/');
 });

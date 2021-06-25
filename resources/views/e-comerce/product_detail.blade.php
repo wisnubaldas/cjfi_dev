@@ -17,7 +17,7 @@
 		<!-- END #footer -->
 		
 		<!-- BEGIN #footer-copyright -->
-		@include('e-comerce.layout.footer-copyright')
+		{{-- @include('e-comerce.layout.footer-copyright') --}}
 		<!-- END #footer-copyright -->
 	</div>
 	<!-- END #page-container -->

@@ -1,7 +1,23 @@
 <?php
 namespace App\Traits;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
+
 trait Corerong 
 {
+    public static function url_hash($path)
+    {
+        return Hash::make($path);
+    }
+    public static function url_encode(string $path)
+    {
+        return Crypt::encryptString($path);
+    }
+    public static function url_decode(string $path)
+    {
+        return Crypt::decryptString($encryptedValue);
+    }
     public static function include_route_files($folder)
     {
         try {

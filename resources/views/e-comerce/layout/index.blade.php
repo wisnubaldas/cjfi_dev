@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="../src/css/e-commerce/app.min.css" rel="stylesheet" />
 	<link href="../src/css/e-commerce/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	@stack('css')
 	<!-- ================== END BASE CSS STYLE ================== -->
 </head>

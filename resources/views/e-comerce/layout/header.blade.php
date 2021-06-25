@@ -26,7 +26,7 @@
                 <div class=" collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav">
                         <li class="active"><a href="/cjfi-shop-blog">Home</a></li>
-                        <li class="dropdown dropdown-full-width dropdown-hover">
+                        {{-- <li class="dropdown dropdown-full-width dropdown-hover">
                             <a href="#" data-toggle="dropdown">
                                 Koleksi 
                                 <b class="caret"></b>
@@ -102,9 +102,22 @@
                                 <!-- END dropdown-menu-container -->
                             </div>
                             <!-- END dropdown-menu -->
-                        </li>
-                        <li><a href="javascript:;">Berita Terbaru</a></li>
+                        </li> --}}
                         <li class="dropdown dropdown-hover">
+                            <a href="#" data-toggle="dropdown">
+                                Koleksi
+                                <b class="caret"></b>
+                                <span class="arrow top"></span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="javascipt:;">Merek</a>
+                                <a class="dropdown-item" href="javascipt:;">Inspirasi Desain</a>
+                                <a class="dropdown-item" href="javascipt:;">Produk Terbaru</a>
+                            </div>
+                        </li>
+                        <li><a href="/berita">Tentang CJFI</a></li>
+                        <li><a href="/berita">Berita Terbaru</a></li>
+                        {{-- <li class="dropdown dropdown-hover">
                             <a href="#" data-toggle="dropdown">
                                 Tentang CJFI 
                                 <b class="caret"></b>
@@ -118,7 +131,7 @@
                                 <a class="dropdown-item" href="javascipt:;">Karir</a>
                                 <a class="dropdown-item" href="javascipt:;">Tanya CJFI</a>
                             </div>
-                        </li>
+                        </li> --}}
                         <li class="dropdown dropdown-hover">
                             <a href="#" data-toggle="dropdown">
                                 Dukungan

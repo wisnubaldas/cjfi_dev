@@ -14,6 +14,9 @@
 						</p>
 					</div>
 					<!-- END col-3 -->
+					@if (!\Agent::isMobile())
+						
+					
 					<!-- BEGIN col-3 -->
 					<div class="col-lg-3">
 						<h4 class="footer-header">RELATED LINKS</h4>
@@ -86,6 +89,7 @@
 						</address>
 					</div>
 					<!-- END col-3 -->
+					@endif
 				</div>
 				<!-- END row -->
 			</div>

@@ -25,7 +25,7 @@
             <div class="header-nav">
                 <div class=" collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav">
-                        <li class="active"><a href="/cjfi-shop-blog">Home</a></li>
+                        <li class="active text-capitalize"><a href="/">{{__('blog.home')}}</a></li>
                         {{-- <li class="dropdown dropdown-full-width dropdown-hover">
                             <a href="#" data-toggle="dropdown">
                                 Koleksi 
@@ -103,20 +103,20 @@
                             </div>
                             <!-- END dropdown-menu -->
                         </li> --}}
-                        <li class="dropdown dropdown-hover">
+                        <li class="dropdown dropdown-hover text-capitalize">
                             <a href="#" data-toggle="dropdown">
-                                Koleksi
+                                {{__('blog.collection')}}
                                 <b class="caret"></b>
                                 <span class="arrow top"></span>
                             </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascipt:;">Merek</a>
-                                <a class="dropdown-item" href="javascipt:;">Inspirasi Desain</a>
-                                <a class="dropdown-item" href="javascipt:;">Produk Terbaru</a>
+                            <div class="dropdown-menu text-capitalize">
+                                <a class="dropdown-item" href="javascipt:;">{{__('blog.brands')}}</a>
+                                <a class="dropdown-item" href="javascipt:;">{{__('blog.desaign')}}</a>
+                                <a class="dropdown-item" href="javascipt:;">{{__('blog.products')}}</a>
                             </div>
                         </li>
-                        <li><a href="/berita">Tentang CJFI</a></li>
-                        <li><a href="/berita">Berita Terbaru</a></li>
+                        <li class="text-capitalize"><a href="/berita">{{__('blog.about')}}</a></li>
+                        <li class="text-capitalize"><a href="/berita">{{__('blog.news_update')}}</a></li>
                         {{-- <li class="dropdown dropdown-hover">
                             <a href="#" data-toggle="dropdown">
                                 Tentang CJFI 
@@ -132,16 +132,16 @@
                                 <a class="dropdown-item" href="javascipt:;">Tanya CJFI</a>
                             </div>
                         </li> --}}
-                        <li class="dropdown dropdown-hover">
+                        <li class="dropdown dropdown-hover text-capitalize">
                             <a href="#" data-toggle="dropdown">
-                                Dukungan
+                                {{__('blog.support')}}
                                 <b class="caret"></b>
                                 <span class="arrow top"></span>
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:;">Panduan & Petunjuk</a>
-                                <a class="dropdown-item" href="javascript:;">FAQ</a>
-                                <a class="dropdown-item" href="javascript:;">Leaflet & Catalog</a>
+                                <a class="dropdown-item" href="javascript:;">{{__('blog.panduan')}}</a>
+                                <a class="dropdown-item" href="javascript:;">{{__('blog.faq')}}</a>
+                                <a class="dropdown-item" href="javascript:;">{{__('blog.catalog')}}</a>
                             </div>
                         </li>
                         <li class="dropdown dropdown-hover">
@@ -169,9 +169,9 @@
                 <ul class="nav pull-right">
                     <li class="divider"></li>
                     <li>
-                        <a href="my_account.html">
+                        <a href="/login">
                             <img src="../src/img/user/user-1.jpg" class="user-img" alt="" /> 
-                            <span class="d-none d-xl-inline">Login / Register</span>
+                            <span class="d-none d-xl-inline text-capitalize">{{ __('auth.login') }}/ {{ __('auth.register') }}</span>
                         </a>
                     </li>
                 </ul>

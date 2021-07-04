@@ -8,13 +8,13 @@
 						<!-- BEGIN subscription -->
 						<div class="subscription">
 							<div class="subscription-intro">
-								<h4> LET'S STAY IN TOUCH</h4>
-								<p>Get updates on sales specials and more</p>
+								<h4> {{__('blog.subcribe')}}</h4>
+								<p>{{__('blog.subcribe_desc')}}</p>
 							</div>
 							<div class="subscription-form">
 								<form name="subscription_form" action="index.html" method="POST">
 									<div class="input-group">
-										<input type="text" class="form-control" name="email" placeholder="Enter Email Address" />
+										<input type="text" class="form-control" name="email" placeholder="{{__('blog.email_placeolder')}}" />
 										<div class="input-group-append">
 											<button type="submit" class="btn btn-inverse"><i class="fa fa-angle-right"></i></button>
 										</div>
@@ -30,8 +30,8 @@
 						<!-- BEGIN social -->
 						<div class="social">
 							<div class="social-intro">
-								<h4>FOLLOW US</h4>
-								<p>We want to hear from you!</p>
+								<h4>{{__('blog.ikuti_kami')}}</h4>
+								<p>{{__('blog.kami_ingin_dengar')}}</p>
 							</div>
 							<div class="social-list">
 								<a href="#"><i class="fab fa-facebook"></i></a>

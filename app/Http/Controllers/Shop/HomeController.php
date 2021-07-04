@@ -19,4 +19,8 @@ class HomeController extends Controller
     {
         return view('keramik-1.home');
     }
+    public function new_product()
+    {
+        return view('e-comerce.new_product');
+    }
 }

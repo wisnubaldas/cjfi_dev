@@ -1,4 +1,4 @@
-@extends('backend.layouts.default')
+@extends('backend.layouts.default',['sidebarTransparent' => true,'sidebarSearch'=>true])
 
 @section('title', 'Dashboard V3')
 

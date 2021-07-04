@@ -10,6 +10,7 @@ class LocalizationController extends Controller
     {
         // Simpan locale ke session.
         request()->session()->put('locale', $language);
+        
         // Arahkan ke halaman sebelumnya.
         return redirect()->back();
     }

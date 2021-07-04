@@ -14,4 +14,12 @@ class MobileController extends Controller
     {
         return view('mobile.home');
     }
+    public function item_detail()
+    {
+        return view('mobile.item-detail');
+    }
+    public function set_session(Request $request)
+    {
+        return  session(['sess' => $request->sess]);
+    }
 }

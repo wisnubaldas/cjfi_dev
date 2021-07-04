@@ -9,9 +9,9 @@ $(document).ready(function(){
           menu_type: "left",
           footer: "dark",
           footer_type: "left",
-          //menu_animation: "slide_left",
-          site_mode: "light",
-          footer_menu: "show",
+          menu_animation: "slide_left",
+          site_mode: "dark",
+          footer_menu: "hide",
           footer_menu_style: "light",
         };
         //console.log(defaultval.theme);
@@ -38,9 +38,9 @@ $(document).ready(function(){
 
           if(type == "theme"){
             if(value != "" && value != defaultval[type]){
-              $("link#main-style").attr("href","assets/css/style-"+value+".css");
+              $("link#main-style").attr("href","/mobile/css/style-"+value+".css");
             } else {
-              $("link#main-style").attr("href","assets/css/style.css");
+              $("link#main-style").attr("href","/mobile/css/style.css");
             }
           } else {
 
@@ -103,11 +103,12 @@ $(document).ready(function(){
             sess += $(this).attr("data-value") + "|";            
         });
 
-        $.post("common/settings_session.php", 
+        $.post("/mobile/set_session", 
           {
             sess:sess
           },
           function(response,status){
+            // console.log(response)
             //console.log("*----Received Data----*nnResponse : " + response+"nnStatus : " + status);
           }
         );

@@ -4,21 +4,31 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown dropdown-hover">
-                    <a href="#" data-toggle="dropdown"><img src="../src/img/flag/flag-english.png" class="flag-img" alt="" /> English <b class="caret"></b></a>
+                        @if (session('locale'))
+                            @foreach ($locale_option as $item)
+                                @if ($item['code'] == session('locale'))
+                                    <a href="#" data-toggle="dropdown">
+                                        <img src="../src/img/flag/{{$item['image']}}" class="flag-img" alt="" /> {{$item['name']}} <b class="caret"></b>
+                                    </a>
+                                @endif
+                            @endforeach
+                        @else
+                            <a href="#" data-toggle="dropdown">
+                                <img src="../src/img/flag/flag-indonesia.png" class="flag-img" alt="" /> Indonesia <b class="caret"></b>
+                            </a>
+                        @endif
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-item"><img src="../src/img/flag/flag-english.png" class="flag-img" alt="" /> English</a></li>
-                        <li><a href="#" class="dropdown-item"><img src="../src/img/flag/flag-german.png" class="flag-img" alt="" /> German</a></li>
-                        <li><a href="#" class="dropdown-item"><img src="../src/img/flag/flag-spanish.png" class="flag-img" alt="" /> Spanish</a></li>
-                        <li><a href="#" class="dropdown-item"><img src="../src/img/flag/flag-french.png" class="flag-img" alt="" /> French</a></li>
-                        <li><a href="#" class="dropdown-item"><img src="../src/img/flag/flag-chinese.png" class="flag-img" alt="" /> Chinese</a></li>
+                        @foreach ($locale_option as $idx => $item)
+                            <li><a href="/lang/{{$item['code']}}" class="dropdown-item"><img src="../src/img/flag/{{$item['image']}}" class="flag-img" alt="" /> {{__($item['name'])}}</a></li>
+                        @endforeach
                     </ul>
                 </li>
-                <li><a href="#">Customer Care</a></li>
-                <li><a href="#">Order Tracker</a></li>
+                {{-- <li><a href="#">Customer Care</a></li> --}}
+                {{-- <li><a href="#">Order Tracker</a></li> --}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Career</a></li>
-                <li><a href="#">Our Forum</a></li>
+                {{-- <li><a href="#">Our Forum</a></li> --}}
                 <li><a href="#">Newsletter</a></li>
                 <li><a href="#"><i class="fab fa-facebook-f f-s-14"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter f-s-14"></i></a></li>

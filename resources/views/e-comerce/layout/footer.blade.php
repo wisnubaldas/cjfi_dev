@@ -5,24 +5,19 @@
 				<div class="row">
 					<!-- BEGIN col-3 -->
 					<div class="col-lg-3">
-						<h4 class="footer-header">ABOUT US</h4>
+						<h4 class="footer-header">{{__('blog.about')}}</h4>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tristique dolor, ac efficitur velit. Nulla lobortis tempus convallis. Nulla aliquam lectus eu porta pulvinar. Mauris semper justo erat. 
-						</p>
-						<p class="mb-lg-4 mb-0">
-							Vestibulum porttitor lorem et vestibulum pharetra. Phasellus sit amet mi congue, hendrerit mi ut, dignissim eros.
+							{{__('blog.tentang_cjfi')}}...
 						</p>
 					</div>
 					<!-- END col-3 -->
-					@if (!\Agent::isMobile())
-						
 					
 					<!-- BEGIN col-3 -->
 					<div class="col-lg-3">
-						<h4 class="footer-header">RELATED LINKS</h4>
+						<h4 class="footer-header">SITEMAP</h4>
 						<ul class="fa-ul mb-lg-4 mb-0">
-							<li><i class="fa fa-li fa-angle-right"></i> <a href="#">Shopping Help</a></li>
-							<li><i class="fa fa-li fa-angle-right"></i> <a href="#">Terms of Use</a></li>
+							<li><i class="fa fa-li fa-angle-right"></i> <a href="#">HOME</a></li>
+							<li><i class="fa fa-li fa-angle-right"></i> <a href="#">Koleksi</a></li>
 							<li><i class="fa fa-li fa-angle-right"></i> <a href="#">Contact Us</a></li>
 							<li><i class="fa fa-li fa-angle-right"></i> <a href="#">Careers</a></li>
 							<li><i class="fa fa-li fa-angle-right"></i> <a href="#">Payment Method</a></li>
@@ -79,17 +74,20 @@
 					<div class="col-lg-3">
 						<h4 class="footer-header">OUR CONTACT</h4>
 						<address class="mb-lg-4 mb-0">
-							<strong>Twitter, Inc.</strong><br />
-							1355 Market Street, Suite 900<br />
-							San Francisco, CA 94103<br /><br />
-							<abbr title="Phone">Phone:</abbr> (123) 456-7890<br />
-							<abbr title="Fax">Fax:</abbr> (123) 456-7891<br />
-							<abbr title="Email">Email:</abbr> <a href="mailto:sales@myshop.com">sales@myshop.com</a><br />
-							<abbr title="Skype">Skype:</abbr> <a href="skype:myshop">myshop</a>
+							<strong>Komplek Pluit Mas Real Estate Blok AA No.1,</strong><br />
+							Jl. Jembatan Tiga, RT.1/RW.18, Pejagalan,<br />
+							Kec. Penjaringan, Kota Jkt Utara,<br />
+							Daerah Khusus Ibukota Jakarta 14450<br />
+							<abbr title="Phone">Phone:</abbr> +62-216685700<br />
+							<abbr title="Fax">Fax:</abbr> +62-216685700<br />
+							<abbr title="Email">Email:</abbr> <a href="mailto:it@picasso-tiles.com">it@picasso-tiles.com</a><br />
+							<abbr title="Skype">Skype:</abbr> <a href="skype:cjfi">CJFI</a><br />
+							<abbr title="location"><a href="https://goo.gl/maps/F61KXoYX4k6RKZQg6">Location: <i class="fa fa-street-view" aria-hidden="true"></i>
+
+							</a></abbr>
 						</address>
 					</div>
 					<!-- END col-3 -->
-					@endif
 				</div>
 				<!-- END row -->
 			</div>

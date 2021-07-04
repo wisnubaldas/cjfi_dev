@@ -62,6 +62,15 @@
     {{-- <img src="/mobile/images/logo.png" alt=""> --}}
     <div class="fullfixed index-carousel">
         <div class="carousel carousel-fullscreen carousel-slider">
+            <div class="carousel-item" href="#five!">
+                <div class="bg" style="background-image: url('mobile/images/full-5.jpg')"></div>
+                <div class="item-content right-align white-text">
+                    <div class="spacer-xlarge"></div>
+                    <div class="spacer-xlarge"></div>
+                    {{-- <h3>Produksi Ramah Lingkungan</h3> --}}
+                    {{-- <h5 class="light white-text">Bagaimana CJFI melestarikan lingkungan...</h5> --}}
+                </div>
+            </div>
             <div class="carousel-item" href="#one!">
                 <div class="bg" style="background-image: url('mobile/images/full-4.jpg')"></div>
                 <div class="item-content center-align white-text">
@@ -98,6 +107,7 @@
                     <h5 class="light white-text">Bagaimana CJFI melestarikan lingkungan...</h5>
                 </div>
             </div>
+            
         </div>
     </div>
 

@@ -28,7 +28,7 @@ Route::get('/', function () {
 Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');
 Corerong::include_route_files(__DIR__.'/front_route/');
 
-// Auth::routes();
+Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

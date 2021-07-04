@@ -15,15 +15,15 @@
 						<!-- BEGIN promotion -->
 						<div class="promotion promotion-lg bg-black-transparent-8">
 							<div class="promotion-image text-right promotion-image-overflow-bottom">
-								<img src="../src/img/slider/slider-1-product.png"  alt="" />
+								<img src="../src/img/logo.png"  alt="" />
 							</div>
 							<div class="promotion-caption promotion-caption-inverse">
 								<h4 class="promotion-title">CJFI</h4>
 								<div class="promotion-price">Chang Jui Fang Indonesia</div>
 								@if (!Agent::isMobile())
-									<p class="promotion-desc">Ceramic Manufacturer, Importer & Distributor</p>
+									<p class="promotion-desc text-capitalize">{{__('blog.banner')}}</p>
 								@endif
-								<a href="#" class="promotion-btn">View More</a>
+								<a href="#" class="promotion-btn text-capitalize">{{__('blog.btn_more')}}</a>
 							</div>
 						</div>
 						<!-- END promotion -->
@@ -37,10 +37,10 @@
 								<img src="../src/img/product/istambul-1.png" alt=""  style="opacity: 0.5"/>
 							</div>
 							<div class="promotion-caption promotion-caption-inverse text-right">
-								<h4 class="promotion-title m-l-m">Produk Baru</h4>
+								<h4 class="promotion-title m-l-m text-capitalize">{{__('blog.products')}}</h4>
 								{{-- <div class="promotion-price "><small>size</small> 60x40 cm</div> --}}
-								<p class="promotion-desc">Koleksi produk terbaru <br>disini...</p>
-								<a href="#" class="promotion-btn">View More</a>
+								<p class="promotion-desc">{{__('blog.koleksi_produk')}} <br><a href="/cjfi-shop-blog/new_product" class="btn-link">{{__('blog.disini')}}...</a></p>
+								<a href="/cjfi-shop-blog/new_product" class="promotion-btn">{{__('blog.btn_more')}}</a>
 							</div>
 						</div>
 						<!-- END promotion -->
@@ -50,10 +50,10 @@
 								<img src="../src/img/product/helm-cok.png" alt="" />
 							</div>
 							<div class="promotion-caption text-center">
-								<h4 class="promotion-title">Inspirasi Desain</h4>
-								<div class="promotion-price">Koleksi keramik yang akan menginspirasi anda...</div>
+								<h4 class="promotion-title text-capitalize">{{__('blog.desaign')}}</h4>
+								<div class="promotion-price">{{__('blog.inspirasi_desc')}}...</div>
 								{{-- <p class="promotion-desc">Natural tiles for inspiration</p> --}}
-								<a href="#" class="promotion-btn">View More</a>
+								<a href="#" class="promotion-btn">{{__('blog.btn_more')}}</a>
 							</div>
 						</div>
 						<!-- END promotion -->
@@ -67,10 +67,10 @@
 								<img src="../src/img/product/fluorite.png" alt="" />
 							</div>
 							<div class="promotion-caption text-center">
-								<h4 class="promotion-title">Produksi Ramah Lingkungan</h4>
-								<div class="promotion-price">Bagaimana CJFI melestarikan lingkungan...</div>
+								<h4 class="promotion-title text-capitalize">{{__('blog.ramah_linkungan')}}</h4>
+								<div class="promotion-price">{{__('blog.ramah_desc')}}...</div>
 								{{-- <p class="promotion-desc">Mountain rock design give the natural color of the mountains</p> --}}
-								<a href="#" class="promotion-btn">View More</a>
+								<a href="#" class="promotion-btn">{{__('blog.btn_more')}}</a>
 							</div>
 						</div>
 						<!-- END promotion -->
@@ -80,10 +80,10 @@
 								<img src="https://i.pinimg.com/originals/85/92/db/8592dbcd917f657977b5c76b71e05d70.jpg" style="opacity: 0.2;" alt="" />
 							</div>
 							<div class="promotion-caption promotion-caption-inverse">
-								<h4 class="promotion-title">Berita Terkini</h4>
-								<div class="promotion-price">Informasi seputar keramik dan perkemabngannya..</div>
+								<h4 class="promotion-title text-capitalize">{{__('blog.berita_kini')}}</h4>
+								<div class="promotion-price">{{__('blog.berita_desc')}}...</div>
 								{{-- <p class="promotion-desc">make your home as luxurious as the palace of the kings.</p> --}}
-								<a href="#" class="promotion-btn">View More</a>
+								<a href="#" class="promotion-btn">{{__('blog.btn_more')}}</a>
 							</div>
 						</div>
 						<!-- END promotion -->

@@ -32,6 +32,6 @@
 <script>
     lightbox.option({
       'resizeDuration': 300
-    })
+    });
 </script>
 @endpush

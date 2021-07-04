@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "htmlmin/htmlmin": "^8.0",
         "imliam/laravel-blade-helper": "^1.0",
         "intervention/image": "^2.5",
         "jenssegers/agent": "^2.6",

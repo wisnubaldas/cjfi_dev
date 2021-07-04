@@ -99,25 +99,25 @@
 		jQuery(function(){
 
 			let counter = 0;
-			const arr = ['estilo-1.png','estilo-2.png','estilo-3.png','estilo-4.png']
-			const gold = ['golden-1.png','golden-2.png','golden-3.png','golden-4.png']
-			const istambul = ['istambul-1.png','istambul-2.png','istambul-3.png','istambul-4.png']
+			const arr = ['estilo-1.png','estilo-2.png','estilo-3.png','estilo-4.png'];
+			const gold = ['golden-1.png','golden-2.png','golden-3.png','golden-4.png'];
+			const istambul = ['istambul-1.png','istambul-2.png','istambul-3.png','istambul-4.png'];
 			setInterval(function(){
 				counter++;
 				if(counter > 3){counter = 0;}
 				$('.estillo-slade').html(`<img src="../src/img/product/${arr[counter]}" alt="" class="animate__animated animate__fadeIn"/>`);
-			},4000)
+			},4000);
 			setInterval(function(){
 				counter++;
 				if(counter > 3){counter = 0;}
 				$('.simple-slide').html(`<img src="../src/img/product/${istambul[counter]}" alt=""  style="opacity: 0.5"/>`);
-			},3000)
+			},3000);
 			setInterval(function(){
 				counter++;
 				if(counter > 3){counter = 0;}
 				$('.golden-slide').html(`<img src="../src/img/product/${gold[counter]}" alt="" class="animate__animated animate__fadeIn"/>`);
-			},2000)
+			},2000);
 			
-		})
+		});
 	</script>
 @endpush		

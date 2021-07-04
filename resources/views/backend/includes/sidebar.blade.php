@@ -41,7 +41,6 @@
 			<li class="nav-header">Navigation</li>
 			@php
 				$currentUrl = (Request::path() != '/') ? '/'. Request::path() : '/';
-				
 				function renderSubMenu($value, $currentUrl) {
 					$subMenu = '';
 					$GLOBALS['sub_level'] += 1 ;

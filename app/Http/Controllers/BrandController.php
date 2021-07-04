@@ -29,7 +29,7 @@ class BrandController extends Controller
         $tipe = $this->all_type();
         $brand_logo = $this->all_brand();
         $size = $this->all_ukuran();
-        return view('backend.brand',compact('size','brand_logo','tipe'));
+        // return view('backend.brand',compact('size','brand_logo','tipe'));
     }
     public function parent_image(Request $request)
     {

@@ -37,7 +37,7 @@ trait Brand
     }
     static public function brand_grid()
     {
-        $query = BrandModel::with('brand_logo')->select('brands.*');
+        $query = BrandModel::select('brands.*');
         return Datatables::of($query)
                 // return  Datatables::of(Brand::with('brand_logo')->query())
                 ->addColumn('action', function(BrandModel $brand) {
@@ -47,10 +47,12 @@ trait Brand
                     <a class='btn btn-danger btn-xs delete-data' href='javascript:;' data-link='/merek/destroy/{$brand->id}'>Delete</a>
                     </div>";
                 })
-                ->editColumn('created_at',function($tbl){
-                    return $tbl->updated_at->format('d M Y - H:i:s');
+                ->editColumn('logo',function($tbl){
+                    // return $tbl->updated_at->format('d M Y - H:i:s');
+                    return '<img src="'.url($tbl->logo).'" alt="" srcset="" width="100%">';
+
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action','logo'])
                 ->make(true);
     }
     static public function file_image($request)

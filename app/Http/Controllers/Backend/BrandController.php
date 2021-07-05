@@ -4,17 +4,20 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use App\Traits\Brand;
 class BrandController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // return Brand::all();
-        return view('backend.brand');
+        if($request->ajax())
+        {
+            return Brand::brand_grid();
+        }
+        return view('backend.brand.brand');
     }
     public function create()
     {
-        return view('backend.brand-create');
+        return view('backend.brand.brand-create');
 
     }
 }

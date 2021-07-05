@@ -1,8 +1,7 @@
 <?php
+use App\Traits\MenuTrait;
 
-return [
-			'menu'=>config('menus.menu')
-		];
+return MenuTrait::data();
     /*
     |--------------------------------------------------------------------------
     | View Storage Paths

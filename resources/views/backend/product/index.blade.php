@@ -20,9 +20,16 @@
                     ajax: '/product',
                     columns: [
                                 {data: 'id', name: 'id'},
-                                {data: 'name', name: 'name'},
-                                {data: 'code', name: 'code'},
-                                {data: 'logo', name: 'logo'},
+                                {data: 'brand_id', name: 'brand_id'},
+                                {data: 'motif_id', name: 'motif_id'},
+                                {data: 'tipe_id', name: 'tipe_id'},
+                                {data: 'warna_id', name:'warna_id'},
+                                {data: 'surface', name:'surface'},
+                                {data: 'depth', name:'depth'},
+                                {data: 'weight', name:'weight'},
+                                {data: 'desc', name:'desc'},
+                                {data: 'name', name:'name'},
+                                {data: 'code', name:'code'},
                                 {data: 'action', name:'action'}
                     ],
                     drawCallback: function( settings ) {
@@ -85,6 +92,13 @@
                         <th>Nama</th>
                         <th class="text-nowrap">Code</th>
                         <th class="text-nowrap">Image</th>
+                        <th width="5%">#</th>
+                        <th width="5%">#</th>
+                        <th width="5%">#</th>
+                        <th width="5%">#</th>
+                        <th width="5%">#</th>
+                        <th width="5%">#</th>
+                        <th width="5%">#</th>
                         <th width="5%">#</th>
                     </tr>
                 </thead>

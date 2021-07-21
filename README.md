@@ -1,9 +1,9 @@
 <p align="center"><a href="#" target="_blank">
-    <img src="https://st3.depositphotos.com/13052220/17784/i/1600/depositphotos_177847980-stock-photo-sexy-women-in-lingerie.jpg" width="400"></a>
+    <img src="http://cjfi.co.id:8081/src/img/logo.png" width="400"></a>
 </p>
 
 <p align="center">
-    <h2>CJFI Blog</h2>
+    <h2>Official Web Site CJFI</h2>
 </p>
 
 ## About CJFI

@@ -1,5 +1,5 @@
 <p align="center"><a href="#" target="_blank">
-    <img src="http://cjfi.co.id:8081/src/img/logo.png" width="400"></a>
+    <img src="http://cjfi.co.id:8081/src/img/logo.png" width="50%"></a>
 </p>
 
 <p align="center">

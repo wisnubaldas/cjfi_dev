@@ -17,7 +17,7 @@
                     responsive: true,
                     processing: true,
                     serverSide: true,
-                    ajax: '/product',
+                    ajax: '/product-image',
                     columns: [
                                 {data: 'id', name: 'id'},
                                 {data: 'code', name:'code'},

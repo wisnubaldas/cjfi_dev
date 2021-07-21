@@ -7,24 +7,41 @@ use App\Models\Motif;
 use App\Models\Tipe;
 use App\Models\Ukuran;
 use App\Models\Backend\Warna;
-
 use Yajra\Datatables\Datatables;
 use Image;
 use Illuminate\Support\Str;
 trait ProductTrait
 {
+    public static function cek_warna($warna)
+    {
+        foreach ($warna as $v) {
+            Warna::firstOrCreate([
+                'name'=>$v
+            ]);
+        }
+        return json_encode($warna);
+    }
+    public static function cek_motif($id)
+    {
+        if(is_numeric($id))
+        {
+            return $id;
+        }
+        $motif = new Motif;
+        $motif->nama = $id;
+        $motif->save();
+        return $motif->id;
+    }
     public static function set_product($data)
     {
-        $motif = new Motif;
-        $motif->nama = $data->motif_id;
         $product = new Product;
         $product->name = collect($data->server)['REMOTE_ADDR'];
         $product->code = $data->code;
         $product->brand_id = $data->brand_id;
-        $product->motif_id = (is_numeric($data->motif_id))?$data->motif_id : $motif->save(); $motif->id;
+        $product->motif_id = self::cek_motif($data->motif_id);
         $product->tipe_id = json_encode($data->tipe_id);
         $product->ukuran_id = $data->ukuran_id;
-        $product->warna_id = json_encode($data->warna_id);
+        $product->warna_id = self::cek_warna($data->warna_id);
         $product->surface = $data->surface;
         $product->depth = $data->depth;
         $product->weight = $data->weight;
@@ -56,21 +73,33 @@ trait ProductTrait
     {
         $query = Product::select('products.*');
         return Datatables::of($query)
-                // return  Datatables::of(Brand::with('brand_logo')->query())
-                ->addColumn('action', function(BrandModel $brand) {
+                ->addColumn('action', function($q) {
                     return "
                     <div class='btn-group'>
-                    <a class='btn btn-warning btn-xs' href='/merek/edit/{$brand->id}'>Edit</a>
-                    <a class='btn btn-danger btn-xs delete-data' href='javascript:;' data-link='/merek/destroy/{$brand->id}'>Delete</a>
+                    <a class='btn btn-warning btn-xs' href='/product/edit/{$q->id}'>Edit</a>
+                    <a class='btn btn-danger btn-xs delete-data' href='javascript:;' data-link='{$q->id}'>Delete</a>
                     </div>";
                 })
-                ->editColumn('logo',function($tbl){
-                    // return $tbl->updated_at->format('d M Y - H:i:s');
-                    return '<img src="'.url($tbl->logo).'" alt="" srcset="" width="100%">';
-
+                ->editColumn('brand_id',function($tbl){
+                    return Brand::find($tbl->brand_id)->name;
                 })
-                ->rawColumns(['action','logo'])
+                ->editColumn('motif_id',function($tbl){
+                    return Motif::find($tbl->motif_id)->nama;
+                })
+                ->editColumn('tipe_id',function($tbl){
+                    $tipe = Tipe::whereIn('id',json_decode($tbl->tipe_id))->get()->pluck('nama');
+                    return implode(',',$tipe->toArray());
+                })
+                ->editColumn('ukuran_id',function($tbl){
+                    return Ukuran::find($tbl->ukuran_id)->nama;
+                })
+                ->editColumn('warna_id',function($tbl){
+                    return implode(',',json_decode($tbl->warna_id,true));
+                })
+                ->editColumn('desc',function($tbl){
+                    return Str::limit($tbl->desc, 50);
+                })
+                ->rawColumns(['action','brand_id','tipe_id'])
                 ->make(true);
-    }
-    
+    }    
 }

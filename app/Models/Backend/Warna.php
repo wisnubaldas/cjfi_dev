@@ -9,4 +9,5 @@ class Warna extends Model
 {
     use HasFactory;
     protected $table = 'warna';
+    protected $fillable = ['name','keterangan'];
 }

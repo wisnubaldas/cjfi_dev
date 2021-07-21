@@ -101,8 +101,8 @@
 							<label class="col-form-label col-md-3">Warna</label>
 							<div class="col-md-9">
 								<select class="select-tag form-control" multiple id="warna" name="warna_id[]">
-									@foreach ($warna as $i => $it)
-										<option value="{{$i}}">{{$it}}</option>
+									@foreach ($warna as $it)
+										<option value="{{$it}}">{{$it}}</option>
 									@endforeach
 								</select>								  
 							</div>

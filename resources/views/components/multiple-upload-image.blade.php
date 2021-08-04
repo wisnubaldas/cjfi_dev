@@ -1,7 +1,6 @@
-<div>
+<div class="{{$hidden}}" id="multiple-upload-image">
     <!-- begin form-file-upload -->
-		<form id="fileupload" action="" method="POST" enctype="multipart/form-data">
-			
+		<form id="fileupload" action="{{$formAction}}" method="POST" enctype="multipart/form-data">
 			@csrf
 			<!-- begin panel -->
 			<div class="panel panel-inverse">

@@ -13,7 +13,7 @@ var handleJqueryFileUpload = function() {
 		maxFileSize: 5000000,
 		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
 		// Uncomment the following to send cross-domain cookies:
-		//xhrFields: {withCCOLOR_REDentials: true},                
+		// xhrFields: {withCCOLOR_REDentials: true},                
 	});
 
 	// Enable iframe cross-domain access via COLOR_REDirect option:
@@ -22,7 +22,7 @@ var handleJqueryFileUpload = function() {
 		'COLOR_REDirect',
 		window.location.href.replace(
 			/\/[^\/]*$/,
-			'/cors/result.html?%s'
+			'/product-image/create?%s'
 		)
 	);
 
@@ -30,7 +30,7 @@ var handleJqueryFileUpload = function() {
 	$('#fileupload').bind('fileuploadadd', function(e, data) {
 		$('#fileupload [data-id="empty"]').hide();
 	});
-
+	
 	// show empty row text
 	$('#fileupload').bind('fileuploadfail', function(e, data) {
 		var rowLeft = (data['originalFiles']) ? data['originalFiles'].length : 0;
@@ -54,13 +54,14 @@ var handleJqueryFileUpload = function() {
 	$('#fileupload').addClass('fileupload-processing');
 	$.ajax({
 		// Uncomment the following to send cross-domain cookies:
-		//xhrFields: {withCCOLOR_REDentials: true},
+		// xhrFields: {withCCOLOR_REDentials: true},
 		url: $('#fileupload').fileupload('option', 'url'),
 		dataType: 'json',
 		context: $('#fileupload')[0]
 	}).always(function () {
 		$(this).removeClass('fileupload-processing');
 	}).done(function (result) {
+		// console.log(result);
 		$(this).fileupload('option', 'done')
 		.call(this, $.Event('done'), {result: result});
 	});

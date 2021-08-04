@@ -57,14 +57,15 @@
 					}
 				}
 			});
-		});
+	});
+
 		/* ANCHOR On select event trigger*/
 		$('.js-example-basic-multiple').on('select2:select', function (e) { 
 			const id = $(this).val();
 				$.ajax({
 					url: '/product-image/get-product-by-motif/'+id, 
 					success: function(result){
-						console.log(result);
+						
 						if(!result)
 						{
 							const tmpl = `<div class="note note-warning note-with-right-icon">
@@ -74,7 +75,8 @@
 										<p>Product tidak di tenukan...!!! Product id: <b>${id}</b></p>
 									</div>
 									</div>`;
-							return $('#result-product').html(tmpl);
+							$('#result-product').html(tmpl);
+							$('#multiple-upload-image').addClass('d-none');
 						}else{
 							
 							const tmpl = `<div class="note note-success note-with-right-icon">
@@ -84,7 +86,8 @@
 										<p>${result.surface} <b>${result.name}</b></p>
 									</div>
 									</div>`;
-							return $('#result-product').html(tmpl);
+							$('#result-product').html(tmpl);
+							$('#multiple-upload-image').removeClass('d-none');
 						}
 					},
 					error:function(xhr){
@@ -132,9 +135,7 @@
 	</div>
 	<!-- NOTE form upload image  -->
 	<div class="col-xl-8">
-		<div id="frm-prod-img">
-
-		</div>
+		<x-multiple-upload-image hidden="d-none" form-action="/product-image/upload-image"/>
 	</div>
 </div>
 @endsection

@@ -10,8 +10,8 @@
 			<!-- begin login-header -->
 			<div class="login-header">
 				<div class="brand">
-					<span class="logo"></span> <b>Color</b> Admin
-					<small>responsive bootstrap 4 admin template</small>
+					<b>CJFI</b>
+					<small>Chang Jui Fang Indonesia</small>
 				</div>
 				<div class="icon">
 					<i class="fa fa-lock"></i>

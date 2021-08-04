@@ -11,9 +11,12 @@ class MultipleUploadImage extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $hidden;
+    public $formAction;
+    public function __construct($hidden = false, $formAction = null)
     {
-        //
+        $this->hidden = $hidden;
+        $this->formAction = $formAction;
     }
 
     /**

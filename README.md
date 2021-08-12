@@ -32,6 +32,8 @@
         "yajra/laravel-datatables-oracle": "~9.0"
     } 
 ```
+- template menggunakan [ Color Admin ](https://seantheme.com/color-admin/admin/html/index_v3.html)
+
 
 ## License
 

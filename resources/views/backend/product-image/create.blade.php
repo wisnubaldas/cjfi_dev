@@ -27,6 +27,35 @@
 	<![endif]-->
 	<script src="/assets/js/demo/form-multiple-upload.demo.js"></script>
 <script>
+		/* ANCHOR ajax get warna */
+			let getWarna = function(warna,callback)
+				{
+					$.ajax({
+							url: '/product-image/warna',
+							method: 'GET',
+							data: {
+									warna: JSON.parse(warna)
+								  }						
+					}).done(function(data) {
+						 return callback(data);
+					}).fail(function() {
+						alert( "error" );
+					}).always(function() {
+
+					});
+				};
+		/* ANCHOR ajax set warna */
+			let setWarna = function(elWarna,elIdWarna)
+			{
+				elWarna.on('click',function(a){
+					elWarna.removeClass('active');
+					$(this).addClass('active');
+					const id = $(this).data('idWarna');
+					elIdWarna.val(id);
+				});
+			};
+		/* end get warna */
+		
 	$(document).ready(function() {
 		/* ANCHOR Select2 get motif and product via ajax */
 		$('.js-example-basic-multiple').select2(
@@ -78,16 +107,31 @@
 							$('#result-product').html(tmpl);
 							$('#multiple-upload-image').addClass('d-none');
 						}else{
-							
-							const tmpl = `<div class="note note-success note-with-right-icon">
+							/* ANCHOR get warna id */
+							console.log(result.warna_id);
+							getWarna(result.warna_id,function(data){
+								let warna = [];
+								for (const k in data) {
+									if (Object.hasOwnProperty.call(data, k)) {
+										warna.push(`<button class="btn btn-outline-inverse btn-sm isi-warna" data-id-warna="${k}">${data[k]}</button>`);
+									}
+								}
+								const tmpl = `<div class="note note-success note-with-right-icon">
 									<div class="note-icon"><i class="fa fa-lightbulb"></i></div>
 									<div class="note-content text-right">
 										<h4>Product Code <b>${result.code}</b></h4>
-										<p>${result.surface} <b>${result.name}</b></p>
+										<p><b class="text-danger">Wajib Pilih warna sebelum Upload Image</b>
+										<div class="btn-group">
+										${warna.join('')}
+										</div>
+										</p>
 									</div>
 									</div>`;
-							$('#result-product').html(tmpl);
-							$('#multiple-upload-image').removeClass('d-none');
+								$('#id_product').val(result.id);
+								$('#result-product').html(tmpl);
+								$('#multiple-upload-image').removeClass('d-none');
+								setWarna($('.isi-warna'),$('#id_warna'));
+							});
 						}
 					},
 					error:function(xhr){
@@ -98,6 +142,7 @@
 
 </script>
 @endpush
+
 @section('content')
 <!-- ANCHOR begin breadcrumb -->
 <ol class="breadcrumb float-xl-right">
@@ -135,7 +180,12 @@
 	</div>
 	<!-- NOTE form upload image  -->
 	<div class="col-xl-8">
-		<x-multiple-upload-image hidden="d-none" form-action="/product-image/upload-image"/>
+		<x-multiple-upload-image hidden="d-none" form-action="/product-image/upload-image">
+			<x-slot name="addInput">
+				<input type="text" name="id_product" id="id_product" class="d-none">
+				<input type="text" name="id_warna" id="id_warna" class="d-none" required>
+			</x-slot>
+		</x-multiple-upload-image>
 	</div>
 </div>
 @endsection

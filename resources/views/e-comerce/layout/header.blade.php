@@ -170,7 +170,6 @@
                     <li class="divider"></li>
                     <li>
                         <a href="/login">
-                            <img src="../src/img/user/user-1.jpg" class="user-img" alt="" /> 
                             <span class="d-none d-xl-inline text-capitalize">{{ __('auth.login') }}/ {{ __('auth.register') }}</span>
                         </a>
                     </li>

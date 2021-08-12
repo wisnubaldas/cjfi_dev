@@ -24,6 +24,7 @@
 	});
 	/* end jquery */
 </script>
+
 @endpush
 @section('content')
 <!-- ANCHOR begin breadcrumb -->
@@ -52,7 +53,7 @@
 				<!-- begin panel-body -->
 				<div class="panel-body">
 						<div class="form-group row m-b-15">
-							<label class="col-form-label col-md-3">Code</label>
+							<label class="col-form-label col-md-3">Kode Barang</label>
 							<div class="col-md-9">
 								<input type="text" class="form-control m-b-5" name="code"/>
 							</div>

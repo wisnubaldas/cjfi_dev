@@ -2,6 +2,7 @@
     <!-- begin form-file-upload -->
 		<form id="fileupload" action="{{$formAction}}" method="POST" enctype="multipart/form-data">
 			@csrf
+
 			<!-- begin panel -->
 			<div class="panel panel-inverse">
 				<!-- begin panel-body -->
@@ -11,6 +12,7 @@
 							<i class="fa fa-lightbulb fa-2x"></i>
 						</div>
 						<div class="note-content">
+							{{$addInput}}
 							<h4 class="m-t-5 m-b-5 p-b-2">Upload Product Images</h4>
 							<ul class="m-b-5 p-l-25">
 								<li>The maximum file size for uploads in this demo is <strong>5 MB</strong> (default file size is unlimited).</li>

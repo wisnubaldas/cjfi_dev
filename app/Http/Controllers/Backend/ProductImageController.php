@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Traits\ProductImageTrait;
 use App\Models\Motif;
-use Illuminate\Support\Str;
 class ProductImageController extends Controller
 {
     public function index()
@@ -36,23 +35,13 @@ class ProductImageController extends Controller
 
     public function upload_image(Request $request)
     {
-        $response = [];
-        $files = $request->file('files');
-        if ($request->hasFile('files')) {
-            foreach ($files as $file) {
-                $name = Str::snake($file->getClientOriginalName());
-                array_push($response, [
-                    "name"=> $file->getClientOriginalName(),
-                    "size"=> $file->getSize(),
-                    "url"=> url('img/product',$name),
-                    "thumbnailUrl"=> url('img/product',$name),
-                    "deleteUrl"=> url('img/product',$name),
-                    "deleteType"=> "DELETE"
-                ]);
-
-                $file->move(public_path('img/product'),$name);
-            }
+        if (!$request->id_warna) {
+            return abort(500, 'Id Warna harus di set');
         }
-        return [ 'files'=>$response];
+        return ProductImageTrait::setImageProduct($request,$request->id_product,$request->id_warna);
+    }
+    public function warna(Request $request)
+    {
+        return ProductImageTrait::get_warna($request->warna);
     }
 }

@@ -10,7 +10,8 @@
 - Refactoring Official website [cjfi.co.id](cjfi.co.id) menggunakan framework Laravel 8, 
 - lokal server untuk devloper ada di ip 192.168.10.10:8081
 - aplikasi requirement : 
-``  "require": {
+``` 
+ "require": {
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -29,7 +30,8 @@
         "tanmuhittin/laravel-google-translate": "^2.0",
         "yajra/laravel-datatables": "^1.5",
         "yajra/laravel-datatables-oracle": "~9.0"
-    } ``
+    } 
+```
 
 ## License
 

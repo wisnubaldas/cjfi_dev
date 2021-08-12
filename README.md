@@ -7,7 +7,10 @@
 </p>
 
 ## About CJFI
-Refacktoring Official website [cjfi.co.id](cjfi.co.id) 
+- Refactoring Official website [cjfi.co.id](cjfi.co.id) menggunakan framework Laravel 8, 
+- lokal server untuk devloper ada di ip 192.168.10.10:8081
+
+
 
 
 ## License

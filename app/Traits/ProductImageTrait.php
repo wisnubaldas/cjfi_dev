@@ -21,9 +21,8 @@ trait ProductImageTrait
     {
         return Product::where('motif_id',$motif_id)->first();
     }
-    public static function setImageProduct($request,$product_id,$warna_id)
+    public static function setImageProduct($request)
     {
-        
         $response = [];
         $files = $request->file('files');
         $destinationPath = public_path('img/product/');
@@ -36,9 +35,10 @@ trait ProductImageTrait
                 $image_small = 'S_'.$image;
                 $image_medium = 'M_'.$image;
                 $image_large = 'L_'.$image;
-                $status = 1;
+                $status = $request->status;
+                $product_id = $request->id_product;
+                $warna_id = $request->warna;
                 $desc = '';
-
                 $data = self::saveImage(compact('name', 'product_id', 'warna_id','image','image_small','image_medium','image_large','status','desc'));
                 array_push($response, [
                     "name"=> $data['name'],
@@ -66,7 +66,6 @@ trait ProductImageTrait
     }
     public static function get_warna($warna)
     {
-        // dd($warna);
         return Warna::whereIn('name',$warna)->get()->pluck('name','id');
     }
     public static function generate_nama($ext)

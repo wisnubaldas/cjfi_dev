@@ -110,7 +110,8 @@
                                 <span class="arrow top"></span>
                             </a>
                             <div class="dropdown-menu text-capitalize">
-                                <a class="dropdown-item" href="javascipt:;">{{__('blog.brands')}}</a>
+                                {{-- koleksi --}}
+                                <a class="dropdown-item" href="{{url('koleksi-merek')}}">{{__('blog.brands')}}</a>
                                 <a class="dropdown-item" href="javascipt:;">{{__('blog.desaign')}}</a>
                                 <a class="dropdown-item" href="javascipt:;">{{__('blog.products')}}</a>
                             </div>

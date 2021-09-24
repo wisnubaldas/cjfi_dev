@@ -63,7 +63,7 @@
     <div class="fullfixed index-carousel">
         <div class="carousel carousel-fullscreen carousel-slider">
             <div class="carousel-item" href="#five!">
-                <div class="bg" style="background-image: url('mobile/images/full-5.jpg')"></div>
+                <div class="bg" style="background-image: url('mobile/images/full-5.jpeg')"></div>
                 <div class="item-content right-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="carousel-item" href="#one!">
-                <div class="bg" style="background-image: url('mobile/images/full-4.jpg')"></div>
+                <div class="bg" style="background-image: url('mobile/images/full-4.jpeg')"></div>
                 <div class="item-content center-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="carousel-item" href="#two!">
-                <div class="bg" style="background-image: url('mobile/images/full-3.jpg')"></div>
+                <div class="bg" style="background-image: url('mobile/images/full-3.jpeg')"></div>
                 <div class="item-content left-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="carousel-item" href="#three!">
-                <div class="bg" style="background-image: url('mobile/images/full-2.jpg')"></div>
+                <div class="bg" style="background-image: url('mobile/images/full-2.jpeg')"></div>
                 <div class="item-content center-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <div class="carousel-item" href="#four!">
-                <div class="bg" style="background-image: url('mobile/images/full-1.jpg')"></div>
+                <div class="bg" style="background-image: url('mobile/images/full-1.jpeg')"></div>
                 <div class="item-content right-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>

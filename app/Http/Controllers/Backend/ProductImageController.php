@@ -35,10 +35,12 @@ class ProductImageController extends Controller
 
     public function upload_image(Request $request)
     {
-        if (!$request->id_warna) {
-            return abort(500, 'Id Warna harus di set');
-        }
-        return ProductImageTrait::setImageProduct($request,$request->id_product,$request->id_warna);
+        $validated = $request->validate([
+            'id_product' => 'required',
+            'warna' => 'required',
+            'status' => 'required',
+        ]);
+        return ProductImageTrait::setImageProduct($request);
     }
     public function warna(Request $request)
     {

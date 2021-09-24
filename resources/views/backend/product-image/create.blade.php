@@ -6,6 +6,8 @@
 <link href="/assets/plugins/blueimp-gallery/css/blueimp-gallery.min.css" rel="stylesheet" />
 <link href="/assets/plugins/blueimp-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
 <link href="/assets/plugins/blueimp-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
+<link href="/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+
 @endpush
 @push('scripts')
 <script src="/assets/plugins/select2/dist/js/select2.min.js"></script>
@@ -25,125 +27,48 @@
 	<!--[if (gte IE 8)&(lt IE 10)]>
 		<script src="/assets/plugins/jquery-file-upload/js/cors/jquery.xdr-transport.js"></script>
 	<![endif]-->
-	<script src="/assets/js/demo/form-multiple-upload.demo.js"></script>
-<script>
-		/* ANCHOR ajax get warna */
-			let getWarna = function(warna,callback)
-				{
-					$.ajax({
-							url: '/product-image/warna',
-							method: 'GET',
-							data: {
-									warna: JSON.parse(warna)
-								  }						
-					}).done(function(data) {
-						 return callback(data);
-					}).fail(function() {
-						alert( "error" );
-					}).always(function() {
+	<script src="/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="/assets/js/product-image.js"></script>
 
-					});
-				};
-		/* ANCHOR ajax set warna */
-			let setWarna = function(elWarna,elIdWarna)
-			{
-				elWarna.on('click',function(a){
-					elWarna.removeClass('active');
-					$(this).addClass('active');
-					const id = $(this).data('idWarna');
-					elIdWarna.val(id);
-				});
-			};
-		/* end get warna */
-		
+<script>
 	$(document).ready(function() {
 		/* ANCHOR Select2 get motif and product via ajax */
-		$('.js-example-basic-multiple').select2(
-			{
-				placeholder: "Select a state",
-				delay: 250,
-				ajax: {
-					url: '/product-image/get_motif',
-					dataType: 'json',
-					processResults: function (data) {
-						if(data.data.length == 0)
-						{
-							return 'end of page';
-						}
-							return {
-										results: data.data,
-										pagination: {
-											more: true
-										}
-									};
-					},
-					data: function (params) {
-						var query = {
-							search: params.term,
-							page: params.page || 1
-						};
-						return query;
-					}
-				}
-			});
-	});
-
+		const elSel = $('.js-example-basic-multiple');
+		
+		selectMotif(elSel);
 		/* ANCHOR On select event trigger*/
-		$('.js-example-basic-multiple').on('select2:select', function (e) { 
-			const id = $(this).val();
-				$.ajax({
-					url: '/product-image/get-product-by-motif/'+id, 
-					success: function(result){
-						
-						if(!result)
-						{
-							const tmpl = `<div class="note note-warning note-with-right-icon">
-									<div class="note-icon"><i class="fa fa-lightbulb"></i></div>
-									<div class="note-content text-right">
-										<h4>Error: <b>500</b></h4>
-										<p>Product tidak di tenukan...!!! Product id: <b>${id}</b></p>
-									</div>
-									</div>`;
-							$('#result-product').html(tmpl);
-							$('#multiple-upload-image').addClass('d-none');
-						}else{
-							/* ANCHOR get warna id */
-							console.log(result.warna_id);
-							getWarna(result.warna_id,function(data){
-								let warna = [];
-								for (const k in data) {
-									if (Object.hasOwnProperty.call(data, k)) {
-										warna.push(`<button class="btn btn-outline-inverse btn-sm isi-warna" data-id-warna="${k}">${data[k]}</button>`);
-									}
-								}
-								const tmpl = `<div class="note note-success note-with-right-icon">
-									<div class="note-icon"><i class="fa fa-lightbulb"></i></div>
-									<div class="note-content text-right">
-										<h4>Product Code <b>${result.code}</b></h4>
-										<p><b class="text-danger">Wajib Pilih warna sebelum Upload Image</b>
-										<div class="btn-group">
-										${warna.join('')}
-										</div>
-										</p>
-									</div>
-									</div>`;
-								$('#id_product').val(result.id);
-								$('#result-product').html(tmpl);
-								$('#multiple-upload-image').removeClass('d-none');
-								setWarna($('.isi-warna'),$('#id_warna'));
-							});
-						}
-					},
-					error:function(xhr){
-						alert("An error occured: " + xhr.status + " " + xhr.statusText);
-					}
-				});
-		});
-
+		trigerMotif(elSel);
+	});
 </script>
 @endpush
 
 @section('content')
+<!-- #modal  -->
+<div class="modal" id="mysmodal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="form-group">
+					<select class="form-control" id="warna-option" onchange="setWarna(this)">
+						<option selected >### Select Warna ###</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="warna-option" onchange="setTipe(this)">
+						<option selected >### Select Tipe Gambar ###</option>
+						<option value="1">Gambar Sample</option>
+						<option value="2">Gambar Item Keramik</option>
+					</select>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="javascript:;" class="btn btn-white" data-dismiss="modal" id="btn-model">Close</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- #modal-message -->
+
 <!-- ANCHOR begin breadcrumb -->
 <ol class="breadcrumb float-xl-right">
     <li class="breadcrumb-item"><a href="/home">Home</a></li>
@@ -156,6 +81,7 @@
     @endforeach
 </ol>
 <!-- ANCHOR end breadcrumb -->
+
 <!-- ANCHOR begin page-header -->
 <h1 class="page-header">Form Create Product Image <small>{{url()->current()}}</small></h1>
 <!-- ANCHOR end page-header -->
@@ -182,8 +108,7 @@
 	<div class="col-xl-8">
 		<x-multiple-upload-image hidden="d-none" form-action="/product-image/upload-image">
 			<x-slot name="addInput">
-				<input type="text" name="id_product" id="id_product" class="d-none">
-				<input type="text" name="id_warna" id="id_warna" class="d-none" required>
+				
 			</x-slot>
 		</x-multiple-upload-image>
 	</div>

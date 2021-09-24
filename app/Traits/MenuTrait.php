@@ -56,22 +56,11 @@ trait MenuTrait
                         ],
                         [
                             'url' => '/product/create',
-                            'title' => 'Create'
+                            'title' => 'Create Product'
+                        ],[
+                            'url' => '/product-image/create',
+                            'title' => 'Create Image'
                         ]]
-                    ],
-                    [
-                            'icon' => 'fas fa-cookie-bite bg-gradient-green',
-                            'title' => 'Product Image',
-                            'url' => 'javascript:;',
-                            'caret' => true,
-                            'sub_menu' => [[
-                                'url' => '/product-image',
-                                'title' => 'Data Grid'
-                            ],
-                            [
-                                'url' => '/product-image/create',
-                                'title' => 'Create'
-                            ]]
                     ]
             ]
         ];

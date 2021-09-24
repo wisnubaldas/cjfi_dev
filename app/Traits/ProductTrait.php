@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Motif;
 use App\Models\Tipe;
 use App\Models\Ukuran;
+use App\Models\Backend\ImageProduct;
 use App\Models\Backend\Warna;
 use Yajra\Datatables\Datatables;
 use Image;
@@ -80,6 +81,15 @@ trait ProductTrait
                     <a class='btn btn-danger btn-xs delete-data' href='javascript:;' data-link='{$q->id}'>Delete</a>
                     </div>";
                 })
+                ->addColumn('gambar',function($q){
+                    $img = ImageProduct::where('product_id',$q->id)->get();
+                    $images = '';
+                    foreach ($img as $i) {
+                        $thumb = url('img/product',$i->image_small);
+                        $images .= '<img class="rounded h-30px m-2" src="'.$thumb.'">';
+                    }
+                    return $images;
+                })
                 ->editColumn('brand_id',function($tbl){
                     return Brand::find($tbl->brand_id)->name;
                 })
@@ -87,19 +97,19 @@ trait ProductTrait
                     return Motif::find($tbl->motif_id)->nama;
                 })
                 ->editColumn('tipe_id',function($tbl){
-                    $tipe = Tipe::whereIn('id',json_decode($tbl->tipe_id))->get()->pluck('nama');
+                    $tipe = Tipe::whereIn('id',$tbl->tipe_id)->get()->pluck('nama');
                     return implode(',',$tipe->toArray());
                 })
                 ->editColumn('ukuran_id',function($tbl){
                     return Ukuran::find($tbl->ukuran_id)->nama;
                 })
                 ->editColumn('warna_id',function($tbl){
-                    return implode(',',json_decode($tbl->warna_id,true));
+                    return implode(',',$tbl->warna_id);
                 })
                 ->editColumn('desc',function($tbl){
                     return Str::limit($tbl->desc, 50);
                 })
-                ->rawColumns(['action','brand_id','tipe_id'])
+                ->rawColumns(['action','brand_id','tipe_id','gambar'])
                 ->make(true);
     }    
 }

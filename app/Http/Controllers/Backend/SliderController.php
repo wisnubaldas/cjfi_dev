@@ -15,7 +15,6 @@ class SliderController extends Controller
     public function index()
     {
         $size = Ukuran::all();
-        $brand_logo = BrandLogo::all();
         return view('backend.slider',compact('size'));
     }
     public function save(Request $request)

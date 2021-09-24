@@ -8,7 +8,7 @@
 								data-paroller-factor="0.3" 
 								data-paroller-factor-sm="0.01" 
 								data-paroller-factor-xs="0.01" 
-								style="background: url(../src/img/slider/slider-1-cover.jpg) center 0 / cover repeat;">
+								style="background: url(../src/img/slider/slider-1-cover.jpeg) center 0 / cover repeat;">
 						<div class="container">
 							{{-- <img src="../src/img/slider/slider-1-product.png" class="product-img right bottom fadeInRight animated" alt="" /> --}}
 						</div>
@@ -27,7 +27,7 @@
 							data-paroller-factor="-0.3" 
 							data-paroller-factor-sm="0.01" 
 							data-paroller-factor-xs="0.01" 
-							style="background: url(../src/img/slider/slider-2-cover.jpg) center 0 / cover repeat;">
+							style="background: url(../src/img/slider/slider-2-cover.jpeg) center 0 / cover repeat;">
 						<div class="container">
 							<img src="../src/img/slider/slider-2-product.png" class="product-img left bottom fadeInLeft animated" alt="" />
 						</div>
@@ -46,13 +46,13 @@
 							data-paroller-factor="-0.3" 
 							data-paroller-factor-sm="0.01" 
 							data-paroller-factor-xs="0.01" 
-							style="background: url(../src/img/slider/slider-3-cover.jpg) center 0 / cover repeat;">
+							style="background: url(../src/img/slider/slider-3-cover.jpeg) center 0 / cover repeat;">
 						<div class="carousel-caption">
 							<div class="container">
 								<h3 class="title m-b-5 fadeInDownBig animated">Interior dan Exterior</h3>
 								<p class="m-b-15 fadeInDownBig animated">Kualitas bahan terbaik dikelasnya<br />And ready for anything</p>
-								<div class="price fadeInDownBig animated"><small>from</small> <span>$999.00</span></div>
-								<a href="/cjfi-shop-blog/product_detail" class="btn btn-outline btn-lg fadeInUpBig animated">Buy Now</a>
+								{{-- <div class="price fadeInDownBig animated"><small>from</small> <span>$999.00</span></div> --}}
+								{{-- <a href="/cjfi-shop-blog/product_detail" class="btn btn-outline btn-lg fadeInUpBig animated">Buy Now</a> --}}
 							</div>
 						</div>
 					</div>

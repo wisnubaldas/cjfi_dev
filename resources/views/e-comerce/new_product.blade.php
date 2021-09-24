@@ -12,7 +12,7 @@
 		
 
         <!-- Kontent nya -->
-		@include('e-comerce.layout.products',['prod_title'=>'<b>New</b> Product'])
+		@include('e-comerce.layout.products',['prod_title'=>'asddsa'])
         <!-- End Kontent nya -->		
 		
         <!-- BEGIN #subscribe -->

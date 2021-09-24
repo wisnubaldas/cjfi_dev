@@ -30,6 +30,7 @@
                                 {data: 'depth', name:'depth'},
                                 {data: 'weight', name:'weight'},
                                 {data: 'desc', name:'desc'},
+                                {data: 'gambar', name:'gambar'},
                                 {data: 'action', name:'action'}
                     ],
                     drawCallback: function( settings ) {
@@ -99,6 +100,7 @@
                         <th width="10%">Ketebalan (cm)</th>
                         <th width="10%">Berat (kg)</th>
                         <th>Keterangan</th>
+                        <th>Gambar</th>
                         <th>#</th>
                     </tr>
                 </thead>

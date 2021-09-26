@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>CJFI </title>
+    <title>Boking Parkir </title>
     <meta content="Zak Mobile App" name="description" />
     <meta content="themepassion" name="author" />
 
@@ -51,19 +51,21 @@
 <body class="isfullscreen html" data-header="light" data-footer="dark" data-header_align="center"
         data-menu_type="left" data-menu="light" data-menu_icons="on" data-footer_type="left" data-site_mode="light"
     data-footer_menu="show" data-footer_menu_style="light">
-    
+
     <div class="preloader-background">
         <div class="preloader-wrapper">
             <div id="preloader"></div>
         </div>
     </div>
 
-    <h1 class="white-text center welcome-logo index-welcome"><img src="/mobile/images/logo.png" alt="" width="100em" ></h1>
+    <h1 class="white-text center welcome-logo index-welcome">
+        <img src="/mobile/images/pngegg.png" alt="" width="300em" >
+    </h1>
     {{-- <img src="/mobile/images/logo.png" alt=""> --}}
     <div class="fullfixed index-carousel">
         <div class="carousel carousel-fullscreen carousel-slider">
             <div class="carousel-item" href="#five!">
-                <div class="bg" style="background-image: url('mobile/images/full-5.jpeg')"></div>
+                <div class="bg" style="background-image: url('https://c8.alamy.com/comp/2GCEWNG/empty-intercept-metro-parking-lot-with-a-sign-for-the-nearest-subway-station-2GCEWNG.jpg')"></div>
                 <div class="item-content right-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>
@@ -72,47 +74,28 @@
                 </div>
             </div>
             <div class="carousel-item" href="#one!">
-                <div class="bg" style="background-image: url('mobile/images/full-4.jpeg')"></div>
+                <div class="bg" style="background-image: url('https://image.shutterstock.com/shutterstock/photos/1802695636/display_1500/stock-vector-underground-car-parking-vector-illustration-d-interior-design-with-automobile-cars-parked-indoor-1802695636.jpg')"></div>
                 <div class="item-content center-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>
-                    <h3>Chang Jui Fang Indonesia</h3>
+                    <h3>Boking Parkir</h3>
                     <h5 class="light white-text">Ceramic Manufacturer, Importer & Distributor</h5>
                 </div>
             </div>
             <div class="carousel-item" href="#two!">
-                <div class="bg" style="background-image: url('mobile/images/full-3.jpeg')"></div>
+                <div class="bg" style="background-image: url('https://image.shutterstock.com/shutterstock/photos/1931330360/display_1500/stock-vector-panoramic-view-of-urban-underground-car-park-full-of-parked-autos-basement-garage-interior-with-1931330360.jpg')"></div>
                 <div class="item-content left-align white-text">
                     <div class="spacer-xlarge"></div>
                     <div class="spacer-xlarge"></div>
-                    <h3>DISAIN INSPIRASI</h3>
+                    <h3>Lokasi Aman</h3>
                     <h5 class="light white-text">Temukan koleksi keramik yang akan menginspirasi anda...</h5>
                 </div>
             </div>
-            <div class="carousel-item" href="#three!">
-                <div class="bg" style="background-image: url('mobile/images/full-2.jpeg')"></div>
-                <div class="item-content center-align white-text">
-                    <div class="spacer-xlarge"></div>
-                    <div class="spacer-xlarge"></div>
-                    <h3>Produk Baru</h3>
-                    <h5 class="light white-text">Koleksi produk terbaru disini...</h5>
-                </div>
-            </div>
-            <div class="carousel-item" href="#four!">
-                <div class="bg" style="background-image: url('mobile/images/full-1.jpeg')"></div>
-                <div class="item-content right-align white-text">
-                    <div class="spacer-xlarge"></div>
-                    <div class="spacer-xlarge"></div>
-                    <h3>Produksi Ramah Lingkungan</h3>
-                    <h5 class="light white-text">Bagaimana CJFI melestarikan lingkungan...</h5>
-                </div>
-            </div>
-            
         </div>
     </div>
 
     <div class="center index-start">
-        <a href="/mobile/home" class='waves-effect waves-light btn green lighten-2 btn-large bg-primary'> Get Started</a> 
+        <a href="/m/home" class='waves-effect waves-light btn green lighten-2 btn-large bg-primary'> Get Started</a>
     </div>
 
     <!-- PWA Service Worker Code -->

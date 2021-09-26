@@ -1,7 +1,7 @@
 @php
 	$headerClass = (!empty($headerInverse)) ? 'navbar-inverse ' : 'navbar-default ';
 	$headerMenu = (!empty($headerMenu)) ? $headerMenu : '';
-	$headerMegaMenu = (!empty($headerMegaMenu)) ? $headerMegaMenu : ''; 
+	$headerMegaMenu = (!empty($headerMegaMenu)) ? $headerMegaMenu : '';
 	$headerTopMenu = (!empty($headerTopMenu)) ? $headerTopMenu : '';
 @endphp
 <!-- begin #header -->
@@ -48,9 +48,9 @@
 		@endif
 	</div>
 	<!-- end navbar-header -->
-	
+
 	@includeWhen($headerMegaMenu, 'includes.header-mega-menu')
-	
+
 	<!-- begin header-nav -->
 	<ul class="navbar-nav navbar-right">
 		<li class="navbar-form">
@@ -141,7 +141,7 @@
 		@endisset
 		<li class="dropdown navbar-user">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				<img src="/assets/img/user/user-13.jpg" alt="" /> 
+				<img src="/assets/img/user/user-13.jpg" alt="" />
 				<span class="d-none d-md-inline">{{Auth::user()->name}}</span> <b class="caret"></b>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right">
@@ -150,7 +150,7 @@
 				<a href="javascript:;" class="dropdown-item">Calendar</a>
 				<a href="javascript:;" class="dropdown-item">Setting</a>
 				<div class="dropdown-divider"></div>
-				<a href="javascript:;" class="dropdown-item">Log Out</a>
+				<a href="/logout" class="dropdown-item">Log Out</a>
 			</div>
 		</li>
 		@if($sidebarTwo)

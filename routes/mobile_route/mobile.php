@@ -10,6 +10,10 @@ Route::prefix('m')->group(function(){
     Route::get('boking-lantai/{id}',[MobileController::class, 'show_lantai']);
     Route::get('boking-slot/{id}',[MobileController::class, 'boking_slot']);
     Route::get('boking-list-user/{id}',[MobileController::class, 'getUserDateBoking']);
+    
+    Route::get('masuk/{barcode}',[MobileController::class, 'masuk']);
+Route::get('keluar/{barcode}',[MobileController::class, 'keluar']);
+
 
     // Route::post('/set_session',[MobileController::class, 'set_session']);
 });

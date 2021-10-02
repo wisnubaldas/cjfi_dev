@@ -2,6 +2,8 @@
 namespace App\Traits;
 use App\Models\StatusBoking;
 use App\Models\UserBoking;
+use App\Models\AlatBarcode;
+
 use Carbon\Carbon;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 trait MobileTrait
@@ -30,7 +32,7 @@ trait MobileTrait
         $boking = new UserBoking();
         $boking->user_id = $data['user_id'];
         $boking->status_boking_id = $data['status_boking_id'];
-        $boking->masuk = Carbon::parse($data['masuk']);
+        $boking->date_boking = Carbon::parse($data['masuk']);
         $boking->qr = $data['qr'];
         $boking->save();
 
@@ -50,8 +52,24 @@ trait MobileTrait
     {
         return UserBoking::with('status_boking')
         ->where('void', '=', 0)
-        ->where('user_id', '=', $id)->paginate(10);
+        ->where('user_id', '=', $id)
+        ->whereNull('masuk')
+        ->whereNull('keluar')
+        ->orderBy('date_boking')
+        ->paginate(10);
     }
-    
+    public static function mobilMasuk($barcode)
+    {
+        AlatBarcode::insert([
+            'barcode'=>$barcode,
+            'status'=>1
+        ]);
+        UserBoking::where('qr',$barcode)->update(['masuk'=>Carbon::parse('now')]);
+    }
+    public static function mobilKeluar($barcode)
+    {
+        AlatBarcode::where('barcode',$barcode)->update(['status'=>0]);
+        UserBoking::where('qr',$barcode)->update(['keluar'=>Carbon::parse('now')]);
+    }
 
 }

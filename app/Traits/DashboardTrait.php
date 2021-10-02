@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\UserBoking;
+use App\Models\StatusBoking;
     
 trait DashboardTrait
 {
@@ -13,6 +14,7 @@ trait DashboardTrait
     {
         $this->user_boking = new UserBoking;
     }
+    
     public function jmlBoking()
     {
         $this->boot();

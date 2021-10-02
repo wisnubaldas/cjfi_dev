@@ -33,11 +33,16 @@ class UserBokingSeeder extends Seeder
             $id_lokasi = $faker->numberBetween(1, 50);
         } elseif($date->year == '2021') {
             $dateBoking = $date->format('Y-m-d H:i:s');
-            $masuk = $date->add($faker->randomNumber([3,10]),'day')->format('Y-m-d H:i:s');
+            $user_id = $faker->numberBetween(1, 50);
+            $masuk = null;
+                $cekMasuk = UserBoking::where('user_id',$user_id)->where('date_boking',$dateBoking)->first();
+                if(!$cekMasuk || !$cekMasuk->masuk)
+                {
+                    $masuk = $date->add($faker->randomNumber([3,10]),'day')->format('Y-m-d H:i:s');
+                }
             $keluar = null;
             $void = 0;
             $id_lokasi = $faker->numberBetween(1, 25);
-            $user_id = $faker->numberBetween(1, 50);
         }else{
             $dateBoking = $date->format('Y-m-d H:i:s');
             $masuk = null;

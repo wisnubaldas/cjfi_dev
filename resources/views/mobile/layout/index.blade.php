@@ -2,7 +2,7 @@
 <html class=" ">
 
 <head>
-    <!-- 
+    <!--
          * @Package: Zak mobile App
          * @Author: themepassion
          * @Version: 1.0
@@ -52,7 +52,7 @@
     <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
     <!-- CORE CSS TEMPLATE - START -->
-    <link href="/mobile/css/style-teal.css" type="text/css" rel="stylesheet" media="screen,projection"
+    <link href="/mobile/css/style-red.css" type="text/css" rel="stylesheet" media="screen,projection"
         id="main-style" />
     <!-- CORE CSS TEMPLATE - END -->
 </head>
@@ -60,9 +60,14 @@
 
 <!-- BEGIN BODY -->
 
-<body class="html" data-header="colored" data-footer="dark" data-header_align="app" data-menu_type="left"
-    data-menu="colored" data-menu_icons="on" data-footer_type="center" data-site_mode="dark" data-footer_menu="show"
-    data-footer_menu_style="colored">
+<body class="html"
+    data-header="colored"
+    data-footer="dark" data-header_align="app"
+    data-menu_type="left"
+    data-menu="colored"
+    data-menu_icons="on"
+    data-site_mode="dark"
+    data-footer_menu_style="dark">
     <div class="preloader-background">
         <div class="preloader-wrapper">
             <div id="preloader"></div>
@@ -72,39 +77,24 @@
     @include('mobile.layout.nav')
     @include('mobile.layout.sidebar')
     @yield('content')
-    @include('mobile.layout.footer')
+    @if ($footer)
+        @include('mobile.layout.footer')
+    @else
+    <footer class="page-footer">
+        <div class="footer-copyright">
+          <div class="container">
+          © Copyright <a class="" href="https://themeforest.net/user/themepassion/portfolio">Themepassion</a>. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    @endif
 
     <div class="backtotop">
         <a class="btn-floating btn primary-bg">
             <i class="mdi mdi-chevron-up"></i>
         </a>
     </div>
-    <div class="footer-menu">
-        <ul>
-            <li>
-                <a href="#"> <i class="mdi mdi-open-in-app"></i>
-                    <span>Apps</span>
-                </a> </li>
-            <li>
-                <a href="#"> <i class="mdi mdi-shape-outline"></i>
-                    <span>Pages</span>
-                </a> </li>
-            <li>
-                <a href="#"> <i class="mdi mdi-home-outline"></i>
-                    <span>Home</span>
-                </a> </li>
-            <li>
-                <a href="#"> <i class="mdi mdi-laptop"></i>
-                    <span>UI</span>
-                </a> </li>
-            <li>
-                <a href="#"> <i class="mdi mdi-flask-outline"></i>
-                    <span>Components</span>
-                </a> </li>
-
-        </ul>
-    </div>
-
+    @include('mobile.layout.footer-menu')
     <!-- PWA Service Worker Code -->
 
     <script type="text/javascript">
@@ -141,7 +131,7 @@
 
     <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
     <script type="text/javascript">
-    
+
         $(document).ready(function () {
             $.ajaxSetup({
                 headers: {

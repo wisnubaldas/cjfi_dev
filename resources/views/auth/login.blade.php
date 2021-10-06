@@ -10,8 +10,8 @@
 			<!-- begin login-header -->
 			<div class="login-header">
 				<div class="brand">
-					<b>CJFI</b>
-					<small>Chang Jui Fang Indonesia</small>
+					<b>BOKING</b>
+					<small>Boking Parkir Gedung</small>
 				</div>
 				<div class="icon">
 					<i class="fa fa-lock"></i>
@@ -41,13 +41,14 @@
                             @enderror
 						</div>
 						<div class="checkbox checkbox-css m-b-20">
-							<input type="checkbox" id="remember_checkbox" /> 
+							<input type="checkbox" id="remember_checkbox" />
 							<label for="remember_checkbox">
 							Remember Me
 							</label>
 						</div>
 						<div class="login-buttons">
 							<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+							<a href="/register" class="btn btn-warning btn-block btn-lg">Register</a>
 						</div>
 					</form>
 				</div>

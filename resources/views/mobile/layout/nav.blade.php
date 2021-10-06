@@ -1,18 +1,18 @@
 <nav class="fixedtop topbar navigation" role="navigation">
     <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class=" brand-logo ">CJFI</a>
-                <!-- <ul class="right hide-on-med-and-down">
+        <a id="logo-container" href="#" class=" brand-logo ">BKP</a>
+        <!-- <ul class="right hide-on-med-and-down">
             <li><a href="#">Navbar Link</a></li>
         </ul> -->
 
-                <!-- <ul id="nav-mobile" class="sidenav">
+        <!-- <ul id="nav-mobile" class="sidenav">
             <li><a href="#">Navbar Link</a></li>
         </ul> -->
         <a href="#" data-target="" class="waves-effect waves-circle navicon back-button htmlmode show-on-large "><i
                 class="mdi mdi-chevron-left" data-page=""></i></a>
 
-        <a href="#" data-target="slide-nav"
-            class="waves-effect waves-circle navicon sidenav-trigger show-on-large"><i class="mdi mdi-menu"></i></a>
+        <a href="#" data-target="slide-nav" class="waves-effect waves-circle navicon sidenav-trigger show-on-large"><i
+                class="mdi mdi-menu"></i></a>
 
         {{-- <a href="#" data-target="slide-settings"
             class="waves-effect waves-circle navicon right sidenav-trigger show-on-large pulse"><i

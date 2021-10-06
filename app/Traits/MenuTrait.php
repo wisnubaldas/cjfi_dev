@@ -4,7 +4,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
-trait MenuTrait 
+trait MenuTrait
 {
     public static function data()
     {
@@ -17,51 +17,15 @@ trait MenuTrait
                     'url' => '/home'
                 ],
                 [
-                    'icon' => 'ion-ios-color-filter bg-indigo',
-                    'title' => 'Slider',
-                    'url' => '/slider/create',
+                    'icon' => 'ion-ios-car bg-gradient-purple',
+                    'title' => 'Slot Parkir',
+                    'url' => '/home/slot-mobil'
                 ],
                 [
-                    'icon' => 'ion-ios-color-filter bg-indigo',
-                    'title' => 'Desain Inspirasi',
-                    'url' => '/desain_inspirasi',
+                    'icon' => 'ion-ios-car bg-gradient-blue',
+                    'title' => 'Status Boking',
+                    'url' => '/home/status-boking'
                 ],
-                [
-                    'icon' => 'ion-ios-color-filter bg-indigo',
-                    'title' => 'Produk Baru',
-                    'url' => '/produk_baru',
-                ],
-                [
-                    'icon' => 'fab fa-simplybuilt bg-gradient-aqua',
-                    'title' => 'Brand',
-                    'url' => 'javascript:;',
-                    'caret' => true,
-                    'sub_menu' => [[
-                        'url' => '/brand',
-                        'title' => 'Data Grid'
-                    ],
-                    [
-                        'url' => '/brand/create',
-                        'title' => 'Create'
-                    ]]
-                ],
-                    [
-                        'icon' => 'fas fa-cookie-bite bg-gradient-green',
-                        'title' => 'Product',
-                        'url' => 'javascript:;',
-                        'caret' => true,
-                        'sub_menu' => [[
-                            'url' => '/product',
-                            'title' => 'Data Grid'
-                        ],
-                        [
-                            'url' => '/product/create',
-                            'title' => 'Create Product'
-                        ],[
-                            'url' => '/product-image/create',
-                            'title' => 'Create Image'
-                        ]]
-                    ]
             ]
         ];
     }

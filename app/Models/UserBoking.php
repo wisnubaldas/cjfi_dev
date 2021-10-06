@@ -12,4 +12,9 @@ class UserBoking extends Model
     {
         return $this->hasOne(StatusBoking::class,'id','status_boking_id');
     }
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','user_id');
+
+    }
 }

@@ -20,7 +20,64 @@
 <!-- begin page-header -->
 <h1 class="page-header">Slot Parkir Kosong</h1>
 <!-- end page-header -->
-@dump($parkiran)
+<div class="row">
+    <!-- begin col-12 -->
+    <div class="col-xl-12">
+        <!-- begin nav-tabs -->
+        <ul class="nav nav-tabs">
+            @foreach($parkiran as $i => $p)
+            <li class="nav-item">
+                <a href="#default-tab-{{$i}}" data-toggle="tab" class="nav-link {{($loop->index == 0)?'active':''}}">
+                    <span class="d-sm-none">{{$i}}</span>
+                    <span class="d-sm-block d-none">Lantai {{$i}}</span>
+                </a>
+            </li>
+            @endforeach
+        </ul>
+        <!-- end nav-tabs -->
+
+        <!-- begin tab-content -->
+        <div class="tab-content">
+            @foreach($parkiran as $i => $p)
+            <!-- begin tab-pane -->
+            <div class="tab-pane fade {{($loop->index == 0)?'active show':''}}" id="default-tab-{{$i}}">
+                <div class="row">
+                    @foreach($p as $v)
+                    <div class="col-3">
+                        <!-- begin card -->
+                        <div
+                            class="card text-black border-0 {{(count($v->user_boking)>0)?'bg-danger':'bg-success'}}  text-center m-b-10">
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <h5>{{$v->lantai}} - {{$v->slot}}</h5>
+                                    <i class="fas fa-lg fa-fw fa-5x text-white fa-car"></i>
+                                    @if(count($v->user_boking) > 0)
+                                    <h5>
+                                        {{strtoupper($v->user_boking[0]->user->no_kendaraan)}}<br>
+                                        {{$v->user_boking[0]->date_boking}} ({{$v->user_boking[0]->qr}})<br>
+                                    </h5>
+                                    @else
+                                    <h5>Slot Kosong <br>
+                                        Dapat diisi</h5>
+                                    @endif
+                                </blockquote>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                    </div>
+                    @endforeach
+                </div>
+
+            </div>
+            @endforeach
+            <!-- end tab-pane -->
+        </div>
+        <!-- end tab-content -->
+    </div>
+    <!-- end col-12 -->
+</div>
+
+<!-- @dump($parkiran) -->
 @endsection
 
 @push('scripts')

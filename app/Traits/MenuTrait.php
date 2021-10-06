@@ -18,8 +18,13 @@ trait MenuTrait
                 ],
                 [
                     'icon' => 'ion-ios-car bg-gradient-purple',
-                    'title' => 'Status Boking',
+                    'title' => 'Slot Parkir',
                     'url' => '/home/slot-mobil'
+                ],
+                [
+                    'icon' => 'ion-ios-car bg-gradient-blue',
+                    'title' => 'Status Boking',
+                    'url' => '/home/status-boking'
                 ],
             ]
         ];

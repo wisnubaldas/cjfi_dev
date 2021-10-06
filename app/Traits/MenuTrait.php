@@ -16,6 +16,16 @@ trait MenuTrait
                     'label' => 'Dashboard',
                     'url' => '/home'
                 ],
+                [
+                    'icon' => 'ion-ios-car bg-gradient-purple',
+                    'title' => 'Slot Parkir',
+                    'url' => '/home/slot-mobil'
+                ],
+                [
+                    'icon' => 'ion-ios-car bg-gradient-blue',
+                    'title' => 'Status Boking',
+                    'url' => '/home/status-boking'
+                ],
             ]
         ];
     }

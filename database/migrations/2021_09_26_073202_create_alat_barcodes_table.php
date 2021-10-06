@@ -15,6 +15,7 @@ class CreateAlatBarcodesTable extends Migration
     {
         Schema::create('alat_barcodes', function (Blueprint $table) {
             $table->id();
+            $table->string('barcode');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

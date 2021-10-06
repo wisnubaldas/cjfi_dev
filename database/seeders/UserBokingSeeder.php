@@ -30,21 +30,28 @@ class UserBokingSeeder extends Seeder
             $keluar = $date->add($faker->randomNumber([11,40]),'day')->format('Y-m-d H:i:s');
             $void = 1;
             $user_id = $faker->numberBetween(1, 30);
-            $id_lokasi = $faker->numberBetween(1, 50);
+            $id_lokasi = $faker->numberBetween(1, 75);
         } elseif($date->year == '2021') {
             $dateBoking = $date->format('Y-m-d H:i:s');
-            $masuk = $date->add($faker->randomNumber([3,10]),'day')->format('Y-m-d H:i:s');
+            $id_lokasi = $faker->numberBetween(1, 75);
+            $user_id = $faker->numberBetween(1, 30);
+            $masuk = null;
+                $cekMasuk = UserBoking::where('user_id',$user_id)
+                            ->where('date_boking',$dateBoking)
+                            ->first();
+                if(!$cekMasuk || !$cekMasuk->masuk)
+                {
+                    $masuk = $date->add($faker->randomNumber([3,10]),'day')->format('Y-m-d H:i:s');
+                }
             $keluar = null;
             $void = 0;
-            $id_lokasi = $faker->numberBetween(1, 25);
-            $user_id = $faker->numberBetween(1, 50);
         }else{
             $dateBoking = $date->format('Y-m-d H:i:s');
             $masuk = null;
             $keluar = null;
             $void = 0;
-            $id_lokasi = $faker->numberBetween(1, 25);
-            $user_id = $faker->numberBetween(1, 50);
+            $id_lokasi = $faker->numberBetween(1, 75);
+            $user_id = $faker->numberBetween(1, 30);
         }
 
         $x = Carbon::parse($date);
@@ -57,6 +64,6 @@ class UserBokingSeeder extends Seeder
             $boking->date_boking = $dateBoking;
             $boking->qr = $faker->isbn13;
             $boking->save();
-        }
+        } // end loo[p]
     }
 }

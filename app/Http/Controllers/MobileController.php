@@ -58,4 +58,12 @@ class MobileController extends Controller
     {
         return MobileTrait::listBokingUser($status_boking_id);
     }
+    public function masuk($barcode)
+    {
+       return MobileTrait::mobilMasuk($barcode);
+    }
+    public function keluar($barcode)
+    {
+        return MobileTrait::mobilKeluar($barcode);
+    }
 }

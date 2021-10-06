@@ -6,11 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
 use App\Traits\DashboardTrait as dashboard;
-use App\Traits\MobilParkirTrait;
 
 class HomeController extends Controller
 {
-    use dashboard, MobilParkirTrait;
+    use dashboard;
     public function __construct()
     {
         $this->middleware('auth');

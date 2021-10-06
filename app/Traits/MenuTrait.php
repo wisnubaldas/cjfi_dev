@@ -17,15 +17,21 @@ trait MenuTrait
                     'url' => '/home'
                 ],
                 [
-                    'icon' => 'ion-ios-car bg-gradient-purple',
-                    'title' => 'Slot Parkir',
-                    'url' => '/home/slot-mobil'
-                ],
-                [
-                    'icon' => 'ion-ios-car bg-gradient-blue',
-                    'title' => 'Status Boking',
-                    'url' => '/home/status-boking'
-                ],
+                    	'icon' => 'fa fa-hdd',
+                    	'title' => 'Email',
+                    	'url' => 'javascript:;',
+                    	'badge' => '10',
+                    	'sub_menu' => [[
+                    		'url' => '/email/inbox',
+                    		'title' => 'Inbox'
+                    	],[
+                    		'url' => '/email/compose',
+                    		'title' => 'Compose'
+                    	],[
+                    		'url' => '/email/detail',
+                    		'title' => 'Detail'
+                    	]]
+                    ],
             ]
         ];
     }

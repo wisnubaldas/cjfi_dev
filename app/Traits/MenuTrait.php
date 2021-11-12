@@ -18,14 +18,14 @@ trait MenuTrait
                 ],
                 [
                     'icon' => 'ion-ios-car bg-gradient-purple',
-                    'title' => 'Slot Parkir',
-                    'url' => '/home/slot-mobil'
+                    'title' => 'Status Panel',
+                    'url' => '/home/status-panel'
                 ],
-                [
-                    'icon' => 'ion-ios-car bg-gradient-blue',
-                    'title' => 'Status Boking',
-                    'url' => '/home/status-boking'
-                ],
+                // [
+                //     'icon' => 'ion-ios-car bg-gradient-blue',
+                //     'title' => 'Status Boking',
+                //     'url' => '/home/status-boking'
+                // ],
             ]
         ];
     }

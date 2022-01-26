@@ -4,11 +4,12 @@ name: default
 
 steps:
 - name: install
-  image: composer
+  image: php:7.4.27-fpm
   commands:
+  - /bin/bash install_composer.sh
   - composer install
 
 - name: test
-  image: php:7.4.0-fpm-alpine
+  image: php:7.4.27-fpm
   commands:
   - vendor/bin/phpunit --configuration phpunit.xml

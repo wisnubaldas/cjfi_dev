@@ -6,8 +6,8 @@ steps:
 - name: docker  
   image: plugins/docker
   settings:
-    username: wisnubaldas
-    password: wisnubaldas1978
+    username: ${DOCKER_USER}
+    password: ${DOCKER_PASSWORD}
     repo: wisnubaldas/cjfi_dev
     tags:
       - latest

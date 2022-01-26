@@ -11,13 +11,7 @@ steps:
     repo: wisnubaldas/cjfi_dev
     tags:
       - latest
-    dockerfile: Dockerfile
-# - name: install
-#   image: php:7.4.2-apache-buster
-#   commands:
-#   - /bin/sh install.sh
-#   - composer --version
-#   - composer install
+    # dockerfile: Dockerfile
 
 - name: test
   image: wisnubaldas/cjfi_dev

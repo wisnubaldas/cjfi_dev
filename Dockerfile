@@ -79,3 +79,4 @@ RUN a2enmod rewrite headers
 
 # Cleanup
 RUN rm -rf /usr/src/*
+COPY . /var/www/html

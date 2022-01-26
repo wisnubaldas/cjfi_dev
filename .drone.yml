@@ -11,9 +11,10 @@ steps:
      bash -c "
         apt-get update
         apt-get install wget
-        wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
       "
-  - composer --version
+  - >
+     wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
+  # - composer --version
   # - composer install
 
 - name: test

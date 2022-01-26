@@ -6,7 +6,8 @@ steps:
 - name: install
   image: prooph/composer:7.4-zts
   commands:
-  - php -v
+  # - php -v
+  - /bin/bash install.sh
   - composer --version
   - composer install
 

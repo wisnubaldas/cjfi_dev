@@ -3,14 +3,23 @@ type: docker
 name: default
 
 steps:
-- name: install
-  image: php:7.4.2-apache-buster
-  commands:
-  - /bin/sh install.sh
-  - composer --version
-  - composer install
+- name: docker  
+  image: plugins/docker
+  settings:
+    username: wisnubaldas
+    password: wisnubaldas1978
+    repo: wisnubaldas/cjfi_dev
+    tags:
+      - latest
+    dockerfile: Dockerfile
+# - name: install
+#   image: php:7.4.2-apache-buster
+#   commands:
+#   - /bin/sh install.sh
+#   - composer --version
+#   - composer install
 
 - name: test
-  image: php:7.4.27-fpm
+  image: wisnubaldas/cjfi_dev
   commands:
   - vendor/bin/phpunit --configuration phpunit.xml

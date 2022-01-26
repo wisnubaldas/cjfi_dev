@@ -9,8 +9,7 @@ steps:
     username: ${DOCKER_USER}
     password: ${DOCKER_PASSWORD}
     repo: wisnubaldas/cjfi_dev
-    tags:
-      - latest
+    tags: latest
     # dockerfile: Dockerfile
 
 - name: test

@@ -7,7 +7,7 @@ steps:
   image: php:7.4.27-fpm
   commands:
   - /bin/bash install_composer.sh
-  - composer install
+  # - composer install
 
 - name: test
   image: php:7.4.27-fpm

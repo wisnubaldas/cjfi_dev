@@ -9,6 +9,6 @@ steps:
   - composer install
 
 - name: test
-  image: php:latest
+  image: php:7.4.0-fpm-alpine
   commands:
   - vendor/bin/phpunit --configuration phpunit.xml

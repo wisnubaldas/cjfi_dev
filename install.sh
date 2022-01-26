@@ -1,14 +1,14 @@
 #!/bin/sh
 
 # Update
-RUN apt-get -y update --fix-missing && \
+apt-get -y update --fix-missing && \
     apt-get upgrade -y && \
     apt-get --no-install-recommends install -y apt-utils && \
     rm -rf /var/lib/apt/lists/*
 
 
 # Install useful tools and install important libaries
-RUN apt-get -y update && \
+apt-get -y update && \
     apt-get -y --no-install-recommends install nano wget \
 dialog \
 libsqlite3-dev \
@@ -30,7 +30,7 @@ openssl && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install xdebug
-RUN pecl install xdebug-2.8.0 && \
+pecl install xdebug-2.8.0 && \
     docker-php-ext-enable xdebug
 
 # Install redis
@@ -38,7 +38,7 @@ RUN pecl install xdebug-2.8.0 && \
 #     docker-php-ext-enable redis
 
 # Install imagick
-RUN apt-get update && \
+apt-get update && \
     apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
     rm -rf /var/lib/apt/lists/* && \
     pecl install imagick && \
@@ -46,7 +46,7 @@ RUN apt-get update && \
 
 # Other PHP7 Extensions
 
-RUN docker-php-ext-install pdo_mysql && \
+docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_sqlite && \
     docker-php-ext-install mysqli && \
     docker-php-ext-install curl && \
@@ -61,7 +61,7 @@ RUN docker-php-ext-install pdo_mysql && \
 
 
 # Install Freetype 
-RUN apt-get -y update && \
+apt-get -y update && \
     apt-get --no-install-recommends install -y libfreetype6-dev \
 libjpeg62-turbo-dev \
 libpng-dev && \
@@ -70,7 +70,7 @@ libpng-dev && \
     docker-php-ext-install gd
 
 # Enable apache modules
-RUN a2enmod rewrite headers
+a2enmod rewrite headers
 
 # Cleanup
-RUN rm -rf /usr/src/*
+rm -rf /usr/src/*

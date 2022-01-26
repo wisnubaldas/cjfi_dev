@@ -4,9 +4,8 @@ name: default
 
 steps:
 - name: install
-  image: prooph/composer:7.4-zts
+  image: php:7.4.2-apache-buster
   commands:
-  # - php -v
   - /bin/sh install.sh
   - composer --version
   - composer install

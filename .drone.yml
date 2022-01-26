@@ -8,7 +8,7 @@ steps:
   commands:
   - php -v
   - composer --version
-  # - composer install
+  - composer install
 
 - name: test
   image: php:7.4.27-fpm

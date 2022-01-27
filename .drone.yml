@@ -13,7 +13,7 @@ steps:
     # dockerfile: Dockerfile
 
 - name: install
-  image: docker-compose-lamp_webserver
+  image: wisnubaldas/cjfi_dev
   commands:
   - php -v
   - composer --version

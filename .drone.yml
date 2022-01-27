@@ -12,7 +12,7 @@ steps:
   commands:
   - php -v
   - composer --version
-  - rm /var/www/html/index.html
+  - ls -l
   - composer install
 
 

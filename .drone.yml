@@ -3,14 +3,20 @@ type: docker
 name: default
 
 steps:
-- name: docker  
-  image: plugins/docker
-  settings:
-    username: ${DOCKER_USERNAME}
-    password: ${DOCKER_PASSWORD}
-    repo: wisnubaldas/cjfi_dev
-    tags: latest
+# - name: docker  
+#   image: plugins/docker
+#   settings:
+#     username: ${DOCKER_USERNAME}
+#     password: ${DOCKER_PASSWORD}
+#     repo: wisnubaldas/cjfi_dev
+#     tags: latest
     # dockerfile: Dockerfile
+
+- name: install
+  image: docker-compose-lamp_webserver
+  commands:
+  - php -v
+  - composer --version
 
 # - name: test
 #   image: wisnubaldas/cjfi_dev

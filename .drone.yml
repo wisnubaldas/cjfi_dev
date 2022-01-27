@@ -2,22 +2,19 @@ kind: pipeline
 type: docker
 name: default
 
-steps:
-# - name: docker  
-#   image: plugins/docker
-#   settings:
-#     username: ${DOCKER_USERNAME}
-#     password: ${DOCKER_PASSWORD}
-#     repo: wisnubaldas/cjfi_dev
-#     tags: latest
-    # dockerfile: Dockerfile
+workspace:
+  path: /var/www/html/
 
+steps:
 - name: install
   image: wisnubaldas/cjfi_dev:latest
   pull: if-not-exists
   commands:
   - php -v
   - composer --version
+  - rm /var/www/html/index.html
+  - composer install
+
 
 # - name: test
 #   image: wisnubaldas/cjfi_dev

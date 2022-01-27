@@ -12,7 +12,7 @@ steps:
     tags: latest
     # dockerfile: Dockerfile
 
-- name: test
-  image: wisnubaldas/cjfi_dev
-  commands:
-  - vendor/bin/phpunit --configuration phpunit.xml
+# - name: test
+#   image: wisnubaldas/cjfi_dev
+#   commands:
+#   - vendor/bin/phpunit --configuration phpunit.xml

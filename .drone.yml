@@ -13,7 +13,8 @@ steps:
     # dockerfile: Dockerfile
 
 - name: install
-  image: wisnubaldas/cjfi_dev
+  image: wisnubaldas/cjfi_dev:latest
+  pull: if-not-exists
   commands:
   - php -v
   - composer --version

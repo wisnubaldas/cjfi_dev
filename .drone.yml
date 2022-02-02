@@ -14,9 +14,8 @@ steps:
   - composer --version
   - ls -l
   - composer install
-
-
-# - name: test
-#   image: wisnubaldas/cjfi_dev
-#   commands:
-#   - vendor/bin/phpunit --configuration phpunit.xml
+  
+- name: test
+  image: wisnubaldas/cjfi_dev
+  commands:
+  - vendor/bin/phpunit --configuration phpunit.xml

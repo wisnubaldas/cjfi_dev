@@ -16,6 +16,7 @@ use Jenssegers\Agent\Agent;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index']);
 // Corerong::include_route_files(__DIR__.'/front_route/');
 Corerong::include_route_files(__DIR__.'/mobile_route/');

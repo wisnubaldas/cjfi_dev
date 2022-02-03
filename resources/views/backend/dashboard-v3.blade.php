@@ -16,7 +16,7 @@
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
-<h1 class="page-header mb-3">Dashboard Monitoring Boking Parkir</h1>
+<h1 class="page-header mb-3">Dashboard </h1>
 <!-- end page-header -->
 <!-- begin daterange-filter -->
 <div class="d-sm-flex align-items-center mb-3">

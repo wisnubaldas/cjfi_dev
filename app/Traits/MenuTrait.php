@@ -17,6 +17,7 @@ trait MenuTrait
                     'url' => '/home'
                 ],
                 [
+
                     	'icon' => 'fa fa-hdd',
                     	'title' => 'Email',
                     	'url' => 'javascript:;',

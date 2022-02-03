@@ -53,7 +53,7 @@
                         <!-- end title -->
                         <!-- begin total-sales -->
                         <div class="d-flex mb-1">
-                            <h2 class="mb-0"><span data-animation="number" data-value="{{$jml_boking}}">0.00</span></h2>
+                            <h2 class="mb-0"><span data-animation="number" data-value="99">0.00</span></h2>
                             <div class="ml-auto mt-n1 mb-n1">
                                 <div id="total-sales-sparkline"></div>
                             </div>
@@ -71,7 +71,7 @@
                             <!-- begin col-6 -->
                             <div class="col-6">
                                 <div class="f-s-12 text-grey">Total Mobil Parkir</div>
-                                <div class="f-s-18 m-b-5 f-w-600 p-b-1" data-animation="number" data-value="{{$mobil_parkir}}">0
+                                <div class="f-s-18 m-b-5 f-w-600 p-b-1" data-animation="number" data-value="0">0
                                 </div>
                                 <div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
                                     <div class="progress-bar progress-bar-striped rounded-right bg-teal"
@@ -83,7 +83,7 @@
                             <div class="col-6">
                                 <div class="f-s-12 text-grey">Total Mobil Keluar</div>
                                 <div class="f-s-18 m-b-5 f-w-600 p-b-1"><span data-animation="number"
-                                        data-value="{{$mobil_keluar}}">0.00</span></div>
+                                        data-value="90">0.00</span></div>
                                 <div class="progress progress-xs rounded-lg bg-dark-darker m-b-5">
                                     <div class="progress-bar progress-bar-striped rounded-right" data-animation="width"
                                         data-value="55%" style="width: 0%"></div>
@@ -141,22 +141,7 @@
                                 data-value="0.50">0.00</span>% compare to last week
                         </div>
                         <!-- end percentage -->
-                        @foreach($data_chart['perTahun'] as $i => $d)
-                            <!-- begin info-row -->
-                            <div class="d-flex mb-2">
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-circle text-red f-s-8 mr-2"></i>
-                                    {{$i}}
-                                </div>
-                                <div class="d-flex align-items-center ml-auto">
-                                    <div class="text-grey f-s-11"><i class="fa fa-caret-up"></i> <span
-                                            data-animation="number" data-value="{{($d/100)}}">0</span>%</div>
-                                    <div class="width-50 text-right pl-2 f-w-600"><span data-animation="number"
-                                            data-value="{{$d}}">0.00</span></div>
-                                </div>
-                            </div>
-                            <!-- end info-row -->                            
-                        @endforeach
+                        
                         
                     </div>
                     <!-- end card-body -->

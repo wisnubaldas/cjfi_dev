@@ -16,19 +16,9 @@ use Jenssegers\Agent\Agent;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/', function () {
-//     $agent = new Agent();
-//     if($agent->isMobile())
-//     {
-//         return  view('mobile.landing');
-//     }
-//     return view('e-comerce.home');
-// });
-Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index'])->middleware('mobile');
 
-// Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');
-Corerong::include_route_files(__DIR__.'/front_route/');
-// Route::get('/',[App\Http\Controllers\MobileController::class, 'index'])->prefix('mobile')->name('mobile');
+Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index']);
+// Corerong::include_route_files(__DIR__.'/front_route/');
 Corerong::include_route_files(__DIR__.'/mobile_route/');
 Auth::routes();
 Route::middleware(['auth'])->group(function () {

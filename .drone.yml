@@ -1,0 +1,21 @@
+kind: pipeline
+type: docker
+name: default
+
+workspace:
+  path: /var/www/html/
+
+steps:
+- name: install
+  image: wisnubaldas/cjfi_dev:latest
+  pull: if-not-exists
+  commands:
+  - php -v
+  - composer --version
+  - ls -l
+  - composer install
+  
+- name: test
+  image: wisnubaldas/cjfi_dev
+  commands:
+  - vendor/bin/phpunit --configuration phpunit.xml

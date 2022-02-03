@@ -17,10 +17,10 @@ use Jenssegers\Agent\Agent;
 |
 */
 Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index']);
-Corerong::include_route_files(__DIR__.'\\front_route\\');
-Corerong::include_route_files(__DIR__.'\\mobile_route\\');
+// Corerong::include_route_files(__DIR__.'/front_route/');
+Corerong::include_route_files(__DIR__.'/mobile_route/');
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-    Corerong::include_route_files(__DIR__.'\\back_route\\');
+    Corerong::include_route_files(__DIR__.'/back_route/');
 });

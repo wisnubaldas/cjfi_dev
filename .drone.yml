@@ -1,0 +1,20 @@
+kind: pipeline
+type: docker
+name: default
+
+# workspace:
+#   path: /var/www/html/
+
+steps:
+- name: install
+  image: bitnami/laravel:latest
+  pull: if-not-exists
+  commands:
+  - php -v
+  - composer -v
+  - ls -l
+  
+# - name: test
+#   image: wisnubaldas/cjfi_dev
+#   commands:
+#   - vendor/bin/phpunit --configuration phpunit.xml

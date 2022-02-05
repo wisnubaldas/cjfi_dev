@@ -17,19 +17,9 @@ trait MenuTrait
                     'url' => '/home'
                 ],
                 [
-                    'icon' => 'ion-ios-color-filter bg-indigo',
-                    'title' => 'Slider',
-                    'url' => '/slider/create',
-                ],
-                [
-                    'icon' => 'ion-ios-color-filter bg-indigo',
-                    'title' => 'Desain Inspirasi',
-                    'url' => '/desain_inspirasi',
-                ],
-                [
-                    'icon' => 'ion-ios-color-filter bg-indigo',
-                    'title' => 'Produk Baru',
-                    'url' => '/produk_baru',
+                    'icon' => 'ion-ios-airplane bg-indigo',
+                    'title' => 'Flights',
+                    'url' => '/flights',
                 ],
                 [
                     'icon' => 'fab fa-simplybuilt bg-gradient-aqua',

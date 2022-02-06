@@ -18,6 +18,12 @@ steps:
   - php artisan key:generate
   - php artisan migrate
   - ./vendor/bin/phpunit
+
+- name: send telegram notification
+  image: appleboy/drone-telegram
+  settings:
+    token: 5218343885:AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
+    to: cjfi_ci_bot
   
 # - name: test
 #   image: wisnubaldas/cjfi_dev

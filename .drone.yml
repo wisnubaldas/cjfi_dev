@@ -14,9 +14,22 @@ steps:
   - composer --version
   - composer install
   - php artisan --version
-  - ls -l
+  - cp .env.example .env
+  - php artisan key:generate
+  - php artisan migrate
+  - ./vendor/bin/phpunit
   
 # - name: test
 #   image: wisnubaldas/cjfi_dev
 #   commands:
 #   - vendor/bin/phpunit --configuration phpunit.xml
+services:
+
+- name: mariadb
+  pull: if-not-exists
+  image: mariadb:latest
+  environment:
+    MARIADB_DATABASE: homestead
+    MARIADB_PASSWORD: secret
+    MARIADB_USER: homestead
+    MARIADB_ROOT_PASSWORD: secret

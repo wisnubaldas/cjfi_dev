@@ -36,4 +36,4 @@ services:
   environment:
     MYSQL_DATABASE: homestead
     MYSQL_ROOT_PASSWORD: mysql
-    MYSQL_ROOT_HOST: %
+    MYSQL_ROOT_HOST: '%'

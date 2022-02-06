@@ -11,7 +11,9 @@ steps:
   pull: if-not-exists
   commands:
   - php -v
-  - composer -v
+  - composer --version
+  - composer install
+  - php artisan --version
   - ls -l
   
 # - name: test

@@ -22,7 +22,7 @@ Route::get('/', function () {
     {
         return  view('mobile.landing');
     }
-    return view('e-comerce.home');
+    return view('cargo.home');
 });
 
 Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');

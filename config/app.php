@@ -230,7 +230,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
-        'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
 
     ],
 

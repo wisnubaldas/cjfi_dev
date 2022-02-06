@@ -15,7 +15,8 @@ class FlightController extends Controller
 
     public function index()
     {
-        $response = Http::get($this->uri.'&flight_status=scheduled');
-        return $response->json();
+        // $response = Http::get($this->uri.'&flight_status=scheduled');
+        // return $response->json();
+        return view('backend.flights.index');
     }
 }

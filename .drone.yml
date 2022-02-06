@@ -6,6 +6,12 @@ name: default
 #   path: /var/www/html/
 
 steps:
+- name: tes
+  image: mysql
+  commands:
+  - sleep 15
+  - mysql -u root -h database
+
 - name: install
   image: bitnami/laravel:latest
   pull: if-not-exists
@@ -18,12 +24,6 @@ steps:
   - php artisan key:generate
   - php artisan migrate
   - ./vendor/bin/phpunit
-
-- name: tes
-  image: mysql
-  commands:
-  - sleep 15
-  - mysql -u root -h database
 
 - name: send telegram notification
   image: appleboy/drone-telegram

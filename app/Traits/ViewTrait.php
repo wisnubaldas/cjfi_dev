@@ -6,6 +6,75 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 trait ViewTrait
 {
+    public static function cargo()
+    {
+        return View::share('cargo_menu', [
+            [
+                'name'=>'Indonesia',
+                'url'=>'#',
+                'status'=>'active',
+                'sub-menu'=>[
+                    [
+                        'name'=>'Satu',
+                        'code'=>'en',
+                        'status'=>'#',
+                        'url'=>'#',
+
+                    ],
+                    [
+                        'name'=>'Dua',
+                        'code'=>'en',
+                        'status'=>'#',
+                        'url'=>'#',
+
+                    ]
+                ]
+            ],
+            [
+                'name'=>'single',
+                'code'=>'en',
+                'status'=>'#',
+                'url'=>'#',
+                'sub-menu'=>[
+                    [
+                        'name'=>'m1',
+                        'code'=>'en',
+                        'status'=>'#',
+                        'url'=>'#',
+                        'sub-menu'=>[
+                            [
+                                'name'=>'m11',
+                                'code'=>'en',
+                                'status'=>'#',
+                                'url'=>'#',
+                                'sub-menu'=>[
+                                    [
+                                        'name'=>'m111',
+                                        'code'=>'en',
+                                        'status'=>'#',
+                                        'url'=>'#',
+                                    ],
+                                    [
+                                        'name'=>'m112',
+                                        'code'=>'en',
+                                        'status'=>'#',
+                                        'url'=>'#',
+                                    ]
+                                ]
+                            ]
+                        ]
+
+                    ],
+                    [
+                        'name'=>'m2',
+                        'code'=>'en',
+                        'status'=>'#',
+                        'url'=>'#',
+                    ]
+                ]
+            ]
+        ]);
+    }
     public static function locale_option()
     {
         return View::share('locale_option', [

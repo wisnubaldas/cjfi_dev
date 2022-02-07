@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Traits\ViewTrait;
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     // use ViewTrait;
@@ -25,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (View::exists('cargo.layout.menu')) {
+            ViewTrait::cargo();
+        }
+
         ViewTrait::locale_option();
         ViewTrait::breadcrum();
         Schema::defaultStringLength(191);

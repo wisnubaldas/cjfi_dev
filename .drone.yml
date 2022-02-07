@@ -2,66 +2,44 @@ kind: pipeline
 type: docker
 name: default
 
-steps:
-- name: test
-  image: mysql
-  commands:
-  - touch /var/run/mysqld/mysqld.sock
-  - touch /var/run/mysqld/mysqld.pid
-  - chown -R mysql:mysql /var/run/mysqld/mysqld.sock
-  - chown -R mysql:mysql /var/run/mysqld/mysqld.pid
-  - chmod -R 644 /var/run/mysqld/mysqld.sock
-  - sleep 15
-  - mysql -u root -h localhost --execute="SELECT VERSION();"
 
-services:
-- name: database
-  image: mysql
-  environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    MYSQL_DATABASE: test
 
 # workspace:
 #   path: /var/www/html/
 
-# steps:
-# - name: tes-connect
-#   image: mysql
-#   commands:
-#   - sleep 30
-#   - mysql -u root -h database
+steps:
 
-# - name: install
-#   image: bitnami/laravel:latest
-#   pull: if-not-exists
-#   commands:
-#   - php -v
-#   - composer --version
-#   - composer install
-#   - php artisan --version
-#   - cp .env.example .env
-#   - php artisan key:generate
-#   - php artisan migrate
-#   - ./vendor/bin/phpunit
+- name: install
+  image: bitnami/laravel:latest
+  pull: if-not-exists
+  commands:
+  - php -v
+  - composer --version
+  - composer install
+  - php artisan --version
+  - cp .env.example .env
+  - php artisan key:generate
+  - php artisan migrate
+  - ./vendor/bin/phpunit
 
-# - name: send telegram notification
-#   image: appleboy/drone-telegram
-#   settings:
-#     token: 5218343885:AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
-#     to: cjfi_ci_bot
+- name: send telegram notification
+  image: appleboy/drone-telegram
+  settings:
+    token: 5218343885:AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
+    to: cjfi_ci_bot
   
-# # - name: test
-# #   image: wisnubaldas/cjfi_dev
-# #   commands:
-# #   - vendor/bin/phpunit --configuration phpunit.xml
-# services:
-# - name: database
-#   pull: if-not-exists
-#   image: mysql
-#   environment:
-#     MYSQL_HOST: database
-#     MYSQL_DATABASE: test
-#     MYSQL_ALLOW_EMPTY_PASSWORD: yes
-#     MYSQL_USER: homestead
-#     MYSQL_PASSWORD: homestead
+# - name: test
+#   image: wisnubaldas/cjfi_dev
+#   commands:
+#   - vendor/bin/phpunit --configuration phpunit.xml
+services:
+- name: database
+  pull: if-not-exists
+  image: mysql:5.7.37
+  environment:
+    MYSQL_HOST: database
+    MYSQL_DATABASE: test
+    MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    MYSQL_USER: homestead
+    MYSQL_PASSWORD: homestead
 

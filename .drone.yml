@@ -22,7 +22,7 @@ steps:
   - php artisan key:generate
   - php artisan cek-koneksi
   - php artisan migrate
-  - ./vendor/bin/phpunit
+  # - ./vendor/bin/phpunit
 
 - name: send telegram notification
   image: appleboy/drone-telegram
@@ -35,7 +35,7 @@ steps:
        {{else}}
          build {{build.number}} failed. Fix me please.
        {{/success}}
-  
+
 # - name: test
 #   image: wisnubaldas/cjfi_dev
 #   commands:

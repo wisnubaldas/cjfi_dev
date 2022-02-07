@@ -10,7 +10,7 @@ steps:
   image: mysql
   commands:
   - sleep 30
-  - mysql -u homestead -phomestead -h database
+  - mysql -u root
 
 - name: install
   image: bitnami/laravel:latest

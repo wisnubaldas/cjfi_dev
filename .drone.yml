@@ -6,19 +6,18 @@ steps:
 - name: test
   image: mysql
   commands:
-  - sleep 15
-  - mysql -u root -h localhost --execute="SELECT VERSION();"
-
-services:
-- name: database
-  image: mysql
-  commands:
   - touch /var/run/mysqld/mysqld.sock
   - touch /var/run/mysqld/mysqld.pid
   - chown -R mysql:mysql /var/run/mysqld/mysqld.sock
   - chown -R mysql:mysql /var/run/mysqld/mysqld.pid
   - chmod -R 644 /var/run/mysqld/mysqld.sock
   - service mysql restart
+  - sleep 15
+  - mysql -u root -h localhost --execute="SELECT VERSION();"
+
+services:
+- name: database
+  image: mysql
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     MYSQL_DATABASE: test

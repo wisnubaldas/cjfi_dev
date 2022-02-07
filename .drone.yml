@@ -12,6 +12,13 @@ steps:
 services:
 - name: database
   image: mysql
+  command:
+  - touch /var/run/mysqld/mysqld.sock
+  - touch /var/run/mysqld/mysqld.pid
+  - chown -R mysql:mysql /var/run/mysqld/mysqld.sock
+  - chown -R mysql:mysql /var/run/mysqld/mysqld.pid
+  - chmod -R 644 /var/run/mysqld/mysqld.sock
+  - service mysql restart
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     MYSQL_DATABASE: test

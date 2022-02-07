@@ -20,7 +20,6 @@ steps:
   - cp .env.example .env
   - php artisan key:generate
   - sleep 30
-  - mysql -u root --execute="SELECT VERSION();"
   - php artisan cek-koneksi
   - php artisan migrate:fresh --seed
   - ./vendor/bin/phpunit
@@ -45,6 +44,8 @@ services:
 - name: database
   pull: if-not-exists
   image: mariadb
+  commands:
+  - mysql -u root --execute="SELECT VERSION();"
   environment:
     MYSQL_HOST: database
     MYSQL_DATABASE: test

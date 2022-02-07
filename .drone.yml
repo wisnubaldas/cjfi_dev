@@ -12,7 +12,7 @@ steps:
 services:
 - name: database
   image: mysql
-  command:
+  commands:
   - touch /var/run/mysqld/mysqld.sock
   - touch /var/run/mysqld/mysqld.pid
   - chown -R mysql:mysql /var/run/mysqld/mysqld.sock

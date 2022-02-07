@@ -9,9 +9,9 @@ steps:
 - name: tes-connect
   image: mysql
   commands:
-  - sleep 15
-  - ping -c 10 database
-  - mysql -u root -h database
+  - apt-get install inetutils-ping
+  - sleep 30
+  - mysql -u homestead -phomestead -h database
 
 - name: install
   image: bitnami/laravel:latest

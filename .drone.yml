@@ -10,7 +10,7 @@ steps:
   image: mysql
   commands:
   - sleep 15
-  - mysql -u root -h database
+  - mysql -u root -h localhost
 
 - name: install
   image: bitnami/laravel:latest

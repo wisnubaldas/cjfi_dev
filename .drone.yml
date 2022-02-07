@@ -13,16 +13,16 @@ steps:
   image: bitnami/laravel:latest
   pull: if-not-exists
   commands:
-  - sleep 100
-  - php -v
+  - php --version
   - composer --version
   - composer install
   - php artisan --version
   - cp .env.example .env
   - php artisan key:generate
+  - sleep 50
   - php artisan cek-koneksi
-  - php artisan migrate
-  # - ./vendor/bin/phpunit
+  - php artisan migrate:fresh --seed
+  - ./vendor/bin/phpunit
 
 - name: send telegram notification
   image: appleboy/drone-telegram

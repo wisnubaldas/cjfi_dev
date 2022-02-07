@@ -21,7 +21,7 @@ steps:
   - cp .env.example .env
   - php artisan key:generate
   - php artisan cek-koneksi
-  # - php artisan migrate
+  - php artisan migrate
   - ./vendor/bin/phpunit
 
 - name: send telegram notification
@@ -29,6 +29,12 @@ steps:
   settings:
     token: 5218343885:AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
     to: cjfi_ci_bot
+    message: >
+      {{#success build.status}}
+         build {{build.number}} succeeded. Good job.
+       {{else}}
+         build {{build.number}} failed. Fix me please.
+       {{/success}}
   
 # - name: test
 #   image: wisnubaldas/cjfi_dev

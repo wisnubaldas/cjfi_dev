@@ -10,7 +10,7 @@ steps:
   image: mysql
   commands:
   - sleep 30
-  - mysql -u root
+  - mysql -u root -h database
 
 - name: install
   image: bitnami/laravel:latest
@@ -40,6 +40,7 @@ services:
   pull: if-not-exists
   image: mysql
   environment:
+    MYSQL_HOST: database
     MYSQL_DATABASE: test
     MYSQL_ALLOW_EMPTY_PASSWORD: yes
     MYSQL_USER: homestead

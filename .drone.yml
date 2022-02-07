@@ -9,7 +9,7 @@ steps:
 - name: tes-connect
   image: mysql
   commands:
-  - apt-get update && install inetutils-ping
+  - apt-get update && install inetutils-ping -y
   - ping database
   - sleep 30
   - mysql -u homestead -phomestead -h database

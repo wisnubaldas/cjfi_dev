@@ -12,11 +12,8 @@ steps:
 - name: install
   image: bitnami/laravel:latest
   pull: if-not-exists
-  when:
-    target:
-    - database
   commands:
-  - sleep 10
+  - sleep 100
   - php -v
   - composer --version
   - composer install
@@ -30,8 +27,8 @@ steps:
 - name: send telegram notification
   image: appleboy/drone-telegram
   settings:
-    token: AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
-    to: 5218343885
+    token: 5218343885:AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
+    to: cjfi_ci_bot
   
 # - name: test
 #   image: wisnubaldas/cjfi_dev

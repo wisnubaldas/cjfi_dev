@@ -26,15 +26,33 @@ steps:
 
 - name: send telegram notification
   image: appleboy/drone-telegram
+  when:
+      status: [success, failure]
   settings:
     token: 5218343885:AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
-    to: cjfi_ci_bot
+    to: 1725917833
     message: >
       {{#success build.status}}
-         build {{build.number}} succeeded. Good job.
-       {{else}}
-         build {{build.number}} failed. Fix me please.
-       {{/success}}
+      ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
+
+      📝 Commit by {{commit.author}} on `{{commit.branch}}`:
+
+      ```
+      {{commit.message}}
+      ```
+
+      🌐 {{ build.link }}
+      {{else}}
+      ❌ Build #{{build.number}} of `{{repo.name}}` failed.
+
+      📝 Commit by {{commit.author}} on `{{commit.branch}}`:
+
+      ```
+      {{commit.message}}
+      ```
+
+      🌐 {{ build.link }}
+      {{/success}}
 
 # - name: test
 #   image: wisnubaldas/cjfi_dev

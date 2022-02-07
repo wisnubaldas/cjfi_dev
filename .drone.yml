@@ -6,11 +6,11 @@ name: default
 #   path: /var/www/html/
 
 steps:
-- name: tes
+- name: tes-connect
   image: mysql
   commands:
   - sleep 15
-  - mysql -u root -h localhost
+  - mysql -u root -h database
 
 - name: install
   image: bitnami/laravel:latest
@@ -40,5 +40,8 @@ services:
   pull: if-not-exists
   image: mysql
   environment:
-    MYSQL_DATABASE: homestead
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    - MYSQL_DATABASE=test
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    - MYSQL_USER=homestead
+    - MYSQL_PASSWORD=homestead
+

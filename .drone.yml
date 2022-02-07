@@ -10,6 +10,7 @@ steps:
   image: mysql
   commands:
   - sleep 15
+  - ping -c 10 database
   - mysql -u root -h database
 
 - name: install

@@ -7,12 +7,15 @@ steps:
   image: mysql
   commands:
   - sleep 15
-  - mysql -u root -h database
+  - mysql -u root -h database --execute="SELECT VERSION();"
 
 services:
 - name: database
   image: mysql
-  
+  environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    MYSQL_DATABASE: test
+
 # workspace:
 #   path: /var/www/html/
 

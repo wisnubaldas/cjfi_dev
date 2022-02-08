@@ -51,8 +51,8 @@
 									line-height: 60px; 
 									font-weight: 700; 
 									color: rgba(255, 255, 255, 1.00);
-									border-width:0px;"> <span style="font-family:'Poppins' ,sans-serif;">You Focus On Your <br>
-                                        Business</span> </div>
+									border-width:0px;"> <span style="font-family:'Poppins' ,sans-serif;">Track and Trace <br>
+                                        Our Flight</span> </div>
                                     <!-- LAYER NR. 3 [ for paragraph] -->
                                     <div class="tp-caption tp-resizeme" 
 									id="slide-100-layer-3" 
@@ -93,7 +93,7 @@
 									data-paddingright="[0,0,0,0]"
 									data-paddingbottom="[0,0,0,0]"
 									data-paddingleft="[0,0,0,0]"
-									style="z-index: 13;"> <a href="javascript:void(0);" class="site-button"><span>Read More</span></a> </div>
+									style="z-index: 13;"> <a href="/" class="site-button"><span>Get Track</span></a> </div>
                                 </li>
                                 <!-- SLIDE 1 -->
                                 <li data-index="rs-2000" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="/cargo/images/main-slider/slide1.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Love it?" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">

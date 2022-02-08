@@ -3,10 +3,10 @@
 <!-- Content -->
 <div class="page-content bg-white">
         <!-- inner page banner -->
-        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(images/background/bg4.jpg);">
+        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(images/background/schedule.jpg);">
             <div class="container">
                 <div class="dez-bnr-inr-entry">
-                    <h1 class="text-white">Services 1</h1>
+                    <h1 class="text-white">Flight Schedule Monitor</h1>
                 </div>
             </div>
         </div>
@@ -15,71 +15,52 @@
         <div class="breadcrumb-row">
             <div class="container">
                 <ul class="list-inline">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Services 1</li>
+                    <li><a href="/">Home</a></li>
+                    <li>flight-scheduled</li>
                 </ul>
             </div>
         </div>
         <!-- Breadcrumb row END -->
         <!-- contact area -->
         <div class="section-full p-t70 p-b40">
+            @dump($contents)
+
             <!-- Services  -->
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 m-b30">
-                        <div class="dez-box">
-                            <div class="dez-media"> <a href="javascript:void(0);"><img src="images/our-work/pic1.jpg" alt=""></a> </div>
-                            <div class="dez-info p-a30 border-1">
-                                <h4 class="dez-title m-t0"><a href="javascript:void(0);">first heading</a></h4>
-                                <p>Lorem ipsum dolor Fusce varius euismod lacus eget feugiat rorem ipsum dolor consectetur Fusce varius.</p>
-                                <a href="javascript:void(0);" class="site-button ">More</a> </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 m-b30">
-                        <div class="dez-box">
-                            <div class="dez-media"> <a href="javascript:void(0);"><img src="images/our-work/pic2.jpg" alt=""></a> </div>
-                            <div class="dez-info p-a30 border-1">
-                                <h4 class="dez-title m-t0"><a href="javascript:void(0);">first heading</a></h4>
-                                <p>Lorem ipsum dolor Fusce varius euismod lacus eget feugiat rorem ipsum dolor consectetur Fusce varius.</p>
-                                <a href="javascript:void(0);" class="site-button ">More</a> </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 m-b30">
-                        <div class="dez-box">
-                            <div class="dez-media"> <a href="javascript:void(0);"><img src="images/our-work/pic3.jpg" alt=""></a> </div>
-                            <div class="dez-info p-a30 border-1">
-                                <h4 class="dez-title m-t0"><a href="javascript:void(0);">first heading</a></h4>
-                                <p>Lorem ipsum dolor Fusce varius euismod lacus eget feugiat rorem ipsum dolor consectetur Fusce varius.</p>
-                                <a href="javascript:void(0);" class="site-button ">More</a> </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 m-b30">
-                        <div class="dez-box">
-                            <div class="dez-media"> <a href="javascript:void(0);"><img src="images/our-work/pic1.jpg" alt=""></a> </div>
-                            <div class="dez-info p-a30 border-1">
-                                <h4 class="dez-title m-t0"><a href="javascript:void(0);">first heading</a></h4>
-                                <p>Lorem ipsum dolor Fusce varius euismod lacus eget feugiat rorem ipsum dolor consectetur Fusce varius.</p>
-                                <a href="javascript:void(0);" class="site-button ">More</a> </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 m-b30">
-                        <div class="dez-box">
-                            <div class="dez-media"> <a href="javascript:void(0);"><img src="images/our-work/pic2.jpg" alt=""></a> </div>
-                            <div class="dez-info p-a30 border-1">
-                                <h4 class="dez-title m-t0"><a href="javascript:void(0);">first heading</a></h4>
-                                <p>Lorem ipsum dolor Fusce varius euismod lacus eget feugiat rorem ipsum dolor consectetur Fusce varius.</p>
-                                <a href="javascript:void(0);" class="site-button ">More</a> </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 m-b30">
-                        <div class="dez-box">
-                            <div class="dez-media"> <a href="javascript:void(0);"><img src="images/our-work/pic3.jpg" alt=""></a> </div>
-                            <div class="dez-info p-a30 border-1">
-                                <h4 class="dez-title m-t0"><a href="javascript:void(0);">first heading</a></h4>
-                                <p>Lorem ipsum dolor Fusce varius euismod lacus eget feugiat rorem ipsum dolor consectetur Fusce varius.</p>
-                                <a href="javascript:void(0);" class="site-button ">More</a> </div>
-                        </div>
-                    </div>
+                <table class="table table-hover table-sm">
+                <thead class="text-uppercase">
+                    <tr class="table-info">
+                    <th scope="col">flight date</th>
+                    <th scope="col">flight status</th>
+                    <th scope="col">departure</th>
+                    <th scope="col">arrival</th>
+                    <th scope="col">airline</th>
+                    <th scope="col">flight</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($contents->data as $f)
+                    <tr>
+                        <td>{{$f->flight_date}}</td>
+                        <td>{{$f->flight_status}}</td>
+                        <td>
+                            <div class="widget widget_getintuch">
+                                <ul>
+                                    <li>
+                                        <strong>{{$f->departure->airport}}/{{$f->departure->iata}}</strong> 
+                                        Terminal: {{$f->departure->terminal}}, Gate: {{$f->departure->terminal}}<br>
+                                        Schedule: {{$f->departure->scheduled}} <br>
+                                        Delay: {{$f->departure->delay}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
                 </div>
             </div>
             <!-- Services END -->

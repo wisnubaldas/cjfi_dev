@@ -77,7 +77,10 @@
                             </form>
                         </div>
                         <!-- Main Nav -->
+                        <div class="header-nav navbar-collapse collapse nav-dark justify-content-start" id="navbarNavDropdown">
                         @include('cargo.layout.menu')
+                        </div>
+
                     </div>
                 </div>
             </div>

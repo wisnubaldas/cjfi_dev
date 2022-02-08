@@ -10,69 +10,29 @@ trait ViewTrait
     {
         return View::share('cargo_menu', [
             [
-                'name'=>'Indonesia',
-                'url'=>'#',
+                'name'=>'Home',
+                'url'=>'/',
                 'status'=>'active',
+            ],
+            [
+                'name'=>'Flight',
+                'url'=>'#',
+                'status'=>'#',
                 'sub-menu'=>[
                     [
-                        'name'=>'Satu',
-                        'code'=>'en',
-                        'status'=>'#',
-                        'url'=>'#',
+                        'name'=>'flight schedule',
+                        'status'=>'',
+                        'url'=>'/cargo/flight-scheduled',
 
                     ],
                     [
-                        'name'=>'Dua',
-                        'code'=>'en',
+                        'name'=>'Track Your Air Cargo Shipments',
                         'status'=>'#',
                         'url'=>'#',
 
                     ]
                 ]
             ],
-            [
-                'name'=>'single',
-                'code'=>'en',
-                'status'=>'#',
-                'url'=>'#',
-                'sub-menu'=>[
-                    [
-                        'name'=>'m1',
-                        'code'=>'en',
-                        'status'=>'#',
-                        'url'=>'#',
-                        'sub-menu'=>[
-                            [
-                                'name'=>'m11',
-                                'code'=>'en',
-                                'status'=>'#',
-                                'url'=>'#',
-                                'sub-menu'=>[
-                                    [
-                                        'name'=>'m111',
-                                        'code'=>'en',
-                                        'status'=>'#',
-                                        'url'=>'#',
-                                    ],
-                                    [
-                                        'name'=>'m112',
-                                        'code'=>'en',
-                                        'status'=>'#',
-                                        'url'=>'#',
-                                    ]
-                                ]
-                            ]
-                        ]
-
-                    ],
-                    [
-                        'name'=>'m2',
-                        'code'=>'en',
-                        'status'=>'#',
-                        'url'=>'#',
-                    ]
-                ]
-            ]
         ]);
     }
     public static function locale_option()

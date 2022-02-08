@@ -29,11 +29,7 @@
 	<link rel="stylesheet" type="text/css" href="/cargo/css/plugins.css">
 	<link rel="stylesheet" type="text/css" href="/cargo/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/cargo/css/templete.css">
-	<link rel="stylesheet" type="text/css" class="skin" href="/cargo/css/skin/skin-7.css">
-	
-	<!-- REVOLUTION SLIDER CSS -->
-	<link rel="stylesheet" type="text/css" href="/cargo/plugins/revolution/revolution/css/settings.css">
-	<link rel="stylesheet" type="text/css" href="/cargo/plugins/revolution/revolution/css/navigation.css">
+	<link rel="stylesheet" type="text/css" class="skin" href="/cargo/css/skin/skin-1.css">
 	@stack('css')
 
 </head>

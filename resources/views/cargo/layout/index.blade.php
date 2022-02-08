@@ -5,7 +5,11 @@
 <div class="page-wraper">
 <div id="loading-area"></div>
     <!-- Header -->
-@include('cargo.layout.header')
+    @if($page == 'home')
+        @include('cargo.layout.header')
+    @else
+        @include('cargo.layout.header_page')
+    @endif
     <!-- Header END -->
     <!-- Content -->
     @yield('content')

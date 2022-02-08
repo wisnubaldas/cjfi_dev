@@ -1,8 +1,8 @@
-@extends('cargo.layout.index')
+@extends('cargo.layout.index',['page'=>'home'])
 @section('content')
 <div class="page-content bg-white">
         <!-- Slider -->
-@include('cargo.layout.slider')
+        @include('cargo.layout.slider')
 
         <!-- Slider END -->
         <!-- Our Service Box -->
@@ -446,5 +446,10 @@
             </div>
         </div>
         <!-- Testimonials End -->
-    </div>
+</div>
 @endsection()
+@push('css')
+<!-- REVOLUTION SLIDER CSS -->
+<link rel="stylesheet" type="text/css" href="/cargo/plugins/revolution/revolution/css/settings.css">
+	<link rel="stylesheet" type="text/css" href="/cargo/plugins/revolution/revolution/css/navigation.css">
+@endpush()

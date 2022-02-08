@@ -3,9 +3,17 @@ namespace App\Traits;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Storage;
 trait Corerong 
 {
+    protected function get_file(string $folder_name)
+    {
+        return Storage::get('public/'.$folder_name);
+    }
+    protected function put_file($folder_name,string $content)
+    {
+        Storage::disk('local')->put('public/'.$folder_name, $content);
+    }
     public static function url_hash($path)
     {
         return Hash::make($path);
@@ -76,4 +84,5 @@ trait Corerong
         }
         return $new_json;
     }
+
 }

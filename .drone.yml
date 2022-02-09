@@ -46,7 +46,7 @@ steps:
       
       ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
 
-      📝 Commit by {{commit.author}} on `{{commit.branch}}`:
+      📝 Commit by {{commit.author.email}} on `{{commit.branch}}`:
 
       ```
       {{commit.message}}

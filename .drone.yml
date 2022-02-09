@@ -17,7 +17,7 @@ steps:
   - php artisan --version
   - cp .env.example .env
   - php artisan key:generate
-  - sleep 50
+  - sleep 30
   - php artisan cek-koneksi
   - php artisan migrate:fresh --seed
   - ./vendor/bin/phpunit

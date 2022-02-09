@@ -34,3 +34,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
     Corerong::include_route_files(__DIR__.'/back_route/');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

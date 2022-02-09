@@ -2,8 +2,8 @@ kind: pipeline
 type: docker
 name: default
 
-# workspace:
-#   path: /var/www/html/
+workspace:
+  path: /var/www/html/
 
 steps:
 
@@ -24,6 +24,7 @@ steps:
 
 - name: publish  
   image: plugins/docker
+  pull: if-not-exists
   settings:
     username:
       from_secret: docker_user
@@ -31,7 +32,7 @@ steps:
       from_secret: docker_password
     repo: wisnubaldas/flight
     auto_tag: true
-    auto_tag_suffix: drone-build
+    auto_tag_suffix: latest
   
 - name: send telegram notification
   image: appleboy/drone-telegram

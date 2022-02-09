@@ -33,7 +33,25 @@ steps:
     repo: wisnubaldas/flight
     auto_tag: true
     auto_tag_suffix: latest
-  
+
+- name: deploy
+  image: appleboy/drone-ssh
+  settings:
+    host:
+      from_secret: server_host
+    username:
+      from_secret: server_user
+    password:
+      from_secret: server_password
+    port:
+      from_secret: server_port
+    script:
+      - cd docker_app/flight/
+      - ls -l
+      - docker-compose pull
+      - docker-compose down
+      - docker-compose up -d
+   
 - name: send telegram notification
   image: appleboy/drone-telegram
   when:

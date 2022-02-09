@@ -19,7 +19,7 @@ steps:
   - php artisan key:generate
   - sleep 50
   - php artisan cek-koneksi
-  # - php artisan migrate:fresh --seed
+  - php artisan migrate:fresh --seed
   - ./vendor/bin/phpunit
 
 - name: publish  

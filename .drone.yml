@@ -7,7 +7,7 @@ name: default
 
 steps:
 
-- name: install
+- name: build
   image: bitnami/laravel:latest
   pull: if-not-exists
   commands:
@@ -22,6 +22,17 @@ steps:
   # - php artisan migrate:fresh --seed
   - ./vendor/bin/phpunit
 
+- name: publish  
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_user
+    password:
+      from_secret: docker_password
+    repo: wisnubaldas/flight
+    auto_tag: true
+    auto_tag_suffix: drone-build
+  
 - name: send telegram notification
   image: appleboy/drone-telegram
   when:

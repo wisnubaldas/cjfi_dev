@@ -17,7 +17,7 @@ steps:
   - php artisan --version
   - cp .env.example .env
   - php artisan key:generate
-  - sleep 20
+  - sleep 15
   - php artisan cek-koneksi
   - php artisan migrate:fresh
   - php artisan storage:link
@@ -35,24 +35,25 @@ steps:
     auto_tag: true
     auto_tag_suffix: latest
 
-# - name: deploy
-#   image: appleboy/drone-ssh
-#   settings:
-#     host:
-#       from_secret: server_host
-#     username:
-#       from_secret: server_user
-#     password:
-#       from_secret: server_password
-#     port:
-#       from_secret: server_port
-#     script:
-#       - cd docker_app/flight/
-#       - ls -l
-#       - docker-compose down
-#       - docker-compose pull
-#       - docker-compose up -d
-#       - docker exec -it flight_app chmod -R 777 /var/www/storage
+- name: deploy
+  image: appleboy/drone-ssh
+  settings:
+    host:
+      from_secret: server_host
+    username:
+      from_secret: server_user
+    password:
+      from_secret: server_password
+    port:
+      from_secret: server_port
+    script:
+      - cd docker_app/flight/
+      - ls -l
+      - docker-compose down
+      - docker-compose pull
+      - docker-compose up -d
+      - docker exec -it flight_app chmod -R 777 /var/www/storage
+      - docker exec -it flight_app php artisan storage:link
       # - docker exec -it flight_app chmod -R 777 /var/www/public
 
    
@@ -61,8 +62,10 @@ steps:
   when:
       status: [success, failure]
   settings:
-    token: 5218343885:AAF7KfKF5DzyrDM_wAKVq1fKHgPi0qZbbm0
-    to: 1725917833
+    token:
+      from_secret: telegram_token
+    to:
+      from_secret: telegram_id
     message: >
       {{#success build.status}}
       

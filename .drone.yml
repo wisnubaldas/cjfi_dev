@@ -2,8 +2,8 @@ kind: pipeline
 type: docker
 name: default
 
-workspace:
-  path: /var/www/html/
+# workspace:
+#   path: /var/www/html/
 
 steps:
 
@@ -20,6 +20,7 @@ steps:
   - sleep 30
   - php artisan cek-koneksi
   - php artisan migrate:fresh
+  - php artisan storage:link
   - ./vendor/bin/phpunit
 
 - name: publish  
@@ -34,23 +35,26 @@ steps:
     auto_tag: true
     auto_tag_suffix: latest
 
-- name: deploy
-  image: appleboy/drone-ssh
-  settings:
-    host:
-      from_secret: server_host
-    username:
-      from_secret: server_user
-    password:
-      from_secret: server_password
-    port:
-      from_secret: server_port
-    script:
-      - cd docker_app/flight/
-      - ls -l
-      - docker-compose pull
-      - docker-compose down
-      - docker-compose up -d
+# - name: deploy
+#   image: appleboy/drone-ssh
+#   settings:
+#     host:
+#       from_secret: server_host
+#     username:
+#       from_secret: server_user
+#     password:
+#       from_secret: server_password
+#     port:
+#       from_secret: server_port
+#     script:
+#       - cd docker_app/flight/
+#       - ls -l
+#       - docker-compose down
+#       - docker-compose pull
+#       - docker-compose up -d
+#       - docker exec -it flight_app chmod -R 777 /var/www/storage
+      # - docker exec -it flight_app chmod -R 777 /var/www/public
+
    
 - name: send telegram notification
   image: appleboy/drone-telegram
@@ -64,7 +68,7 @@ steps:
       
       ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
 
-      📝 Commit by {{commit.author.email}} on `{{commit.branch}}`:
+      📝 Commit by {!! commit !!} on `{{commit.branch}}`:
 
       ```
       {{commit.message}}
@@ -84,10 +88,6 @@ steps:
       🌐 {{ build.link }}
       {{/success}}
 
-# - name: test
-#   image: wisnubaldas/cjfi_dev
-#   commands:
-#   - vendor/bin/phpunit --configuration phpunit.xml
 services:
 - name: database
   pull: if-not-exists

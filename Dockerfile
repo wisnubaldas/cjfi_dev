@@ -4,7 +4,7 @@ FROM bitnami/laravel
 
 # # Set working directory
 WORKDIR /app
-COPY --chown=www:www-data . /app
+COPY . /app
 RUN ls -l
 
 # # Add docker php ext repo

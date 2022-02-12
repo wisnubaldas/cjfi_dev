@@ -52,8 +52,8 @@ steps:
       - docker-compose down
       - docker-compose pull
       - docker-compose up -d
-      - docker exec -it flight_app chmod -R 777 /var/www/storage
-      - docker exec -it flight_app php artisan storage:link
+      # - docker exec -it flight_app chmod -R 777 /var/www/storage
+      # - docker exec -it flight_app php artisan storage:link
       # - docker exec -it flight_app chmod -R 777 /var/www/public
 
    

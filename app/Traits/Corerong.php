@@ -4,8 +4,17 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 trait Corerong 
 {
+    // generate random string for parsing prefix route
+    // deprecated call static class
+    // (new class { use MyTrait; })::myMethod();
+    public static function prefix_route()
+    {
+        return Str::kebab(Str::random(50));
+        // define("HOME", Str::kebab(Str::random(50)));
+    }
     protected function get_file(string $folder_name)
     {
         return Storage::get('public/'.$folder_name);

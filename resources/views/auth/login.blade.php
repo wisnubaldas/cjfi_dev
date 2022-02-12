@@ -10,8 +10,8 @@
 			<!-- begin login-header -->
 			<div class="login-header">
 				<div class="brand">
-					<b>CJFI</b>
-					<small>Chang Jui Fang Indonesia</small>
+					<b>Flight</b>
+					<small>Track and Trace Flight Manifest</small>
 				</div>
 				<div class="icon">
 					<i class="fa fa-lock"></i>

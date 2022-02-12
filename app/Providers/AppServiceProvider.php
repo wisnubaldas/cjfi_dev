@@ -17,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // if (!defined('PREFIX')) {
+        //     define("PREFIX", Str::kebab(Str::random(50)));
+        // }
     }
 
     /**
@@ -27,10 +29,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // $routes = collect(\Route::getRoutes())->map(function ($route) { return $route->uri(); });
+        // dump($routes);
+        // dump(\Auth::check());
+
         if (View::exists('cargo.layout.menu')) {
             ViewTrait::cargo();
         }
-
+        ViewTrait::back_menu();
         ViewTrait::locale_option();
         ViewTrait::breadcrum();
         Schema::defaultStringLength(191);

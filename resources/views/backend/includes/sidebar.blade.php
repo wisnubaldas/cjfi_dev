@@ -2,6 +2,8 @@
 	$sidebarClass = (!empty($sidebarTransparent)) ? 'sidebar-transparent' : '';
 @endphp
 <!-- begin #sidebar -->
+@dump(\Auth::check())
+
 <div id="sidebar" class="sidebar {{ $sidebarClass }}">
 	<!-- begin sidebar scrollbar -->
 	<div data-scrollbar="true" data-height="100%">
@@ -80,7 +82,7 @@
 					return $subMenu;
 				}
 				
-				foreach (config('sidebar.menu') as $key => $menu) {
+				foreach ($back_menu as $key => $menu) {
 					$GLOBALS['parent_active'] = '';
 					
 					$hasSub = (!empty($menu['sub_menu'])) ? 'has-sub' : '';

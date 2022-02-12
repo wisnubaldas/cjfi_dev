@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Cargo;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use Spatie\RouteAttributes\Attributes\Get;
+use Spatie\RouteAttributes\Attributes\Middleware;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('backend.dashboard-v3');
+    }
+
+    #[Get(PREFIX,middleware:['auth'])]
+    public function tesMethod()
+    {
+        dump(PREFIX);
     }
 }

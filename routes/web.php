@@ -22,26 +22,16 @@ Route::get('/', function () {
     {
         return  view('mobile.landing');
     }
-    return view('cargo.home');
+    // return view('cargo.home');
+    return redirect()->route('login');
 });
 
 Route::get('lang/{language}', [LocalizationController::class,'switch'])->name('localization.switch');
-Corerong::include_route_files(__DIR__.'/front_route/');
+Corerong::include_route_files(__DIR__.'/front/');
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-    Corerong::include_route_files(__DIR__.'/back_route/');
+    Corerong::include_route_files(__DIR__.'/back/');
 });
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

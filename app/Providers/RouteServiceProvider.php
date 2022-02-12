@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+
+
 class RouteServiceProvider extends ServiceProvider
 {
+    
     /**
      * The path to the "home" route for your application.
      *
@@ -17,8 +20,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
-
+    
+    public const HOME = '/b_cargo';
+    
     /**
      * The controller namespace for the application.
      *

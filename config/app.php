@@ -167,6 +167,8 @@ return [
          */
         Intervention\Image\ImageServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Dyrynda\Database\LaravelEfficientUuidServiceProvider::class,
         /*
          * Application Service Providers...
          */

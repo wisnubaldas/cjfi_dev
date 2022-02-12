@@ -3,11 +3,16 @@ namespace App\Traits;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
+// backen Menu
 trait MenuTrait 
 {
     public static function data()
     {
+        // $routes = collect(\Route::getRoutes())->map(function ($route) { return $route->uri(); });
+        // dump($route);
+
         return [
             'menu' => [
                 [
@@ -19,7 +24,7 @@ trait MenuTrait
                 [
                     'icon' => 'ion-ios-airplane bg-indigo',
                     'title' => 'Flights',
-                    'url' => '/flights',
+                    'url' => '/',
                 ],
                 [
                     'icon' => 'fab fa-simplybuilt bg-gradient-aqua',

@@ -6,6 +6,54 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 trait ViewTrait
 {
+    public static function back_menu()
+    {
+        // dump(\Auth::check());
+        return View::share('back_menu', [
+                [
+                    'icon' => 'ion-ios-home bg-gradient-green',
+                    'title' => 'Home',
+                    'label' => 'Dashboard',
+                    'url' => '/home'
+                ],
+                [
+                    'icon' => 'ion-ios-airplane bg-indigo',
+                    'title' => 'Flights',
+                    'url' => '/',
+                ],
+                [
+                    'icon' => 'fab fa-simplybuilt bg-gradient-aqua',
+                    'title' => 'Brand',
+                    'url' => 'javascript:;',
+                    'caret' => true,
+                    'sub_menu' => [[
+                        'url' => '/brand',
+                        'title' => 'Data Grid'
+                    ],
+                    [
+                        'url' => '/brand/create',
+                        'title' => 'Create'
+                    ]]
+                ],
+                    [
+                        'icon' => 'fas fa-cookie-bite bg-gradient-green',
+                        'title' => 'Product',
+                        'url' => 'javascript:;',
+                        'caret' => true,
+                        'sub_menu' => [[
+                            'url' => '/product',
+                            'title' => 'Data Grid'
+                        ],
+                        [
+                            'url' => '/product/create',
+                            'title' => 'Create Product'
+                        ],[
+                            'url' => '/product-image/create',
+                            'title' => 'Create Image'
+                        ]]
+                    ]
+        ]);
+    }
     public static function cargo()
     {
         return View::share('cargo_menu', [

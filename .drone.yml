@@ -27,7 +27,7 @@ steps:
   - php artisan clear-compile
   - php artisan optimize:clear
   - php artisan route:cache
-  - ./vendor/bin/phpunit
+  # - ./vendor/bin/phpunit
 
 - name: stop container
   image: appleboy/drone-ssh

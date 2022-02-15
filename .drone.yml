@@ -51,7 +51,8 @@ steps:
   settings:
     host:
       from_secret: server_host
-    username: root
+    username:
+      from_secret: server_user
     password:
       from_secret: server_password
     port:

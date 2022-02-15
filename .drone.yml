@@ -79,7 +79,7 @@ steps:
       - sleep 10
       - docker exec flight_app php artisan migrate:fresh --seed
       - docker exec flight_app php artisan route:list
-      - docker exec flight_app php artisan test
+      # - docker exec flight_app php artisan test
 
 # - name: publish  
 #   image: plugins/docker

@@ -5,8 +5,11 @@ name: default
 # workspace:
 #   path: /var/www/html/
 
+trigger:
+  branch:
+  - education
+  
 steps:
-
 - name: build
   image: bitnami/laravel:latest
   pull: if-not-exists

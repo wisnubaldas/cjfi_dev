@@ -20,7 +20,7 @@ steps:
   - php artisan --version
   - cp .env.example .env
   - php artisan key:generate
-  - sleep 15
+  - sleep 10
   - php artisan cek-koneksi
   - php artisan migrate:fresh --seed
   - php artisan storage:link
@@ -31,8 +31,8 @@ steps:
 
 - name: stop container
   image: appleboy/drone-ssh
-  workspace:
-    path: /home/cjfi/docker_app/flight
+  # workspace:
+  #   path: /home/cjfi/docker_app/flight
   settings:
     host:
       from_secret: server_host
@@ -43,7 +43,7 @@ steps:
     port:
       from_secret: server_port
     script:
-      - ls -la
+      - cd /home/cjfi/docker_app/flight
       - docker-compose down
 
 - name: copy project
@@ -61,8 +61,8 @@ steps:
 
 - name: run container
   image: appleboy/drone-ssh
-  workspace:
-    path: /home/cjfi/docker_app/flight
+  # workspace:
+  #   path: /home/cjfi/docker_app/flight
   settings:
     host:
       from_secret: server_host
@@ -73,6 +73,7 @@ steps:
     port:
       from_secret: server_port
     script:
+      - cd /home/cjfi/docker_app/flight
       - docker-compose up -d
       - sleep 10
       - docker exec flight_app php artisan migrate:fresh --seed

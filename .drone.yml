@@ -43,6 +43,7 @@ steps:
     port:
       from_secret: server_port
     script:
+      - ls -la
       - docker-compose down
 
 - name: copy project
@@ -127,7 +128,9 @@ steps:
       📝 Commit by {{commit.author}} on `{{commit.branch}}`:
 
       ```
-      🕛 Start : {{datetime build.started "02-Jan-2006 15:04:05" "Asia/Jakarta"}} 🕒 End: {{datetime build.finished "02-Jan-2006 15:04:05" "Asia/Jakarta"}}
+      🕛 Start : {{datetime build.started "02-Jan-2006 15:04:05" "Asia/Jakarta"}} 
+      🕒 End: {{datetime build.finished "02-Jan-2006 15:04:05" "Asia/Jakarta"}}
+
       {{commit.message}}
       ```
 
@@ -140,8 +143,11 @@ steps:
 
       ```
       
-      🕛 Start : {{datetime build.started "02-Jan-2006 15:04:05" "Asia/Jakarta"}} 🕒 End: {{datetime build.finished "02-Jan-2006 15:04:05" "Asia/Jakarta"}}
+      🕛 Start : {{datetime build.started "02-Jan-2006 15:04:05" "Asia/Jakarta"}} 
+      🕒 End: {{datetime build.finished "02-Jan-2006 15:04:05" "Asia/Jakarta"}}
+
       {{commit.message}}
+
       ```
 
       🌐 {{ build.link }}

@@ -18,7 +18,7 @@ trait ViewTrait
             [
                 'icon' => 'ion-ios-airplane bg-indigo',
                 'title' => 'Flights',
-                'url' => '/'.$uuid.'/flight',
+                'url' => '/b_cargo/flight',
             ],
             
             [
@@ -43,7 +43,7 @@ trait ViewTrait
     
     public static function cargo()
     {
-        // menu cargo front
+        // menu cargo frontend
         return View::share('cargo_menu', [
             [
                 'name'=>'Home',

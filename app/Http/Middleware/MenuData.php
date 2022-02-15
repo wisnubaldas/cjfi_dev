@@ -17,14 +17,11 @@ class MenuData
      */
     public function handle(Request $request, Closure $next)
     {
-        dump(PREFIX);
         if (\Auth::check()) {
             // define('PREFIX', \Auth::user()->uuid);
             define('MENU',ViewTrait::data_menu(\Auth::user()->uuid));
         }
         $response = $next($request);
-
-            
         
         return $response;
 

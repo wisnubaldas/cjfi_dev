@@ -19,4 +19,8 @@ class FlightController extends Controller
         // return $response->json();
         return view('backend.flights.index');
     }
+    public function flight()
+    {
+        return view('backend.flights.flight');
+    }
 }

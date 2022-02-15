@@ -6,56 +6,44 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 trait ViewTrait
 {
-    public static function back_menu()
+    public static function data_menu($uuid)
     {
-        // dump(\Auth::check());
-        return View::share('back_menu', [
-                [
-                    'icon' => 'ion-ios-home bg-gradient-green',
-                    'title' => 'Home',
-                    'label' => 'Dashboard',
-                    'url' => '/home'
+        return [
+            [
+                'icon' => 'ion-ios-home bg-gradient-green',
+                'title' => 'Home',
+                'label' => 'Dashboard',
+                'url' => '/'
+            ],
+            [
+                'icon' => 'ion-ios-airplane bg-indigo',
+                'title' => 'Flights',
+                'url' => '/'.$uuid.'/flight',
+            ],
+            
+            [
+                'icon' => 'fas fa-cookie-bite bg-gradient-green',
+                'title' => 'Product',
+                'url' => 'javascript:;',
+                'caret' => true,
+                'sub_menu' => [[
+                    'url' => '/product',
+                    'title' => 'Data Grid'
                 ],
                 [
-                    'icon' => 'ion-ios-airplane bg-indigo',
-                    'title' => 'Flights',
-                    'url' => '/',
-                ],
-                [
-                    'icon' => 'fab fa-simplybuilt bg-gradient-aqua',
-                    'title' => 'Brand',
-                    'url' => 'javascript:;',
-                    'caret' => true,
-                    'sub_menu' => [[
-                        'url' => '/brand',
-                        'title' => 'Data Grid'
-                    ],
-                    [
-                        'url' => '/brand/create',
-                        'title' => 'Create'
-                    ]]
-                ],
-                    [
-                        'icon' => 'fas fa-cookie-bite bg-gradient-green',
-                        'title' => 'Product',
-                        'url' => 'javascript:;',
-                        'caret' => true,
-                        'sub_menu' => [[
-                            'url' => '/product',
-                            'title' => 'Data Grid'
-                        ],
-                        [
-                            'url' => '/product/create',
-                            'title' => 'Create Product'
-                        ],[
-                            'url' => '/product-image/create',
-                            'title' => 'Create Image'
-                        ]]
-                    ]
-        ]);
+                    'url' => '/product/create',
+                    'title' => 'Create Product'
+                ],[
+                    'url' => '/product-image/create',
+                    'title' => 'Create Image'
+                ]]
+                ]
+        ];
     }
+    
     public static function cargo()
     {
+        // menu cargo front
         return View::share('cargo_menu', [
             [
                 'name'=>'Home',

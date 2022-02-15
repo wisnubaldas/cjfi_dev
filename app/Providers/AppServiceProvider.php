@@ -36,7 +36,6 @@ class AppServiceProvider extends ServiceProvider
         if (View::exists('cargo.layout.menu')) {
             ViewTrait::cargo();
         }
-        ViewTrait::back_menu();
         ViewTrait::locale_option();
         ViewTrait::breadcrum();
         Schema::defaultStringLength(191);

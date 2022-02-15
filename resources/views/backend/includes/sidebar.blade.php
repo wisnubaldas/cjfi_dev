@@ -2,8 +2,6 @@
 	$sidebarClass = (!empty($sidebarTransparent)) ? 'sidebar-transparent' : '';
 @endphp
 <!-- begin #sidebar -->
-@dump(\Auth::check())
-
 <div id="sidebar" class="sidebar {{ $sidebarClass }}">
 	<!-- begin sidebar scrollbar -->
 	<div data-scrollbar="true" data-height="100%">
@@ -42,6 +40,7 @@
 			@endif
 			<li class="nav-header">Navigation</li>
 			@php
+				
 				$currentUrl = (Request::path() != '/') ? '/'. Request::path() : '/';
 				function renderSubMenu($value, $currentUrl) {
 					$subMenu = '';
@@ -82,7 +81,7 @@
 					return $subMenu;
 				}
 				
-				foreach ($back_menu as $key => $menu) {
+				foreach (MENU as $key => $menu) {
 					$GLOBALS['parent_active'] = '';
 					
 					$hasSub = (!empty($menu['sub_menu'])) ? 'has-sub' : '';

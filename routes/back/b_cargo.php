@@ -2,6 +2,10 @@
 use App\Traits\Corerong;
 use App\Http\Controllers\Cargo\HomeController;
 use App\Models\User;
+
+
+// Corerong::prefix_route();
+
 Route::group(['prefix'=>'b_cargo','as'=>'b_cargo.'],function(){
     Route::get('/',[HomeController::class,'index'])->name('index');
     Route::get('/flight',function(){

@@ -76,9 +76,14 @@ steps:
     script:
       - cd /home/cjfi/docker_app/flight
       - docker-compose up -d
-      - sleep 10
+      - sleep 15
+      - docker exec flight_app php artisan key:generate
+      - docker exec flight_app php artisan clear-compile
+      - docker exec flight_app php artisan optimize:clear
+      - docker exec flight_app php artisan route:cache
       - docker exec flight_app php artisan migrate:fresh --seed
-      - docker exec flight_app php artisan route:list
+
+      # - docker exec flight_app php artisan route:list
       # - docker exec flight_app php artisan test
 
 # - name: publish  

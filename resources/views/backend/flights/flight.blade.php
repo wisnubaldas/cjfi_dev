@@ -18,7 +18,7 @@
 							<!-- begin scrollbar -->
 							<div data-scrollbar="true" data-height="100%" class="wrapper">
                             <h1>
-                            	KONTENT MEK
+                            	BELEKOK Belekok belekok
                             </h1>
 							</div>
 							<!-- end scrollbar -->

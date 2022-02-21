@@ -165,7 +165,7 @@ services:
   image: mariadb
   environment:
     MYSQL_HOST: database
-    MYSQL_DATABASE: test
+    MYSQL_DATABASE: homestead
     MYSQL_ALLOW_EMPTY_PASSWORD: yes
     MYSQL_USER: homestead
     MYSQL_PASSWORD: homestead

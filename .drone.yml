@@ -2,9 +2,6 @@ kind: pipeline
 type: docker
 name: default
 
-# workspace:
-#   path: /var/www/html/
-
 trigger:
   branch:
   - education
@@ -18,7 +15,7 @@ steps:
   - composer --version
   - composer install
   - php artisan --version
-  - cp .env.example .env
+  - mv .env.example .env
   - php artisan key:generate
   - sleep 10
   - php artisan cek-koneksi

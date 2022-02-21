@@ -12,8 +12,8 @@ trait Corerong
     // (new class { use MyTrait; })::myMethod();
     public static function prefix_route()
     {
-        return Str::kebab(Str::random(50));
-        // define("HOME", Str::kebab(Str::random(50)));
+        // return Str::kebab(Str::random(50));
+        define("PREFIX", Str::kebab(Str::random(50)));
     }
     protected function get_file(string $folder_name)
     {

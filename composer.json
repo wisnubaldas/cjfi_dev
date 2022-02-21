@@ -21,7 +21,6 @@
         "renatomarinho/laravel-page-speed": "^2.0",
         "spatie/laravel-backup": "^6.16",
         "spatie/laravel-permission": "^5.5",
-        "spatie/laravel-route-attributes": "^1.9",
         "spatie/laravel-translatable": "^4.6",
         "tanmuhittin/laravel-google-translate": "^2.0",
         "yajra/laravel-datatables": "^1.5",

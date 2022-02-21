@@ -25,7 +25,7 @@
 	$contentClass = (!empty($contentFullWidth) || !empty($contentFullHeight)) ? 'content-full-width ' : '';
 	$contentClass .= (!empty($contentInverseMode)) ? 'content-inverse-mode ' : '';
 @endphp
-<body class="{{ $bodyClass }}">
+<body class="{{ $bodyClass }}" style="font-family: Ubuntu, Ubuntu Condensed, Ubuntu Monospace;">
 	@include('backend.includes.component.page-loader')
 	
 	<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed {{ $pageContainerClass }}">

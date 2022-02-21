@@ -2,11 +2,11 @@ kind: pipeline
 type: docker
 name: default
 
-# workspace:
-#   path: /var/www/html/
-
+trigger:
+  branch:
+  - education
+  
 steps:
-
 - name: build
   image: bitnami/laravel:latest
   pull: if-not-exists
@@ -15,27 +15,49 @@ steps:
   - composer --version
   - composer install
   - php artisan --version
-  - cp .env.example .env
+  - mv .env.example .env
   - php artisan key:generate
-  - sleep 15
+  - sleep 10
   - php artisan cek-koneksi
-  - php artisan migrate:fresh
+  - php artisan migrate:fresh --seed
   - php artisan storage:link
-  - ./vendor/bin/phpunit
+  - php artisan clear-compile
+  - php artisan optimize:clear
+  - php artisan route:cache
+  - php artisan test
 
-- name: publish  
-  image: plugins/docker
-  pull: if-not-exists
+# - name: stop container
+#   image: appleboy/drone-ssh
+#   # workspace:
+#   #   path: /home/cjfi/docker_app/flight
+#   settings:
+#     host:
+#       from_secret: server_host
+#     username:
+#       from_secret: server_user
+#     password:
+#       from_secret: server_password
+#     port:
+#       from_secret: server_port
+#     script:
+#       - cd /home/cjfi/docker_app/flight
+#       - docker-compose down
+
+- name: copy project
+  image: appleboy/drone-scp
   settings:
+    host:
+      from_secret: server_host
     username:
-      from_secret: docker_user
+      from_secret: server_user
     password:
-      from_secret: docker_password
-    repo: wisnubaldas/flight
-    auto_tag: true
-    auto_tag_suffix: latest
+      from_secret: server_password
+    port:
+      from_secret: server_port
+    target: /home/cjfi/docker_app/flight
+    source: /drone/src
 
-- name: deploy
+- name: setup envirotment dev
   image: appleboy/drone-ssh
   settings:
     host:
@@ -47,11 +69,39 @@ steps:
     port:
       from_secret: server_port
     script:
-      - cd docker_app/flight/
-      - ls -l
-      - docker-compose down
-      - docker-compose pull
-      - docker-compose up -d
+      - cd /home/cjfi/docker_app/flight
+      - docker exec flight_app chmod -R 777 public
+      - docker exec flight_app chmod -R 777 storage
+
+# - name: publish  
+#   image: plugins/docker
+#   pull: if-not-exists
+#   settings:
+#     username:
+#       from_secret: docker_user
+#     password:
+#       from_secret: docker_password
+#     repo: wisnubaldas/flight
+#     auto_tag: true
+#     auto_tag_suffix: latest
+
+# - name: deploy
+#   image: appleboy/drone-ssh
+#   settings:
+#     host:
+#       from_secret: server_host
+#     username:
+#       from_secret: server_user
+#     password:
+#       from_secret: server_password
+#     port:
+#       from_secret: server_port
+#     script:
+#       - cd docker_app/flight/
+#       - ls -l
+#       - docker-compose down
+#       - docker-compose pull
+#       - docker-compose up -d
       # - docker exec -it flight_app chmod -R 777 /var/www/storage
       # - docker exec -it flight_app php artisan storage:link
       # - docker exec -it flight_app chmod -R 777 /var/www/public
@@ -71,9 +121,12 @@ steps:
       
       ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
 
-      📝 Commit by {!! commit !!} on `{{commit.branch}}`:
+      📝 Commit by {{commit.author}} on `{{commit.branch}}`:
 
       ```
+      🕛 Start : {{datetime build.started "02-Jan-2006 15:04:05" "Asia/Jakarta"}} 
+      🕒 End: {{datetime build.finished "02-Jan-2006 15:04:05" "Asia/Jakarta"}}
+
       {{commit.message}}
       ```
 
@@ -85,7 +138,12 @@ steps:
       📝 Commit by {{commit.author}} on `{{commit.branch}}`:
 
       ```
+      
+      🕛 Start : {{datetime build.started "02-Jan-2006 15:04:05" "Asia/Jakarta"}} 
+      🕒 End: {{datetime build.finished "02-Jan-2006 15:04:05" "Asia/Jakarta"}}
+
       {{commit.message}}
+
       ```
 
       🌐 {{ build.link }}
@@ -97,7 +155,7 @@ services:
   image: mariadb
   environment:
     MYSQL_HOST: database
-    MYSQL_DATABASE: test
+    MYSQL_DATABASE: homestead
     MYSQL_ALLOW_EMPTY_PASSWORD: yes
     MYSQL_USER: homestead
     MYSQL_PASSWORD: homestead

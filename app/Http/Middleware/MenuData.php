@@ -6,6 +6,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Traits\ViewTrait;
+use Illuminate\Support\Facades\View;
+
 class MenuData
 {
     /**
@@ -20,7 +22,10 @@ class MenuData
         if (\Auth::check()) {
             // define('PREFIX', \Auth::user()->uuid);
             define('MENU',ViewTrait::data_menu(\Auth::user()->uuid));
+        }else{
+            ViewTrait::cargo();
         }
+        
         $response = $next($request);
         
         return $response;

@@ -11,6 +11,7 @@ use App\Models\User;
 Route::group(['prefix'=>'b_cargo','as'=>'b_cargo.'],function(){
     Route::get('/',[HomeController::class,'index'])->name('index');
     Route::get('/flight',[FlightController::class,'flight']);
+    Route::post('/flight/upload-dokument',[FlightController::class,'upload_dokument']);
 });
 
 // Route::prefix(Corerong::prefix_route())->group(function(){

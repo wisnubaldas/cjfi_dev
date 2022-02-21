@@ -57,7 +57,7 @@ steps:
     target: /home/cjfi/docker_app/flight
     source: /drone/src
 
-- name: run container
+- name: setup envirotment dev
   image: appleboy/drone-ssh
   settings:
     host:

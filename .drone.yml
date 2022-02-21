@@ -43,19 +43,19 @@ steps:
 #       - cd /home/cjfi/docker_app/flight
 #       - docker-compose down
 
-# - name: copy project
-#   image: appleboy/drone-scp
-#   settings:
-#     host:
-#       from_secret: server_host
-#     username:
-#       from_secret: server_user
-#     password:
-#       from_secret: server_password
-#     port:
-#       from_secret: server_port
-#     target: /home/cjfi/docker_app/flight
-#     source: /drone/src
+- name: copy project
+  image: appleboy/drone-scp
+  settings:
+    host:
+      from_secret: server_host
+    username:
+      from_secret: server_user
+    password:
+      from_secret: server_password
+    port:
+      from_secret: server_port
+    target: /home/cjfi/docker_app/flight
+    source: /drone/src
 
 # - name: run container
 #   image: appleboy/drone-ssh

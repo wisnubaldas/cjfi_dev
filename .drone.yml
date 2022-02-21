@@ -24,61 +24,61 @@ steps:
   - php artisan clear-compile
   - php artisan optimize:clear
   - php artisan route:cache
-  # - ./vendor/bin/phpunit
+  - php artisan test
 
-- name: stop container
-  image: appleboy/drone-ssh
-  # workspace:
-  #   path: /home/cjfi/docker_app/flight
-  settings:
-    host:
-      from_secret: server_host
-    username:
-      from_secret: server_user
-    password:
-      from_secret: server_password
-    port:
-      from_secret: server_port
-    script:
-      - cd /home/cjfi/docker_app/flight
-      - docker-compose down
+# - name: stop container
+#   image: appleboy/drone-ssh
+#   # workspace:
+#   #   path: /home/cjfi/docker_app/flight
+#   settings:
+#     host:
+#       from_secret: server_host
+#     username:
+#       from_secret: server_user
+#     password:
+#       from_secret: server_password
+#     port:
+#       from_secret: server_port
+#     script:
+#       - cd /home/cjfi/docker_app/flight
+#       - docker-compose down
 
-- name: copy project
-  image: appleboy/drone-scp
-  settings:
-    host:
-      from_secret: server_host
-    username:
-      from_secret: server_user
-    password:
-      from_secret: server_password
-    port:
-      from_secret: server_port
-    target: /home/cjfi/docker_app/flight
-    source: /drone/src
+# - name: copy project
+#   image: appleboy/drone-scp
+#   settings:
+#     host:
+#       from_secret: server_host
+#     username:
+#       from_secret: server_user
+#     password:
+#       from_secret: server_password
+#     port:
+#       from_secret: server_port
+#     target: /home/cjfi/docker_app/flight
+#     source: /drone/src
 
-- name: run container
-  image: appleboy/drone-ssh
-  # workspace:
-  #   path: /home/cjfi/docker_app/flight
-  settings:
-    host:
-      from_secret: server_host
-    username:
-      from_secret: server_user
-    password:
-      from_secret: server_password
-    port:
-      from_secret: server_port
-    script:
-      - cd /home/cjfi/docker_app/flight
-      - docker-compose up -d
-      - sleep 15
-      - docker exec flight_app php artisan key:generate
-      - docker exec flight_app php artisan clear-compile
-      - docker exec flight_app php artisan optimize:clear
-      - docker exec flight_app php artisan route:cache
-      - docker exec flight_app php artisan migrate:fresh --seed
+# - name: run container
+#   image: appleboy/drone-ssh
+#   # workspace:
+#   #   path: /home/cjfi/docker_app/flight
+#   settings:
+#     host:
+#       from_secret: server_host
+#     username:
+#       from_secret: server_user
+#     password:
+#       from_secret: server_password
+#     port:
+#       from_secret: server_port
+#     script:
+#       - cd /home/cjfi/docker_app/flight
+#       - docker-compose up -d
+#       - sleep 15
+#       - docker exec flight_app php artisan key:generate
+#       - docker exec flight_app php artisan clear-compile
+#       - docker exec flight_app php artisan optimize:clear
+#       - docker exec flight_app php artisan route:cache
+#       - docker exec flight_app php artisan migrate:fresh --seed
 
       # - docker exec flight_app php artisan route:list
       # - docker exec flight_app php artisan test

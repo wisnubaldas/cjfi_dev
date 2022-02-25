@@ -35,7 +35,7 @@
 - template menggunakan [ Color Admin ](https://seantheme.com/color-admin/admin/html/index_v3.html)
 - package di bundle di [web pack](https://github.com/wisnubaldas/cjfi_dev/blob/31185a262afb9644dfa3963ac62027091d4ed4d3/webpack.mix.js) 
 
-
+[![trophy](https://github-profile-trophy.vercel.app/?username=ryo-ma)](https://github.com/ryo-ma/github-profile-trophy)
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
